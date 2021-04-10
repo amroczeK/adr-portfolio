@@ -19,7 +19,7 @@ const NavBar = () => {
         </li>
         <li>
           <Link to='/about'>
-            <NavButton path={'/about'} icon={<Person />} title={'Person'} />
+            <NavButton path={'/about'} icon={<Person />} title={'About'} />
           </Link>
         </li>
         <li>
@@ -45,20 +45,19 @@ const NavBar = () => {
 export default NavBar;
 
 const NavContainer = styled.nav`
+  //background: white;
   position: fixed;
-  bottom: 2.5rem;
-  right: 1.5rem;
   z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  width: 3.5rem;
+  height: 100vh;
+  margin-left: 1.25rem;
   ul {
     list-style: none;
   }
   li {
-    margin-top: 4rem;
-    text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }

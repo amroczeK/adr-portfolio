@@ -14,8 +14,6 @@ const NavButton = ({ path, icon, title }) => {
     return metrics.width * 0.063;
   };
 
-  console.log(getTextWidth(title, 'lighter 1.25rem Inter'));
-
   return (
     <Button growWidth={getTextWidth(title, 'lighter 1.25rem Inter')}>
       <CircleIcon iconActive={pathname === path}>
@@ -29,32 +27,33 @@ const NavButton = ({ path, icon, title }) => {
 export default NavButton;
 
 const StyledIcon = styled.div`
-  color: white;
-  height: 2rem;
-  width: 2rem;
+  color: ${({ iconActive }) => (iconActive === true ? '#fff;' : '#ddd;')};
+  height: 1.75rem;
+  width: 1.75rem;
   background: transparent;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CircleIcon = styled.div`
   display: flex;
+  align-items: center;
   height: 3.5rem;
   width: 3.5rem;
-  background: ${({ iconActive }) => (iconActive === true ? '#ffc107;' : '#2b2a2a;')};
+  padding-left: 0.875rem;
+  background: ${({ iconActive }) => (iconActive === true ? '#4169E1;' : '#2b2a2a;')};
   border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 `;
 
 const Button = styled.div`
   border-radius: 30px;
-  position: absolute;
-  right: 0;
   transition: all 0.3s ease-in-out;
   h2 {
+    padding-left: 2.75rem;
     opacity: 0;
     color: white;
     text-decoration: none !important;
@@ -64,26 +63,18 @@ const Button = styled.div`
   :hover {
     transition: all 0.3s ease-in-out;
     border-radius: 30px;
-    //padding-left: 10rem;
-    padding-left: ${({ growWidth }) => `${growWidth + 3.25}rem;` || '3.5rem;'};
-    height: 3.5rem;
-    background: #ffc107;
+    padding-right: ${({ growWidth }) => `${growWidth + 7}rem;` || '3.5rem;'};
+    background: #4169e1;
     h2 {
-      padding-left: ${({ growWidth }) => `${growWidth}rem;` || '2rem;'};
+      padding-left: 3.5rem;
       transition: all 0.3s ease-in-out;
-      //margin-right: 12rem;
-      margin-right: ${({ growWidth }) => `${growWidth + 10}rem;` || '10rem;'};
-      /* align-items: center;
-      justify-content: center;
-      text-align: center; */
       opacity: 1;
-      color: white;
       line-height: 50px;
       font-weight: 500;
       text-transform: uppercase;
     }
     ${CircleIcon} {
-      background: #ffc107;
+      background: #4169e1;
     }
   }
 `;

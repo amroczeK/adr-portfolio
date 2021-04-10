@@ -13,7 +13,7 @@ body {
 }
 h2 {
     font-weight: lighter;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 h3 {
     color: white;
@@ -23,8 +23,8 @@ h4 {
   font-size: 2rem;
 }
 p {
-    padding: 3rem 0rem;
-    color: #ccc;
+    padding: 1rem 0rem;
+    color: white;
     font-size: 1.4rem;
     line-height: 150%;
   }
