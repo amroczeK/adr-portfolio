@@ -32,9 +32,6 @@ const StyledIcon = styled.div`
   width: 1.75rem;
   background: transparent;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const CircleIcon = styled.div`

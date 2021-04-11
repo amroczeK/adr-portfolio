@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Github } from '@styled-icons/boxicons-logos/Github';
 import { LinkedinSquare } from '@styled-icons/boxicons-logos/LinkedinSquare';
@@ -8,13 +9,34 @@ const SocialLinks = () => {
   return (
     <Container>
       <i>
-        <LinkedinSquare />
+        <Link
+          to={{
+            pathname: 'https://www.linkedin.com/in/adrianmroczek/',
+          }}
+          target='_blank'
+        >
+          <LinkedinSquare />
+        </Link>
       </i>
       <i>
-        <Github />
+        <Link
+          to={{
+            pathname: 'https://github.com/amroczeK',
+          }}
+          target='_blank'
+        >
+          <Github />
+        </Link>
       </i>
       <i>
-        <Npm />
+        <Link
+          to={{
+            pathname: 'https://www.npmjs.com/~amroczek90',
+          }}
+          target='_blank'
+        >
+          <Npm />
+        </Link>
       </i>
     </Container>
   );
@@ -28,12 +50,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0rem 1.5rem 0rem 3rem; // top right bottom left
-  //background: pink;
+  a {
+    color: #ddd;
+  }
   i {
     margin-top: 1.5rem;
-    color: #ddd;
     height: 3rem;
     width: 3rem;
+    cursor: pointer;
   }
   @media (max-width: 1000px) {
     flex-direction: row;
