@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../DataContext';
 import Work from '../components/Work';
 import Shape from '../components/Shape';
 import styled from 'styled-components';
@@ -6,6 +7,8 @@ import { motion } from 'framer-motion';
 import { slideInFromLeft, shapeAnimation } from '../animations';
 
 const About = () => {
+  const data = useContext(DataContext);
+  console.log(data);
   return (
     <Content variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
       <h1>
