@@ -45,7 +45,6 @@ const NavBar = () => {
 export default NavBar;
 
 const NavContainer = styled.nav`
-  //background: white;
   position: fixed;
   z-index: 10;
   display: flex;
@@ -53,12 +52,16 @@ const NavContainer = styled.nav`
   justify-content: center;
   width: 3.5rem;
   height: 100vh;
-  margin-left: 1.25rem;
+  margin-left: 1.25rem; // top right bottom left
   ul {
     list-style: none;
   }
   li {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+  @media (max-width: 600px) {
+    transition: all 0.5s ease-in-out;
+    display: none;
   }
 `;

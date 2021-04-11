@@ -1,29 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
+import SocialLinks from '../components/SocialLinks';
 import coding from '../images/coding.jpg';
 
 const Home = () => {
   return (
-    <HomeContainer>
+    <>
       <Content>
-        <h1>- I'M ADRIAN MROCZEK.</h1>
-        <h1 className='occupation'>FULL STACK DEVELOPER</h1>
-        <p>
-          Experienced Software Engineer with a background in Full Stack Development, Network
-          Engineering and interest in Cyber Security.
-        </p>
-        <p>
-          I've developed scalable and secure applications automating the deployment & configuration
-          of Telstra Enterprise services, network elements and developed complex microservice web
-          applications enabling a scalable and resilient presentation layer for Telstra's 4G/5G RAN
-          Networks.
-        </p>
+        <ProfilePic>
+          <img src={coding} alt='profile-pic' />
+        </ProfilePic>
+        <h1>
+          - I'M ADRIAN MROCZEK.
+          <h1 className='occupation'>FULL STACK DEVELOPER</h1>
+          <p>
+            Experienced Software Engineer with a background in Full Stack Development, Network
+            Engineering and interest in Cyber Security.
+            <p>
+              I've developed scalable and secure applications automating the deployment &
+              configuration of Telstra Enterprise services, network elements and developed complex
+              microservice web applications enabling a scalable and resilient presentation layer for
+              Telstra's 4G/5G RAN Networks.
+            </p>
+          </p>
+        </h1>
+        <SocialLinks />
       </Content>
-      <ProfilePicture>
-        <img src={coding} alt='profile-pic' />
-      </ProfilePicture>
       <Cutout />
-    </HomeContainer>
+    </>
   );
 };
 
@@ -37,54 +41,65 @@ const Cutout = styled.div`
   transform: rotate(-345deg);
   left: 130rem;
   top: -50%;
-  //z-index: 2;
-`;
-
-const HomeContainer = styled.div`
-  display: flex;
-  //width: 100%;
-  //height: 100%;
-  //position: absolute;
-  //display: flex;
-  //z-index: 10;
-  //position: relative;
-  position: relative;
 `;
 
 const Content = styled.div`
+  padding: 1rem;
+  //background: lightpink;
+  display: flex;
   position: absolute;
-  top: 37.5vh;
-  left: 15vw;
+  top: 35vh;
+  left: 12vw;
+  right: 3rem;
+  //padding-top: 1rem;
   h1 {
-    width: 25rem;
-    //display: block;
+    padding-top: 2rem;
+    min-width: 25rem;
     color: #4169e1;
   }
   .occupation {
+    font-size: 2rem;
     color: white;
   }
   p {
     max-width: 60rem;
   }
+  @media (max-width: 1000px) {
+    transition: all 0.5s ease-in-out;
+    top: 10vh;
+    flex-direction: column;
+    right: 3rem;
+  }
+  @media (max-width: 600px) {
+    top: 5vh;
+    transition: all 0.5s ease-in-out;
+    flex-direction: column;
+    left: 1rem;
+    right: 1rem;
+  }
 `;
 
-const ProfilePicture = styled.div`
-  position: fixed;
-  margin-top: 3rem;
-  margin-left: 3rem;
-  right: 3.5rem;
-  width: 30vw;
-  height: calc(100vh - 6.5rem);
-  //min-height: 30vh;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  border-radius: 1rem;
-  cursor: pointer;
-  overflow: hidden; // hides images overflowing over modal borders
-  z-index: 10;
+const ProfilePic = styled.div`
+  width: 20rem;
+  height: 25rem;
+  margin-right: 3rem;
   img {
+    border-radius: 0.75rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  @media (max-width: 1000px) {
+    display: flex;
+    background: transparent;
+    width: 100%;
+    height: 25rem;
+    margin-right: 0rem;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 25rem;
+      min-width: 20rem;
+    }
   }
 `;
