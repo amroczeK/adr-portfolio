@@ -27,23 +27,25 @@ export const slideInFromLeft = {
   exit,
 };
 
-export const shapeAnimation = {
-  hidden: {
-    opacity: 0,
-    x: 1000,
-    rotate: '-345',
-  },
-  // Define animation when component mounts
-  // Fade in when loading page
-  show: {
-    opacity: 1,
-    x: 0,
-    rotate: -345,
-    transition: {
-      duration: 0.75, // seconds
-      when: 'beforeChildren',
-      staggerChildren: 0.25,
+export const shapeAnimation = ({ rotation }) => {
+  return {
+    hidden: {
+      opacity: 0,
+      x: 2000,
+      rotate: rotation,
     },
-  },
-  exit,
+    // Define animation when component mounts
+    // Fade in when loading page
+    show: {
+      opacity: 1,
+      x: 0,
+      rotate: rotation,
+      transition: {
+        duration: 0.75, // seconds
+        when: 'beforeChildren',
+        staggerChildren: 0.25,
+      },
+    },
+    exit,
+  };
 };

@@ -28,6 +28,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0rem 1.5rem 0rem 3rem; // top right bottom left
+  //background: pink;
   i {
     margin-top: 1.5rem;
     color: #ddd;
@@ -35,12 +36,10 @@ const Container = styled.div`
     width: 3rem;
   }
   @media (max-width: 1000px) {
-    margin-left: 0rem;
-    margin-right: 0rem;
     flex-direction: row;
-    margin-bottom: 3rem;
+    margin: 0rem 0rem 0rem 0rem; // top right bottom left
     i {
-      margin-left: 1.5rem;
+      margin: 0rem 1.5rem 0rem 1.5rem; // top right bottom left
     }
   }
 `;

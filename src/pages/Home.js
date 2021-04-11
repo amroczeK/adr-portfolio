@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SocialLinks from '../components/SocialLinks';
+import Shape from '../components/Shape';
 import coding from '../images/coding.jpg';
 import { motion } from 'framer-motion';
 import { slideInFromLeft, shapeAnimation } from '../animations';
@@ -28,32 +29,22 @@ const Home = () => {
         </h1>
         <SocialLinks />
       </Content>
-      <Cutout variants={shapeAnimation} initial='hidden' animate='show' exit='exit' />
+      <Shape variants={shapeAnimation({ rotation: 15 })} />
     </>
   );
 };
 
 export default Home;
 
-const Cutout = styled(motion.div)`
-  background: #4169e1;
-  position: fixed;
-  height: 200%;
-  width: 100%;
-  transform: rotate(-345deg);
-  left: 130rem;
-  top: -50%;
-`;
-
 const Content = styled(motion.div)`
-  padding: 1rem;
-  //background: lightpink;
   display: flex;
   position: absolute;
-  top: 35vh;
+  //background: pink;
+  padding: 1.5rem;
+  //min-width: 90%;
+  top: 33.5vh;
   left: 12vw;
-  right: 3rem;
-  //padding-top: 1rem;
+  //right: 3rem;
   h1 {
     padding-top: 2rem;
     min-width: 25rem;
@@ -70,14 +61,15 @@ const Content = styled(motion.div)`
     transition: all 0.5s ease-in-out;
     top: 10vh;
     flex-direction: column;
-    right: 3rem;
+    //right: 3rem;
   }
   @media (max-width: 600px) {
-    top: 5vh;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 3rem;
     transition: all 0.5s ease-in-out;
     flex-direction: column;
-    left: 1rem;
-    right: 1rem;
   }
 `;
 
