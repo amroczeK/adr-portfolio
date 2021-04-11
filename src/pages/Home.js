@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import SocialLinks from '../components/SocialLinks';
 import coding from '../images/coding.jpg';
+import { motion } from 'framer-motion';
+import { slideInFromLeft, shapeAnimation } from '../animations';
 
 const Home = () => {
   return (
     <>
-      <Content>
+      <Content variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
         <ProfilePic>
           <img src={coding} alt='profile-pic' />
         </ProfilePic>
@@ -26,14 +28,14 @@ const Home = () => {
         </h1>
         <SocialLinks />
       </Content>
-      <Cutout />
+      <Cutout variants={shapeAnimation} initial='hidden' animate='show' exit='exit' />
     </>
   );
 };
 
 export default Home;
 
-const Cutout = styled.div`
+const Cutout = styled(motion.div)`
   background: #4169e1;
   position: fixed;
   height: 200%;
@@ -43,7 +45,7 @@ const Cutout = styled.div`
   top: -50%;
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   padding: 1rem;
   //background: lightpink;
   display: flex;

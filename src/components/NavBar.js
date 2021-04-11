@@ -7,10 +7,12 @@ import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { Article } from '@styled-icons/material/Article';
 import { MessageDetail } from '@styled-icons/boxicons-solid/MessageDetail';
 import NavButton from './NavButton';
+import { motion } from 'framer-motion';
+import { slideInFromLeft } from '../animations';
 
 const NavBar = () => {
   return (
-    <NavContainer>
+    <NavContainer variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
       <ul>
         <li>
           <Link to='/'>
@@ -44,7 +46,7 @@ const NavBar = () => {
 
 export default NavBar;
 
-const NavContainer = styled.nav`
+const NavContainer = styled(motion.nav)`
   position: fixed;
   z-index: 10;
   display: flex;
