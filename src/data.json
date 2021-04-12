@@ -1,4 +1,33 @@
 {
-  "test": "hello",
-  "test1": "hhi"
+  "experience": [
+    {
+      "startDate": "2018",
+      "endDate": "Present",
+      "company": "Telstra",
+      "position": "Network Software Engineer",
+      "description": "Developed complex Web Applications as Network Observability tools with microservices architecture using the MERN stack. The applications leveraged Docker containerization, NGINX reverse-proxy and are deployed to AWS utilising various services like ECS, ECR, ALB, DocumentDB, Route53 and CloudWatch with Bamboo as our CI/CD driver coupled with BitBucket."
+    },
+    {
+      "startDate": "2017",
+      "endDate": "2018",
+      "company": "iQuest",
+      "position": "Network and System Administrator",
+      "description": "Contracted to work with a skilled, growing IT team providing fully managed IT services and support for 130+ clients across Australia."
+    },
+    {
+      "startDate": "2015",
+      "endDate": "2016",
+      "company": "Galati Group",
+      "position": "Network Software Engineer",
+      "description": "Contracted through the Australian Computer Society scholarship program, I worked as part of a small motivated IT team, servicing and managing 23+ sites across 26 companies in Western Australia."
+    },
+    {
+      "startDate": "2012",
+      "endDate": "2014",
+      "company": "CAPE PLC",
+      "position": "Trainee Draughtsman & Scaffold Engineer",
+      "description": "Worked in a small team of three providing designs, engineering calculations, computerized drawings and quantified materials for scaffolding projects both on-shore and off-shore with guidance from the Design Manager."
+    }
+  ],
+  "portfolio": []
 }

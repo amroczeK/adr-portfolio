@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 
-const Work = ({ start, end, role, company, details }) => {
+const Work = ({ startDate, endDate, position, company, description }) => {
   return (
     <Container>
       <CircleIcon>
@@ -12,18 +12,13 @@ const Work = ({ start, end, role, company, details }) => {
       </CircleIcon>
       <Line />
       <ContentContainer>
-        <TimeBox>2017 - Present</TimeBox>
+        <TimeBox>
+          {startDate} - {endDate}
+        </TimeBox>
         <Content>
-          <h2>NETWORK SOFTWARE ENGINEER</h2>
-          <h2 className='job'>TELSTRA</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita perferendis nulla
-            veritatis deleniti dolorem obcaecati.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita perferendis nulla
-            veritatis deleniti dolorem obcaecati.
-          </p>
+          <h2>{position}</h2>
+          <h2 className='job'>{company}</h2>
+          <p>{description}</p>
         </Content>
       </ContentContainer>
     </Container>

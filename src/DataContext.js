@@ -10,5 +10,5 @@ export const DataProvider = ({ children }) => {
     setData(appData);
   }, []);
 
-  return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
+  return <DataContext.Provider value={{ data }}>{children}</DataContext.Provider>;
 };
