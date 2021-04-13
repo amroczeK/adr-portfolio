@@ -19,8 +19,9 @@ const About = () => {
       </Title>
       <Grid>
         {data &&
-          data?.experience?.map((job) => (
+          data?.experience?.map((job, idx) => (
             <Work
+              index={idx}
               startDate={job.startDate}
               endDate={job.endDate}
               position={job.position}
