@@ -18,7 +18,7 @@ const NavButton = ({ path, icon, title }) => {
     <Button growWidth={getTextWidth(title, 'lighter 1.25rem Inter')}>
       <CircleIcon iconActive={pathname === path}>
         <h2>{title}</h2>
-        <StyledIcon>{icon}</StyledIcon>
+        <StyledIcon iconActive={pathname === path}>{icon}</StyledIcon>
       </CircleIcon>
     </Button>
   );
@@ -32,6 +32,11 @@ const StyledIcon = styled.div`
   width: 1.75rem;
   background: transparent;
   position: absolute;
+  transition: 0.3s ease-in-out;
+  :hover {
+    color: #fff;
+    transition: 0.3s ease-in-out;
+  }
 `;
 
 const CircleIcon = styled.div`

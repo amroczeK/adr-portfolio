@@ -22,12 +22,12 @@ h4 {
   font-weight: bold;
   font-size: 2rem;
 }
-/* p {
+p {
     padding: 1rem 0rem;
     color: white;
     font-size: 1.4rem;
     line-height: 150%;
-  } */
+  }
 `;
 
 export default GlobalStyle;

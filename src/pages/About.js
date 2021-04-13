@@ -11,20 +11,24 @@ const About = () => {
 
   return (
     <Content variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
-      <h1>
-        ABOUT<h1 className='me'>ME</h1>
-      </h1>
-      <h2>EXPERIENCE</h2>
-      {data &&
-        data?.experience?.map((job) => (
-          <Work
-            startDate={job.startDate}
-            endDate={job.endDate}
-            position={job.position}
-            company={job.company}
-            description={job.description}
-          />
-        ))}
+      <Title>
+        <h1>
+          ABOUT<h1 className='me'>ME</h1>
+        </h1>
+        <h2>EXPERIENCE</h2>
+      </Title>
+      <Grid>
+        {data &&
+          data?.experience?.map((job) => (
+            <Work
+              startDate={job.startDate}
+              endDate={job.endDate}
+              position={job.position}
+              company={job.company}
+              description={job.description}
+            />
+          ))}
+      </Grid>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </Content>
   );
@@ -43,12 +47,24 @@ const Content = styled(motion.div)`
   top: 10vh;
   left: 12vw;
   right: 3rem;
-  /* h1 {
+  @media (max-width: 600px) {
+    left: 0;
+    right: 0;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+  }
+`;
+
+const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
     font-size: 3rem;
     display: flex;
     align-items: top;
     justify-content: center;
-    //background: blue;
     text-align: center;
     color: #4169e1;
     padding-bottom: 1rem;
@@ -58,10 +74,15 @@ const Content = styled(motion.div)`
     }
   }
   h2 {
-    display: flex;
-    align-items: top;
-    justify-content: center;
     font-size: 2rem;
     color: white;
-  } */
+  }
+`;
+
+const Grid = styled.div`
+  padding-top: 3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-auto-rows: auto;
 `;

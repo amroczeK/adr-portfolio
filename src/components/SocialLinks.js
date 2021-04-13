@@ -52,6 +52,11 @@ const Container = styled.div`
   margin: 0rem 1.5rem 0rem 3rem; // top right bottom left
   a {
     color: #ddd;
+    transition: 0.3s ease-in-out;
+    :hover {
+      color: #fff;
+      transition: 0.3s ease-in-out;
+    }
   }
   i {
     margin-top: 1.5rem;

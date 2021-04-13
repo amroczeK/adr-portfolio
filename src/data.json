@@ -5,28 +5,40 @@
       "endDate": "Present",
       "company": "Telstra",
       "position": "Network Software Engineer",
-      "description": "Developed complex Web Applications as Network Observability tools with microservices architecture using the MERN stack. The applications leveraged Docker containerization, NGINX reverse-proxy and are deployed to AWS utilising various services like ECS, ECR, ALB, DocumentDB, Route53 and CloudWatch with Bamboo as our CI/CD driver coupled with BitBucket."
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     },
     {
       "startDate": "2017",
       "endDate": "2018",
       "company": "iQuest",
       "position": "Network and System Administrator",
-      "description": "Contracted to work with a skilled, growing IT team providing fully managed IT services and support for 130+ clients across Australia."
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     },
     {
       "startDate": "2015",
       "endDate": "2016",
       "company": "Galati Group",
       "position": "Network Software Engineer",
-      "description": "Contracted through the Australian Computer Society scholarship program, I worked as part of a small motivated IT team, servicing and managing 23+ sites across 26 companies in Western Australia."
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     },
     {
       "startDate": "2012",
       "endDate": "2014",
       "company": "CAPE PLC",
       "position": "Trainee Draughtsman & Scaffold Engineer",
-      "description": "Worked in a small team of three providing designs, engineering calculations, computerized drawings and quantified materials for scaffolding projects both on-shore and off-shore with guidance from the Design Manager."
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     }
   ],
   "portfolio": []

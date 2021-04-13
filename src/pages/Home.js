@@ -39,7 +39,6 @@ export default Home;
 const Content = styled(motion.div)`
   display: flex;
   position: absolute;
-  background: pink;
   padding: 1.5rem;
   top: 33.5vh;
   left: 12vw;
