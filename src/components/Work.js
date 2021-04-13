@@ -132,6 +132,7 @@ const Line = styled.div`
   margin-left: 3.75rem;
   border-left: 2px solid #4169e1;
   transition: all 0.3s ease-in-out;
+  height: 95%;
   @media (max-width: 600px) {
     margin-left: 0.75rem;
     transition: all 0.3s ease-in-out;
