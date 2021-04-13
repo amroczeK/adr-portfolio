@@ -73,6 +73,7 @@ const TimeBox = styled.span`
 `;
 
 const ContentContainer = styled.div`
+  //background: pink;
   display: flex;
   flex-direction: column;
   padding: 0.25rem 1.25rem 0rem 1.25rem; // top right bottom left
@@ -139,8 +140,8 @@ const Line = styled.div`
   display: flex;
   margin-left: 3.75rem;
   border-left: 2px solid #4169e1;
-  transition: 0.3s ease-in-out;
-  height: ${({ expand }) => (expand ? '97.5%' : '10.25rem')};
+  //transition: 0.3s ease-in-out;
+  height: ${({ expand }) => (expand ? '100%' : '11.75rem')};
   @media (max-width: 600px) {
     margin-left: 0rem;
     transition: all 0.3s ease-in-out;

@@ -30,6 +30,9 @@ const About = () => {
             />
           ))}
       </Grid>
+      <Title>
+        <h2>SKILLS</h2>
+      </Title>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </Content>
   );
@@ -44,11 +47,12 @@ const Content = styled(motion.div)`
   padding: 1rem;
   //background: lightpink;
   max-width: 95rem;
-  height: 80%;
   top: 10vh;
   left: 12vw;
   right: 3rem;
+  transition: 0.3s ease-out;
   @media (max-width: 600px) {
+    top: 3vh;
     left: 0;
     right: 0;
     padding: 0;
@@ -81,8 +85,8 @@ const Title = styled.div`
 `;
 
 const Grid = styled.div`
-  padding-top: 3rem;
   display: grid;
+  padding: 3rem 0rem 2rem 0rem; // top right bottom left
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-auto-rows: auto;
