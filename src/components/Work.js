@@ -104,6 +104,7 @@ const Content = styled.div`
     padding-top: 0.25rem;
     color: #fff;
     font-size: 0.75rem;
+  }
 `;
 
 const CircleIcon = styled.div`
