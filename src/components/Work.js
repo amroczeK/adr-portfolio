@@ -34,7 +34,9 @@ const Work = ({ index, startDate, endDate, position, company, description }) => 
               )
             )}
           </Content>
-          <StyledExpand onClick={expandHandler} />
+          <ExpandIcon onClick={expandHandler}>
+            <ExpandMore />
+          </ExpandIcon>
         </ContentContainer>
       </Container>
     </Grid>
@@ -121,18 +123,29 @@ const CircleIcon = styled.div`
   }
 `;
 
+const ExpandIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.75rem;
+  width: 1.75rem;
+  color: #fff;
+  background: #4169e1;
+  border-radius: 50%;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  @media (max-width: 600px) {
+    display: none;
+    transition: 0.5s ease-in-out;
+  }
+`;
+
 const StyledIcon = styled.div`
   color: #fff;
   height: 1.75rem;
   width: 1.75rem;
   background: transparent;
   position: absolute;
-`;
-
-const StyledExpand = styled(ExpandMore)`
-  height: 2rem;
-  width: 2rem;
-  color: #fff;
   cursor: pointer;
 `;
 
@@ -141,7 +154,7 @@ const Line = styled.div`
   margin-left: 3.75rem;
   border-left: 2px solid #4169e1;
   //transition: 0.3s ease-in-out;
-  height: ${({ expand }) => (expand ? '100%' : '11.75rem')};
+  height: ${({ expand }) => (expand ? '100%' : '10.65rem')};
   @media (max-width: 600px) {
     margin-left: 0rem;
     transition: all 0.3s ease-in-out;
