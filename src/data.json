@@ -41,5 +41,23 @@
       ]
     }
   ],
-  "portfolio": []
+  "portfolio": [],
+  "skills": [
+    {
+      "technology": "AWS",
+      "competence": "75%"
+    },
+    {
+      "technology": "MERN Stack",
+      "competence": "85%"
+    },
+    {
+      "technology": "AWS",
+      "competence": "75%"
+    },
+    {
+      "technology": "MERN Stack",
+      "competence": "85%"
+    }
+  ]
 }

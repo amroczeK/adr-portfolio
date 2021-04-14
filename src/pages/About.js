@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../DataContext';
 import Work from '../components/Work';
+import Skill from '../components/Skill';
 import Shape from '../components/Shape';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -21,7 +22,7 @@ const About = () => {
         {data &&
           data?.experience?.map((job, idx) => (
             <Work
-              index={idx}
+              key={idx}
               startDate={job.startDate}
               endDate={job.endDate}
               position={job.position}
@@ -33,6 +34,12 @@ const About = () => {
       <Title>
         <h2>SKILLS</h2>
       </Title>
+      {data &&
+        data?.skills?.map(({ technology, competence }) => (
+          <SkillContainer>
+            <Skill skill={technology} percentage={competence} />
+          </SkillContainer>
+        ))}
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </Content>
   );
@@ -90,4 +97,12 @@ const Grid = styled.div`
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-auto-rows: auto;
+`;
+
+const SkillContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  //background: pink;
+  padding: 1rem;
+  width: 15rem;
 `;

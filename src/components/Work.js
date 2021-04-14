@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { ExpandMore } from '@styled-icons/material-rounded/ExpandMore';
 
-const Work = ({ index, startDate, endDate, position, company, description }) => {
+const Work = ({ startDate, endDate, position, company, description }) => {
   const [expand, setExpand] = useState(false);
 
   const expandHandler = () => {
@@ -135,10 +135,6 @@ const ExpandIcon = styled.div`
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   cursor: pointer;
-  @media (max-width: 600px) {
-    display: none;
-    transition: 0.5s ease-in-out;
-  }
 `;
 
 const StyledIcon = styled.div`
