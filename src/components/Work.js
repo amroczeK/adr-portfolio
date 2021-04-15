@@ -11,7 +11,6 @@ const Work = ({ startDate, endDate, position, company, description }) => {
   };
 
   return (
-    <Grid>
       <Container>
         <CircleIcon>
           <StyledIcon>
@@ -39,19 +38,16 @@ const Work = ({ startDate, endDate, position, company, description }) => {
           </ExpandIcon>
         </ContentContainer>
       </Container>
-    </Grid>
   );
 };
 
 export default Work;
 
-const Grid = styled.div`
-  display: grid;
-`;
-
 const Container = styled.div`
+  background: lightgray;
   display: flex;
-  padding: 0.75rem 0rem 0rem 0.75rem; // top right bottom left
+  padding: 1rem;
+  //padding: 0.75rem 0rem 0rem 0.75rem; // top right bottom left
   //background: pink;
   @media (max-width: 600px) {
     padding: 0rem 0rem 0rem 0.5rem;

@@ -18,7 +18,7 @@ const About = () => {
         </h1>
         <h2>EXPERIENCE</h2>
       </Title>
-      <Grid>
+      <WorkGrid>
         {data &&
           data?.experience?.map((job, idx) => (
             <Work
@@ -30,16 +30,16 @@ const About = () => {
               description={job.description}
             />
           ))}
-      </Grid>
+      </WorkGrid>
       <Title>
         <h2>SKILLS</h2>
       </Title>
-      {data &&
-        data?.skills?.map(({ technology, competence }) => (
-          <SkillContainer>
+      <SkillsGrid>
+        {data &&
+          data?.skills?.map(({ technology, competence }) => (
             <Skill skill={technology} percentage={competence} />
-          </SkillContainer>
-        ))}
+          ))}
+      </SkillsGrid>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </Content>
   );
@@ -72,6 +72,8 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  //background: pink;
+  padding: 1rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
     display: flex;
@@ -91,18 +93,23 @@ const Title = styled.div`
   }
 `;
 
-const Grid = styled.div`
-  display: grid;
-  padding: 3rem 0rem 2rem 0rem; // top right bottom left
+const WorkGrid = styled.div`
+  background: pink;
+  display: inline-grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-auto-rows: auto;
+  justify-items: center;
 `;
 
-const SkillContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  //background: pink;
-  padding: 1rem;
-  width: 15rem;
+const SkillsGrid = styled.div`
+  background: pink;
+  display: inline-grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-auto-rows: auto;
+  justify-items: center;
+  @media (max-width: 400px) {
+    gap: 0rem;
+  }
 `;

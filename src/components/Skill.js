@@ -15,13 +15,22 @@ const Skill = ({ skill, percentage }) => {
 export default Skill;
 
 const Container = styled.div`
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  //background: lightgray;
+  padding: 1.5rem;
   color: #fff;
+  width: 15rem;
   h2 {
     font-size: 1rem;
     font-weight: lighter;
   }
   span {
     float: right;
+  }
+  @media (max-width: 400px) {
+    padding: 0.75rem;
   }
 `;
 
