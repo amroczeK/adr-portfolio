@@ -125,11 +125,12 @@ const WorkGrid = styled.div`
 const SkillsGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
   @media only screen and (max-width: 600px) {
     gap: 0rem;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   }
 `;
 
@@ -142,5 +143,6 @@ const EducationGrid = styled.div`
   @media only screen and (max-width: 600px) {
     gap: 0rem;
     justify-items: left;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
 `;

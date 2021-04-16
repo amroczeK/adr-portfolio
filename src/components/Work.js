@@ -48,6 +48,7 @@ export default Work;
 const Container = styled.div`
   display: flex;
   padding: 1rem;
+  min-width: 25rem;
   @media (max-width: 600px) {
     padding: 0.75rem;
     transition: all 0.3s ease-in-out;
