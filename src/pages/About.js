@@ -75,19 +75,19 @@ export default About;
 
 const Content = styled(motion.div)`
   display: flex;
+  //background: pink;
   flex-direction: column;
   position: absolute;
-  padding: 1rem;
+  padding: 1rem 1rem 6rem 1rem; // top right bottom left
   max-width: 95rem;
-  top: 10vh;
+  margin-top: 5rem;
   left: 12vw;
   right: 3rem;
   transition: 0.3s ease-out;
   @media (max-width: 600px) {
-    top: 3vh;
     left: 0;
     right: 0;
-    padding: 0;
+    padding: 0rem 0rem 6rem 0rem; // top right bottom left
     transition: all 0.3s ease-in-out;
   }
 `;
@@ -137,7 +137,7 @@ const SkillsGrid = styled.div`
   justify-items: center;
   @media only screen and (max-width: 600px) {
     gap: 0rem;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   }
 `;
 
@@ -155,12 +155,10 @@ const EducationGrid = styled.div`
 `;
 
 const CertificatesGrid = styled.div`
-  background: pink;
   display: inline-grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-auto-rows: auto;
-  justify-items: center;
   @media only screen and (max-width: 600px) {
     gap: 0rem;
     justify-items: left;

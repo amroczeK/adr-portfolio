@@ -29,7 +29,7 @@ const Container = styled.div`
     float: right;
   }
   @media (max-width: 600px) {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem 1rem 1.5rem; // top right bottom left
   }
 `;
 
