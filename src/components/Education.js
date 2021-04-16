@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { University } from '@styled-icons/fa-solid/University';
-import { School } from '@styled-icons/ionicons-solid/School';
 
 const Education = ({ startDate, endDate, university, major, course }) => {
   return (

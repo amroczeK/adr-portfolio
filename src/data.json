@@ -94,5 +94,37 @@
       "competence": "85%"
     }
   ],
+  "certificates": [
+    {
+      "award": "VisAbility Prize - Best Undergraduate Project",
+      "subtitle": "Field of Rehabilitation Engineering",
+      "date": "2018"
+    },
+    {
+      "award": "Unearthed Digital Tribes Hardware Challenge",
+      "subtitle": "Sponsored by BHP – First Prize",
+      "date": "2017"
+    },
+    {
+      "award": "Australian Computer Society",
+      "subtitle": "Foundation Scholarship",
+      "date": "2016"
+    },
+    {
+      "certificate": "Cisco Network Services Orchestrator Foundationy",
+      "subtitle": "Certificate of Completion",
+      "date": "2018"
+    },
+    {
+      "certificate": "Cisco Certified Network Associate",
+      "subtitle": "Routing & Switching",
+      "date": "2018"
+    },
+    {
+      "certificate": "Cisco Certified Network Associate",
+      "subtitle": "Routing & Switching",
+      "date": "2018"
+    }
+  ],
   "portfolio": []
 }

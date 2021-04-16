@@ -3,6 +3,7 @@ import { DataContext } from '../DataContext';
 import Education from '../components/Education';
 import Work from '../components/Work';
 import Skill from '../components/Skill';
+import Certificates from '../components/Certificates';
 import Shape from '../components/Shape';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -59,6 +60,12 @@ const About = () => {
       <Title>
         <h2>CERTIFICATES & AWARDS</h2>
       </Title>
+      <CertificatesGrid>
+        {data &&
+          data?.certificates?.map(({ date, award, certificate, subtitle }) => (
+            <Certificates award={award} date={date} certificate={certificate} subtitle={subtitle} />
+          ))}
+      </CertificatesGrid>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </Content>
   );
@@ -138,6 +145,20 @@ const EducationGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-rows: auto;
+  justify-items: center;
+  @media only screen and (max-width: 600px) {
+    gap: 0rem;
+    justify-items: left;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+`;
+
+const CertificatesGrid = styled.div`
+  background: pink;
+  display: inline-grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
   @media only screen and (max-width: 600px) {

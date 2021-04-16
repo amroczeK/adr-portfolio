@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { ExpandMore } from '@styled-icons/material-rounded/ExpandMore';
-import { University } from '@styled-icons/fa-solid/University';
-import { School } from '@styled-icons/ionicons-solid/School';
 
 const Work = ({ startDate, endDate, position, company, description }) => {
   const [expand, setExpand] = useState(false);
