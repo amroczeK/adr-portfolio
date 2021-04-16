@@ -18,8 +18,7 @@ const Container = styled.div`
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  //background: lightgray;
-  padding: 1.5rem;
+  padding: 1rem;
   color: #fff;
   width: 15rem;
   h2 {
@@ -29,8 +28,8 @@ const Container = styled.div`
   span {
     float: right;
   }
-  @media (max-width: 400px) {
-    padding: 0.75rem;
+  @media (max-width: 600px) {
+    padding: 1.5rem;
   }
 `;
 

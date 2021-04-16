@@ -1,4 +1,27 @@
 {
+  "education": [
+    {
+      "startDate": "2014",
+      "endDate": "2017",
+      "university": "Curtin University",
+      "major": "Bachelor of Technology",
+      "course": "Computer Systems and Networking"
+    },
+    {
+      "startDate": "2010",
+      "endDate": "2011",
+      "university": "Challenger TAFE",
+      "major": "Advanced Diploma",
+      "course": "Civil and Structural Engineering"
+    },
+    {
+      "startDate": "2009",
+      "endDate": "2010",
+      "university": "Challenger TAFE",
+      "major": "Diploma",
+      "course": "Civil and Structural Engineering"
+    }
+  ],
   "experience": [
     {
       "startDate": "2018",
@@ -41,7 +64,6 @@
       ]
     }
   ],
-  "portfolio": [],
   "skills": [
     {
       "technology": "AWS",
@@ -71,5 +93,6 @@
       "technology": "MERN Stack",
       "competence": "85%"
     }
-  ]
+  ],
+  "portfolio": []
 }

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../DataContext';
+import Education from '../components/Education';
 import Work from '../components/Work';
 import Skill from '../components/Skill';
 import Shape from '../components/Shape';
@@ -16,7 +17,22 @@ const About = () => {
         <h1>
           ABOUT<h1 className='me'>ME</h1>
         </h1>
-        <h2>EXPERIENCE</h2>
+        <h2>EDUCATION</h2>
+      </Title>
+      <EducationGrid>
+        {data &&
+          data?.education?.map(({ startDate, endDate, university, major, course }) => (
+            <Education
+              startDate={startDate}
+              endDate={endDate}
+              university={university}
+              major={major}
+              course={course}
+            />
+          ))}
+      </EducationGrid>
+      <Title>
+        <h2>WORK HISTORY</h2>
       </Title>
       <WorkGrid>
         {data &&
@@ -32,7 +48,7 @@ const About = () => {
           ))}
       </WorkGrid>
       <Title>
-        <h2>SKILLS</h2>
+        <h2>TECHNICAL SKILLS</h2>
       </Title>
       <SkillsGrid>
         {data &&
@@ -40,6 +56,9 @@ const About = () => {
             <Skill skill={technology} percentage={competence} />
           ))}
       </SkillsGrid>
+      <Title>
+        <h2>CERTIFICATES & AWARDS</h2>
+      </Title>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </Content>
   );
@@ -52,7 +71,6 @@ const Content = styled(motion.div)`
   flex-direction: column;
   position: absolute;
   padding: 1rem;
-  //background: lightpink;
   max-width: 95rem;
   top: 10vh;
   left: 12vw;
@@ -72,7 +90,6 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //background: pink;
   padding: 1rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
@@ -88,28 +105,42 @@ const Title = styled.div`
     }
   }
   h2 {
+    padding: 1rem 0rem 0rem 0rem; // top right bottom left
     font-size: 2rem;
     color: white;
   }
 `;
 
 const WorkGrid = styled.div`
-  background: pink;
   display: inline-grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
+  @media only screen and (max-width: 600px) {
+    gap: 0rem;
+  }
 `;
 
 const SkillsGrid = styled.div`
-  background: pink;
   display: inline-grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
-  @media (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     gap: 0rem;
+  }
+`;
+
+const EducationGrid = styled.div`
+  display: inline-grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-rows: auto;
+  justify-items: center;
+  @media only screen and (max-width: 600px) {
+    gap: 0rem;
+    justify-items: left;
   }
 `;
