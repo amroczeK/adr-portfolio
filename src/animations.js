@@ -4,7 +4,7 @@ const exit = {
   opacity: 0,
   //y: 300, // slide down
   transition: {
-    duration: 0.75, // seconds
+    duration: 0.5, // seconds
   },
 };
 
@@ -32,7 +32,7 @@ export const shapeAnimation = ({ rotation }) => {
     hidden: {
       opacity: 0,
       x: 2000,
-      rotate: rotation,
+      rotate: 'rotation',
     },
     // Define animation when component mounts
     // Fade in when loading page

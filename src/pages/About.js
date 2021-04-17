@@ -13,67 +13,74 @@ const About = () => {
   const { data } = useContext(DataContext);
 
   return (
-    <Content variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
-      <Title>
-        <h1>
-          ABOUT<h1 className='me'>ME</h1>
-        </h1>
-        <h2>EDUCATION</h2>
-      </Title>
-      <EducationGrid>
-        {data &&
-          data?.education?.map(({ startDate, endDate, university, major, course }) => (
-            <Education
-              startDate={startDate}
-              endDate={endDate}
-              university={university}
-              major={major}
-              course={course}
-            />
-          ))}
-      </EducationGrid>
-      <Title>
-        <h2>WORK HISTORY</h2>
-      </Title>
-      <WorkGrid>
-        {data &&
-          data?.experience?.map((job, idx) => (
-            <Work
-              key={idx}
-              startDate={job.startDate}
-              endDate={job.endDate}
-              position={job.position}
-              company={job.company}
-              description={job.description}
-            />
-          ))}
-      </WorkGrid>
-      <Title>
-        <h2>TECHNICAL SKILLS & COMPETENCE</h2>
-      </Title>
-      <SkillsGrid>
-        {data &&
-          data?.skills?.map(({ technology, competence }) => (
-            <Skill skill={technology} percentage={competence} />
-          ))}
-      </SkillsGrid>
-      <Title>
-        <h2>CERTIFICATES & AWARDS</h2>
-      </Title>
-      <CertificatesGrid>
-        {data &&
-          data?.certificates?.map(({ date, award, certificate, subtitle }) => (
-            <Certificates award={award} date={date} certificate={certificate} subtitle={subtitle} />
-          ))}
-      </CertificatesGrid>
+    <>
+      <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
+        <Title>
+          <h1>
+            ABOUT<h1 className='me'>ME</h1>
+          </h1>
+          <h2>EDUCATION</h2>
+        </Title>
+        <EducationGrid>
+          {data &&
+            data?.education?.map(({ startDate, endDate, university, major, course }) => (
+              <Education
+                startDate={startDate}
+                endDate={endDate}
+                university={university}
+                major={major}
+                course={course}
+              />
+            ))}
+        </EducationGrid>
+        <Title>
+          <h2>WORK HISTORY</h2>
+        </Title>
+        <WorkGrid>
+          {data &&
+            data?.experience?.map((job, idx) => (
+              <Work
+                key={idx}
+                startDate={job.startDate}
+                endDate={job.endDate}
+                position={job.position}
+                company={job.company}
+                description={job.description}
+              />
+            ))}
+        </WorkGrid>
+        <Title>
+          <h2>TECHNICAL SKILLS & COMPETENCE</h2>
+        </Title>
+        <SkillsGrid>
+          {data &&
+            data?.skills?.map(({ technology, competence }) => (
+              <Skill skill={technology} percentage={competence} />
+            ))}
+        </SkillsGrid>
+        <Title>
+          <h2>CERTIFICATES & AWARDS</h2>
+        </Title>
+        <CertificatesGrid>
+          {data &&
+            data?.certificates?.map(({ date, award, certificate, subtitle }) => (
+              <Certificates
+                award={award}
+                date={date}
+                certificate={certificate}
+                subtitle={subtitle}
+              />
+            ))}
+        </CertificatesGrid>
+      </Container>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
-    </Content>
+    </>
   );
 };
 
 export default About;
 
-const Content = styled(motion.div)`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -96,7 +103,7 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 1rem 1.5rem 1rem; // top right bottom left
+  padding: 1.5rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
     letter-spacing: 0.5rem;
