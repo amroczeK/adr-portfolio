@@ -32,6 +32,7 @@ const About = () => {
             />
           ))}
       </EducationGrid>
+      {/* <Line /> */}
       <Title>
         <h2>WORK HISTORY</h2>
       </Title>
@@ -75,7 +76,6 @@ export default About;
 
 const Content = styled(motion.div)`
   display: flex;
-  //background: pink;
   flex-direction: column;
   position: absolute;
   padding: 1rem 1rem 6rem 1rem; // top right bottom left
@@ -105,7 +105,7 @@ const Title = styled.div`
     justify-content: center;
     text-align: center;
     color: #4169e1;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     .me {
       padding-left: 0.25rem;
       color: white;
@@ -121,7 +121,8 @@ const Title = styled.div`
 const WorkGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  padding-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
   @media only screen and (max-width: 600px) {
@@ -132,6 +133,7 @@ const WorkGrid = styled.div`
 const SkillsGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
+  padding-bottom:3rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
@@ -144,6 +146,7 @@ const SkillsGrid = styled.div`
 const EducationGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
+  padding-bottom: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
@@ -164,4 +167,9 @@ const CertificatesGrid = styled.div`
     justify-items: left;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
+`;
+
+const Line = styled.hr`
+  border: 1px dashed #ffff;
+  opacity: 0.1;
 `;
