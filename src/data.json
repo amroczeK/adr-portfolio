@@ -126,5 +126,26 @@
       "date": "2018"
     }
   ],
-  "portfolio": []
+  "projects": [
+    {
+      "title": "MERN E-Commerce Web App",
+      "image": "/assets/images/e-comm.PNG",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site"
+    },
+    {
+      "title": "React Portfolio Web App",
+      "image": "/assets/images/portfolio.PNG",
+      "link": "https://github.com/amroczeK/react-portfolio"
+    },
+    {
+      "title": "React Music Player Web App",
+      "image": "/assets/images/music-player.PNG",
+      "link": "https://github.com/amroczeK/music-player-webapp"
+    },
+    {
+      "title": "React & Redux Games Library Web App",
+      "image": "/assets/images/game-lib.PNG",
+      "link": "https://github.com/amroczeK/games-lib-webapp"
+    }
+  ]
 }

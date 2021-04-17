@@ -17,7 +17,7 @@ import { ThemeProvider } from 'styled-components';
 const App = () => {
   const [open, setOpen] = useState(false);
   const menuId = 'main-menu';
-  console.log(open);
+
   return (
     <DataProvider>
       <div className='App'>

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import SocialLinks from '../components/SocialLinks';
 import Shape from '../components/Shape';
-import coding from '../images/coding.jpg';
 import { motion } from 'framer-motion';
 import { slideInFromLeft, shapeAnimation } from '../animations';
 
@@ -11,7 +10,7 @@ const Home = () => {
     <>
       <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
         <ProfilePic>
-          <img src={coding} alt='profile-pic' />
+          <img src={'/assets/images/coding.jpg'} alt='profile-pic' />
         </ProfilePic>
         <Content>
           <h1>- I'M ADRIAN MROCZEK.</h1>
