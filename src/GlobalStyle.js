@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   text-decoration: none !important;
 }
 body {
-  background: #111;
+  background: ${({ theme }) => theme.primaryBackground};
   font-family: 'Inter', sans-serif;
 }
 h2 {

@@ -19,7 +19,7 @@ export const slideInFromLeft = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.75, // seconds
+      duration: 0.5, // seconds
       when: 'beforeChildren',
       staggerChildren: 0.25,
     },
@@ -41,7 +41,7 @@ export const shapeAnimation = ({ rotation }) => {
       x: 0,
       rotate: rotation,
       transition: {
-        duration: 0.75, // seconds
+        duration: 0.5, // seconds
         when: 'beforeChildren',
         staggerChildren: 0.25,
       },

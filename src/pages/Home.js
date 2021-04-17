@@ -9,12 +9,12 @@ import { slideInFromLeft, shapeAnimation } from '../animations';
 const Home = () => {
   return (
     <>
-      <Content variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
+      <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
         <ProfilePic>
           <img src={coding} alt='profile-pic' />
         </ProfilePic>
-        <h1>
-          - I'M ADRIAN MROCZEK.
+        <Content>
+          <h1>- I'M ADRIAN MROCZEK.</h1>
           <h1 className='occupation'>FULL STACK DEVELOPER</h1>
           <p>
             Experienced Software Engineer with a background in Full Stack Development, Network
@@ -26,9 +26,9 @@ const Home = () => {
               Telstra's 4G/5G RAN Networks.
             </p>
           </p>
-        </h1>
+        </Content>
         <SocialLinks />
-      </Content>
+      </Container>
       <Shape variants={shapeAnimation({ rotation: 15 })} />
     </>
   );
@@ -36,16 +36,36 @@ const Home = () => {
 
 export default Home;
 
-const Content = styled(motion.div)`
+const Container = styled(motion.div)`
   display: flex;
   position: absolute;
   padding: 1.5rem;
   top: 33.5vh;
   left: 12vw;
+  @media (max-width: 1000px) {
+    transition: all 0.5s ease-in-out;
+    top: 10vh;
+    flex-direction: column;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    left: 0;
+    top: 4rem;
+    bottom: 0;
+    padding-top: 3rem;
+    transition: all 0.5s ease-in-out;
+    flex-direction: column;
+  }
+`;
+
+const Content = styled.div`
   h1 {
+    letter-spacing: 0.2rem;
     padding-top: 2rem;
     min-width: 25rem;
     color: ${({ theme }) => theme.primaryDark};
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      text-align: center;
+    }
   }
   .occupation {
     font-size: 2rem;
@@ -53,19 +73,6 @@ const Content = styled(motion.div)`
   }
   p {
     max-width: 60rem;
-  }
-  @media (max-width: 1000px) {
-    transition: all 0.5s ease-in-out;
-    top: 10vh;
-    flex-direction: column;
-  }
-  @media (max-width: 600px) {
-    left: 0;
-    top: 0;
-    bottom: 0;
-    padding-top: 3rem;
-    transition: all 0.5s ease-in-out;
-    flex-direction: column;
   }
 `;
 

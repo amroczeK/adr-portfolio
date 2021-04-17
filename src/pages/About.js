@@ -49,7 +49,7 @@ const About = () => {
           ))}
       </WorkGrid>
       <Title>
-        <h2>TECHNICAL SKILLS</h2>
+        <h2>TECHNICAL SKILLS & COMPETENCE</h2>
       </Title>
       <SkillsGrid>
         {data &&
@@ -83,7 +83,7 @@ const Content = styled(motion.div)`
   left: 12vw;
   right: 3rem;
   transition: 0.3s ease-out;
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     left: 0;
     right: 0;
     padding: 0rem 0rem 6rem 0rem; // top right bottom left
@@ -99,6 +99,7 @@ const Title = styled.div`
   padding: 1rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
+    letter-spacing: 0.5rem;
     display: flex;
     align-items: top;
     justify-content: center;
@@ -111,6 +112,7 @@ const Title = styled.div`
     }
   }
   h2 {
+    letter-spacing: 0.2rem;
     padding: 1rem 0rem 0rem 0rem; // top right bottom left
     font-size: 2rem;
     color: white;

@@ -1,13 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const NavMenu = ({ open }) => {
-  const isHidden = open ? true : false;
+const NavMenu = ({ open, setOpen }) => {
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 576px)');
+    const resize = (e) => {
+      if (e.matches) {
+        setOpen(false);
+      }
+    };
+    media.addEventListener('change', resize);
+    return () => {
+      media.removeEventListener('change', resize);
+    };
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <Container open={open} aria-hidden={!isHidden}>
-      <h1>Test</h1>
-      <h1>Test</h1>
-      <h1>Test</h1>
+    <Container open={open}>
+      <ul>
+        <li>
+          <Link to='/'>
+            <LinkContainer onClick={() => setOpen(!open)}>
+              <h1>HOME</h1>
+            </LinkContainer>
+          </Link>
+        </li>
+        <li>
+          <Link to='/about'>
+            <LinkContainer onClick={() => setOpen(!open)}>
+              <h1>ABOUT</h1>
+            </LinkContainer>
+          </Link>
+        </li>
+        <li>
+          <Link to='/portfolio'>
+            <LinkContainer onClick={() => setOpen(!open)}>
+              <h1>PORTFOLIO</h1>
+            </LinkContainer>
+          </Link>
+        </li>
+        <li>
+          <Link to='/blogs'>
+            <LinkContainer onClick={() => setOpen(!open)}>
+              <h1>BLOGS</h1>
+            </LinkContainer>
+          </Link>
+        </li>
+        <li>
+          <Link to='/contact'>
+            <LinkContainer onClick={() => setOpen(!open)}>
+              <h1>CONTACT</h1>
+            </LinkContainer>
+          </Link>
+        </li>
+      </ul>
     </Container>
   );
 };
@@ -21,36 +69,37 @@ const Container = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  background: ${({ theme }) => theme.primaryLight};
+  background: ${({ theme }) => theme.primaryBackground};
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  text-align: left;
-  padding: 2rem;
   position: absolute;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
   z-index: 9;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
+  @media (min-width: ${({ theme }) => theme.mobile}) {
+    display: none;
   }
+  ul {
+    list-style: none;
+  }
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 6rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
   h1 {
-    color: ${({ theme }) => theme.primaryHover};
-  }
-  a {
     font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
     letter-spacing: 0.5rem;
-    color: ${({ theme }) => theme.primaryDark};
-    text-decoration: none;
-    transition: color 0.3s linear;
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: 1.5rem;
-      text-align: center;
-    }
-    &:hover {
-      color: ${({ theme }) => theme.primaryHover};
-    }
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.primaryLight};
+  }
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    background: ${({ theme }) => theme.primaryDark};
   }
 `;
