@@ -16,7 +16,7 @@ h2 {
     font-size: 1rem;
   }
 h3 {
-    color: white;
+    color: ${({ theme }) => theme.primaryLight};
   }
 h4 {
   font-weight: bold;
@@ -24,7 +24,7 @@ h4 {
 }
 p {
     padding: 1rem 0rem;
-    color: white;
+    color: ${({ theme }) => theme.primaryLight};
     font-size: 1.4rem;
     line-height: 150%;
   }

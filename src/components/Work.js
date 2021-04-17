@@ -48,6 +48,7 @@ const Container = styled.div`
   padding: 1rem;
   min-width: 30rem;
   @media (max-width: 600px) {
+    max-width: 25rem;
     padding: 0.75rem;
     transition: all 0.3s ease-in-out;
   }
@@ -147,5 +148,6 @@ const Line = styled.div`
   @media (max-width: 600px) {
     margin-left: 0rem;
     transition: all 0.3s ease-in-out;
+    height: 100%;
   }
 `;

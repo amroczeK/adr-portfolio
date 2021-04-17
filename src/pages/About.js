@@ -32,7 +32,6 @@ const About = () => {
             />
           ))}
       </EducationGrid>
-      {/* <Line /> */}
       <Title>
         <h2>WORK HISTORY</h2>
       </Title>
@@ -104,7 +103,7 @@ const Title = styled.div`
     align-items: top;
     justify-content: center;
     text-align: center;
-    color: #4169e1;
+    color: ${({ theme }) => theme.primaryDark};
     padding-bottom: 2rem;
     .me {
       padding-left: 0.25rem;
@@ -133,7 +132,7 @@ const WorkGrid = styled.div`
 const SkillsGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  padding-bottom:3rem;
+  padding-bottom: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
@@ -167,9 +166,4 @@ const CertificatesGrid = styled.div`
     justify-items: left;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
-`;
-
-const Line = styled.hr`
-  border: 1px dashed #ffff;
-  opacity: 0.1;
 `;

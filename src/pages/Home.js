@@ -45,7 +45,7 @@ const Content = styled(motion.div)`
   h1 {
     padding-top: 2rem;
     min-width: 25rem;
-    color: #4169e1;
+    color: ${({ theme }) => theme.primaryDark};
   }
   .occupation {
     font-size: 2rem;
@@ -58,7 +58,6 @@ const Content = styled(motion.div)`
     transition: all 0.5s ease-in-out;
     top: 10vh;
     flex-direction: column;
-    //right: 3rem;
   }
   @media (max-width: 600px) {
     left: 0;

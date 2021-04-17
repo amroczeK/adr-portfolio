@@ -8,7 +8,7 @@ import { Article } from '@styled-icons/material/Article';
 import { MessageDetail } from '@styled-icons/boxicons-solid/MessageDetail';
 import NavButton from './NavButton';
 import { motion } from 'framer-motion';
-import { slideInFromLeft } from '../animations';
+import { slideInFromLeft } from '../../animations';
 
 const NavBar = () => {
   return (
