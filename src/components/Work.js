@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TimeBox } from './Common/styles';
 import styled from 'styled-components';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { ExpandMore } from '@styled-icons/material-rounded/ExpandMore';
@@ -54,21 +55,6 @@ const Container = styled.div`
   }
 `;
 
-const TimeBox = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 1.5rem;
-  width: 7rem;
-  margin-top: 0.25rem;
-  background-color: ${({ theme }) => theme.primaryDark};
-  opacity: 0.8;
-  color: ${({ theme }) => theme.primaryLight};
-  font-size: 0.75rem;
-  font-weight: lighter;
-  border-radius: 20px;
-`;
-
 const ContentContainer = styled.div`
   flex-direction: column;
   padding: 0.25rem 1.25rem 0rem 1.25rem; // top right bottom left
@@ -121,7 +107,7 @@ const ExpandIcon = styled.div`
   height: 1.75rem;
   width: 1.75rem;
   color: ${({ theme }) => theme.primaryLight};
-  background: ${({ theme }) => theme.primaryDark};
+  background: ${({ theme }) => theme.primaryHover};
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   cursor: pointer;

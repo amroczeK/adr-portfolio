@@ -50,7 +50,6 @@ const Portfolio = () => {
 export default Portfolio;
 
 const Container = styled(motion.div)`
-  //background: pink;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -94,7 +93,6 @@ const Title = styled.div`
 `;
 
 const Grid = styled.div`
-  //background: lightgray;
   display: inline-grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));

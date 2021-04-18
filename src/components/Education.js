@@ -1,4 +1,5 @@
 import React from 'react';
+import { TimeBox, Line } from './Common/styles';
 import styled from 'styled-components';
 import { University } from '@styled-icons/fa-solid/University';
 
@@ -35,21 +36,6 @@ const Container = styled.div`
     padding: 0.75rem;
     transition: all 0.3s ease-in-out;
   }
-`;
-
-const TimeBox = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 1.5rem;
-  width: 7rem;
-  margin-top: 0.25rem;
-  background-color: ${({ theme }) => theme.primaryDark};
-  opacity: 0.8;
-  color: ${({ theme }) => theme.primaryLight};
-  font-size: 0.75rem;
-  font-weight: lighter;
-  border-radius: 20px;
 `;
 
 const ContentContainer = styled.div`
@@ -109,16 +95,4 @@ const StyledIcon = styled.div`
   background: transparent;
   position: absolute;
   cursor: pointer;
-`;
-
-const Line = styled.div`
-  display: flex;
-  margin-left: 3.75rem;
-  border-left: 2px solid ${({ theme }) => theme.primaryDark};
-  height: 100%;
-  overflow: hidden;
-  @media (max-width: 600px) {
-    margin-left: 0rem;
-    transition: all 0.3s ease-in-out;
-  }
 `;

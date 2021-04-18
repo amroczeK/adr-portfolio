@@ -84,9 +84,8 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: absolute;
-  padding: 1rem 1rem 6rem 1rem; // top right bottom left
+  padding-bottom: 6rem;
   max-width: 95rem;
-  margin-top: 5rem;
   left: 12vw;
   right: 3rem;
   transition: 0.3s ease-out;
@@ -103,7 +102,8 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 1rem 1.5rem 1rem; // top right bottom left
+  //padding: 1.5rem 1rem 1.5rem 1rem; // top right bottom left
+  padding: 6rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
     letter-spacing: 0.5rem;
@@ -119,6 +119,7 @@ const Title = styled.div`
     }
   }
   h2 {
+    text-align: center;
     letter-spacing: 0.2rem;
     padding: 1rem 0rem 0rem 0rem; // top right bottom left
     font-size: 2rem;
@@ -129,7 +130,6 @@ const Title = styled.div`
 const WorkGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  padding-bottom: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
@@ -141,7 +141,6 @@ const WorkGrid = styled.div`
 const SkillsGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  padding-bottom: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
@@ -154,7 +153,6 @@ const SkillsGrid = styled.div`
 const EducationGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  padding-bottom: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
