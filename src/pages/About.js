@@ -115,14 +115,14 @@ const Title = styled.div`
     padding-bottom: 2rem;
     .me {
       padding-left: 0.25rem;
-      color: white;
+      color: ${({ theme }) => theme.primaryLight};
     }
   }
   h2 {
     letter-spacing: 0.2rem;
     padding: 1rem 0rem 0rem 0rem; // top right bottom left
     font-size: 2rem;
-    color: white;
+    color: ${({ theme }) => theme.primaryLight};
   }
 `;
 

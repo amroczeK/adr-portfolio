@@ -9,7 +9,7 @@ const Shape = ({ variants }) => {
 export default Shape;
 
 const Rectangle = styled(motion.div)`
-  background: #4169e1;
+  background: ${({ theme }) => theme.primaryDark};
   position: fixed;
   height: 200%;
   width: 100%;

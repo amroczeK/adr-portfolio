@@ -44,9 +44,9 @@ const TimeBox = styled.span`
   height: 1.5rem;
   width: 7rem;
   margin-top: 0.25rem;
-  background-color: #252525;
+  background-color: ${({ theme }) => theme.primaryDark};
   opacity: 0.8;
-  color: #fff;
+  color: ${({ theme }) => theme.primaryLight};
   font-size: 0.75rem;
   font-weight: lighter;
   border-radius: 20px;
@@ -66,19 +66,19 @@ const Content = styled.div`
   h2 {
     justify-content: left;
     font-size: 1.15rem;
-    color: #fff;
+    color: ${({ theme }) => theme.primaryLight};
   }
   .major {
     padding-top: 0.25rem;
     justify-content: left;
     font-size: 1.15rem;
-    color: #4169e1;
+    color: ${({ theme }) => theme.secondaryLight};
   }
   .course {
     padding-top: 0.25rem;
     justify-content: left;
     font-size: 1rem;
-    color: #fff;
+    color: ${({ theme }) => theme.primaryLight};
   }
 `;
 
@@ -89,7 +89,7 @@ const CircleIcon = styled.div`
   justify-content: center;
   height: 2.5rem;
   width: 2.5rem;
-  background: #4169e1;
+  background: ${({ theme }) => theme.primaryDark};
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   z-index: 10;
@@ -103,7 +103,7 @@ const StyledIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: ${({ theme }) => theme.primaryLight};
   height: 1.25rem;
   width: 1.25rem;
   background: transparent;
@@ -114,7 +114,7 @@ const StyledIcon = styled.div`
 const Line = styled.div`
   display: flex;
   margin-left: 3.75rem;
-  border-left: 2px solid #4169e1;
+  border-left: 2px solid ${({ theme }) => theme.primaryDark};
   height: 100%;
   overflow: hidden;
   @media (max-width: 600px) {

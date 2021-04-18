@@ -68,7 +68,7 @@ const Content = styled.div`
   }
   .occupation {
     font-size: 2rem;
-    color: white;
+    color: ${({ theme }) => theme.primaryLight};
   }
   p {
     max-width: 60rem;
@@ -79,6 +79,9 @@ const ProfilePic = styled.div`
   width: 20rem;
   height: 25rem;
   margin-right: 3rem;
+  -webkit-box-shadow: 0 4px 10px -6px #111;
+  -moz-box-shadow: 0 4px 10px -6px #111;
+  box-shadow: 0 4px 10px -6px #111;
   img {
     border-radius: 0.75rem;
     width: 100%;

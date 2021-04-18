@@ -34,7 +34,7 @@ const StyledIcon = styled.div`
   position: absolute;
   transition: 0.3s ease-in-out;
   :hover {
-    color: #fff;
+    color: ${({ theme }) => theme.primaryLight};
     transition: 0.3s ease-in-out;
   }
 `;
@@ -45,7 +45,8 @@ const CircleIcon = styled.div`
   height: 3.5rem;
   width: 3.5rem;
   padding-left: 0.875rem;
-  background: ${({ iconActive }) => (iconActive === true ? '#4169E1;' : '#2b2a2a;')};
+  background: ${({ theme, iconActive }) =>
+    iconActive === true ? theme.primaryDark : theme.primaryHover};
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -54,10 +55,13 @@ const CircleIcon = styled.div`
 const Button = styled.div`
   border-radius: 30px;
   transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 0 4px 10px -6px #111;
+  -moz-box-shadow: 0 4px 10px -6px #111;
+  box-shadow: 0 4px 10px -6px #111;
   h2 {
     padding-left: 2.75rem;
     opacity: 0;
-    color: white;
+    color: ${({ theme }) => theme.primaryLight};
     text-decoration: none !important;
     text-transform: uppercase;
     transition: all 0.1s ease-in-out;
@@ -66,7 +70,7 @@ const Button = styled.div`
     transition: all 0.3s ease-in-out;
     border-radius: 30px;
     padding-right: ${({ growWidth }) => `${growWidth + 7}rem;` || '3.5rem;'};
-    background: #4169e1;
+    background: ${({ theme }) => theme.primaryDark};
     h2 {
       padding-left: 3.5rem;
       transition: all 0.3s ease-in-out;
@@ -76,7 +80,7 @@ const Button = styled.div`
       text-transform: uppercase;
     }
     ${CircleIcon} {
-      background: #4169e1;
+      background: ${({ theme }) => theme.primaryDark};
     }
   }
 `;

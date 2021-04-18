@@ -19,7 +19,7 @@ const Container = styled.div`
   overflow: hidden;
   flex-direction: column;
   padding: 1rem;
-  color: #fff;
+  color: ${({ theme }) => theme.primaryLight};
   width: 15rem;
   h2 {
     font-size: 1rem;

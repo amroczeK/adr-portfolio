@@ -61,9 +61,9 @@ const TimeBox = styled.span`
   height: 1.5rem;
   width: 7rem;
   margin-top: 0.25rem;
-  background-color: #252525;
+  background-color: ${({ theme }) => theme.primaryDark};
   opacity: 0.8;
-  color: #fff;
+  color: ${({ theme }) => theme.primaryLight};
   font-size: 0.75rem;
   font-weight: lighter;
   border-radius: 20px;
@@ -83,19 +83,19 @@ const Content = styled.div`
     padding-top: 1rem;
     justify-content: left;
     font-size: 1.15rem;
-    color: #fff;
+    color: ${({ theme }) => theme.primaryLight};
   }
   .job {
     padding-top: 0.25rem;
     padding-bottom: 0.5rem;
     justify-content: left;
     font-size: 1.15rem;
-    color: #4169e1;
+    color: ${({ theme }) => theme.secondaryLight};
   }
   p {
     transition: 0.5s ease-in-out;
     padding-top: 0.25rem;
-    color: #fff;
+    color: ${({ theme }) => theme.primaryLight};
     font-size: 0.75rem;
   }
 `;
@@ -107,7 +107,7 @@ const CircleIcon = styled.div`
   justify-content: center;
   height: 2.5rem;
   width: 2.5rem;
-  background: #4169e1;
+  background: ${({ theme }) => theme.primaryDark};
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   z-index: 10;
@@ -120,8 +120,8 @@ const CircleIcon = styled.div`
 const ExpandIcon = styled.div`
   height: 1.75rem;
   width: 1.75rem;
-  color: #fff;
-  background: #4169e1;
+  color: ${({ theme }) => theme.primaryLight};
+  background: ${({ theme }) => theme.primaryDark};
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   cursor: pointer;
@@ -131,7 +131,7 @@ const StyledIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: ${({ theme }) => theme.primaryLight};
   height: 1.5rem;
   width: 1.5rem;
   background: transparent;
@@ -142,7 +142,7 @@ const StyledIcon = styled.div`
 const Line = styled.div`
   display: flex;
   margin-left: 3.75rem;
-  border-left: 2px solid #4169e1;
+  border-left: 2px solid ${({ theme }) => theme.primaryDark};
   height: ${({ expand }) => (expand ? '100%' : '11.75rem')};
   overflow: hidden;
   @media (max-width: 600px) {

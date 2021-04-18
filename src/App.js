@@ -29,10 +29,10 @@ const App = () => {
             <NavMenu open={open} setOpen={setOpen} id={menuId} />
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route path='/about' exact component={About} />
-              <Route path='/portfolio' exact component={Portfolio} />
-              <Route path='/blogs' exact component={Blogs} />
-              <Route path='/contact' exact component={Contact} />
+              <Route path='/about' component={About} />
+              <Route path='/portfolio' component={Portfolio} />
+              <Route path='/blogs' component={Blogs} />
+              <Route path='/contact' component={Contact} />
             </Switch>
           </AnimatePresence>
         </ThemeProvider>

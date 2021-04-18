@@ -48,7 +48,7 @@ export default NavBar;
 
 const NavContainer = styled(motion.nav)`
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;

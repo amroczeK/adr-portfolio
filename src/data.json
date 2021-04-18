@@ -130,22 +130,38 @@
     {
       "title": "MERN E-Commerce Web App",
       "image": "/assets/images/e-comm.PNG",
-      "link": "https://github.com/amroczeK/mern-ecommerce-site"
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     },
     {
       "title": "React Portfolio Web App",
       "image": "/assets/images/portfolio.PNG",
-      "link": "https://github.com/amroczeK/react-portfolio"
+      "link": "https://github.com/amroczeK/react-portfolio",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     },
     {
       "title": "React Music Player Web App",
       "image": "/assets/images/music-player.PNG",
-      "link": "https://github.com/amroczeK/music-player-webapp"
+      "link": "https://github.com/amroczeK/music-player-webapp",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     },
     {
       "title": "React & Redux Games Library Web App",
       "image": "/assets/images/game-lib.PNG",
-      "link": "https://github.com/amroczeK/games-lib-webapp"
+      "link": "https://github.com/amroczeK/games-lib-webapp",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+      ]
     }
   ]
 }

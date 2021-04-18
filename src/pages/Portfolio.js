@@ -1,13 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { DataContext } from '../DataContext';
 import Project from '../components/Project';
 import Shape from '../components/Shape';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { slideInFromLeft, shapeAnimation } from '../animations';
+import Modal from '../components/Modal';
 
 const Portfolio = () => {
   const { data } = useContext(DataContext);
+
+  const [open, setOpen] = useState(false);
+  const [currProject, setCurrProject] = useState({});
+
+  const modalHandler = (index) => {
+    setOpen(!open);
+    setCurrProject(data.projects[index]);
+  };
 
   return (
     <>
@@ -15,9 +24,21 @@ const Portfolio = () => {
         <Title>
           <h1>PORTFOLIO</h1>
         </Title>
+        <Modal
+          open={open}
+          title={currProject.title}
+          image={currProject.image}
+          description={currProject.description}
+        />
         <Grid>
-          {data?.projects?.map(({ title, image, link }) => (
-            <Project title={title} image={image} link={link} />
+          {data?.projects?.map(({ title, image, link }, index) => (
+            <Project
+              title={title}
+              image={image}
+              link={link}
+              openModal={modalHandler}
+              index={index}
+            />
           ))}
         </Grid>
       </Container>
@@ -33,9 +54,10 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: absolute;
-  padding: 1rem 1rem 6rem 1rem; // top right bottom left
+  //padding-bottom: 6rem;
   max-width: 95rem;
-  margin-top: 5rem;
+  //margin-top: 5rem;
+  height: 100vh;
   left: 12vw;
   right: 3rem;
   transition: 0.3s ease-out;
@@ -52,7 +74,7 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 1rem 1.5rem 1rem; // top right bottom left
+  padding: 6rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
     letter-spacing: 0.5rem;
@@ -67,7 +89,7 @@ const Title = styled.div`
     letter-spacing: 0.2rem;
     padding: 1rem 0rem 0rem 0rem; // top right bottom left
     font-size: 2rem;
-    color: white;
+    color: ${({ theme }) => theme.primaryLight};
   }
 `;
 
