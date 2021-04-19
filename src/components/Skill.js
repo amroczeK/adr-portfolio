@@ -35,12 +35,12 @@ const Container = styled.div`
 
 const ProgressBar = styled.div`
   margin-top: 0.25rem;
-  background: #191923;
+  background: #203647;
   height: 6px;
   position: relative;
   &:before {
     content: '';
-    background: #ffc107;
+    background: ${({ theme }) => theme.opposingColour};
     width: ${({ scroll }) => scroll};
     height: 6px;
     position: absolute;

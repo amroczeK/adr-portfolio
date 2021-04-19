@@ -3,19 +3,32 @@ import styled from 'styled-components';
 
 const NavBurger = ({ open, setOpen }) => {
   return (
-    <StyledBurger open={open} onClick={() => setOpen(!open)}>
-      <span />
-      <span />
-      <span />
-    </StyledBurger>
+    <Container>
+      <StyledBurger open={open} onClick={() => setOpen(!open)}>
+        <span />
+        <span />
+        <span />
+      </StyledBurger>
+    </Container>
   );
 };
 export default NavBurger;
 
+const Container = styled.div`
+  display: flex;
+  position: fixed;
+  background: ${({ theme }) => theme.primaryBackground};
+  margin-top: 1rem;
+  margin-left: 1rem;
+  height: 3rem;
+  width: 3rem;
+  z-index: 10;
+`;
+
 const StyledBurger = styled.button`
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 1.5rem;
   left: 1.5rem;
   justify-content: space-around;

@@ -5,12 +5,17 @@ import Work from '../components/Work';
 import Skill from '../components/Skill';
 import Certificates from '../components/Certificates';
 import Shape from '../components/Shape';
+import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { slideInFromLeft, shapeAnimation } from '../animations';
 
 const About = () => {
   const { data } = useContext(DataContext);
+
+  // Sort skills alphabetically
+  const sortedSkills = data?.skills?.sort((a, b) => a.technology.localeCompare(b.technology));
+  console.log(sortedSkills);
 
   return (
     <>
@@ -53,10 +58,9 @@ const About = () => {
           <h2>TECHNICAL SKILLS & COMPETENCE</h2>
         </Title>
         <SkillsGrid>
-          {data &&
-            data?.skills?.map(({ technology, competence }) => (
-              <Skill skill={technology} percentage={competence} />
-            ))}
+          {sortedSkills.map(({ technology, competence }) => (
+            <Skill skill={technology} percentage={competence} />
+          ))}
         </SkillsGrid>
         <Title>
           <h2>CERTIFICATES & AWARDS</h2>
@@ -72,6 +76,7 @@ const About = () => {
               />
             ))}
         </CertificatesGrid>
+        <Footer />
       </Container>
       <Shape variants={shapeAnimation({ rotation: -15 })} />
     </>
@@ -84,15 +89,15 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: absolute;
-  padding-bottom: 6rem;
+  min-height: 100%;
   max-width: 95rem;
   left: 12vw;
   right: 3rem;
   transition: 0.3s ease-out;
+  padding-bottom: 10rem;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     left: 0;
     right: 0;
-    padding: 0rem 0rem 6rem 0rem; // top right bottom left
     transition: all 0.3s ease-in-out;
   }
 `;
@@ -111,7 +116,7 @@ const Title = styled.div`
     align-items: top;
     justify-content: center;
     text-align: center;
-    color: ${({ theme }) => theme.primaryDark};
+    color: ${({ theme }) => theme.secondaryLight};
     padding-bottom: 2rem;
     .me {
       padding-left: 0.25rem;

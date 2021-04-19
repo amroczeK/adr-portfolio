@@ -7,8 +7,9 @@ const Modal = ({ open, title, image, description, closeModal }) => {
     <Container>
       <Shape open={open}>
         <img src={image} alt='project-img' />
+        <Line/>
         <Article>
-          <h1>{title}</h1>
+          <h1>{title?.toUpperCase()}</h1>
           {description?.map((desc) => (
             <p>{desc}</p>
           ))}
@@ -45,10 +46,18 @@ const Article = styled.article`
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
-    color: ${({ theme }) => theme.primaryBackground};
+    color: ${({ theme }) => theme.opposingColour};
   }
   p {
-    color: ${({ theme }) => theme.primaryHover};
+    color: ${({ theme }) => theme.primaryLight};
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    h1{
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -58,24 +67,20 @@ const Shape = styled.div`
   position: relative;
   width: 80vh;
   height: 80vh;
-  background: ${({ theme }) => theme.primaryLight};
-  border-radius: 1rem;
+  background: ${({ theme }) => theme.primaryHover};
+  border-radius: 0.5rem;
   opacity: ${({ open }) => (open ? '1' : '0')};
   transition: 0.5s ease;
   z-index: ${({ open }) => (open ? '10' : '-1')};
   overflow: hidden;
-  -webkit-box-shadow: 0 4px 10px -6px #777;
-  -moz-box-shadow: 0 4px 10px -6px #777;
-  box-shadow: 0 4px 10px -6px #777;
+  -webkit-box-shadow: 0 4px 10px -6px #111;
+  -moz-box-shadow: 0 4px 10px -6px #111;
+  box-shadow: 0 4px 10px -6px #111;
   img {
-    padding: 1rem;
     width: 100%;
     height: 25rem;
     object-fit: cover;
     object-position: 0% 0%;
-    -webkit-box-shadow: 0 4px 10px -6px #777;
-    -moz-box-shadow: 0 4px 10px -6px #777;
-    box-shadow: 0 4px 10px -6px #777;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       height: 20rem;
     }
@@ -93,6 +98,10 @@ const StyledIcon = styled.div`
   .icon {
     height: 4rem;
     width: 4rem;
-    color: ${({ theme }) => theme.primaryHover};
+    color: ${({ theme }) => theme.opposingColour};
   }
+`;
+
+const Line = styled.hr`
+  border: 3px solid ${({ theme }) => theme.opposingColour};
 `;

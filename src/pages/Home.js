@@ -36,7 +36,6 @@ const Home = () => {
 export default Home;
 
 const Container = styled(motion.div)`
-  background: pink;
   display: flex;
   position: absolute;
   padding: 1.5rem;
@@ -57,7 +56,7 @@ const Content = styled.div`
     letter-spacing: 0.2rem;
     padding-top: 2rem;
     min-width: 25rem;
-    color: ${({ theme }) => theme.primaryDark};
+    color: ${({ theme }) => theme.secondaryLight};
     @media (max-width: ${({ theme }) => theme.mobile}) {
       text-align: center;
     }

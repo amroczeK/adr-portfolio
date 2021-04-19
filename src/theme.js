@@ -4,5 +4,6 @@ export const theme = {
   primaryLight: '#EEFBFB',
   primaryHover: '#203647',
   secondaryLight: '#4DA8DA',
+  opposingColour: '#ffc107;',
   mobile: '576px',
 };

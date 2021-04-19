@@ -163,5 +163,55 @@
         "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
       ]
     }
+  ],
+  "blogs": [
+    {
+      "title": "First Blog",
+      "image": "/assets/images/coding.jpg",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac."
+      ]
+    },
+    {
+      "title": "Second Blog",
+      "image": "/assets/images/music-player.PNG",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac."
+      ]
+    },
+    {
+      "title": "First Blog",
+      "image": "/assets/images/coding.jpg",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac."
+      ]
+    },
+    {
+      "title": "Second Blog",
+      "image": "/assets/images/music-player.PNG",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac."
+      ]
+    },
+    {
+      "title": "First Blog",
+      "image": "/assets/images/coding.jpg",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac."
+      ]
+    },
+    {
+      "title": "Second Blog",
+      "image": "/assets/images/music-player.PNG",
+      "link": "https://github.com/amroczeK/mern-ecommerce-site",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac."
+      ]
+    }
   ]
 }

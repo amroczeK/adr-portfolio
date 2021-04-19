@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { DataContext } from '../DataContext';
 import Project from '../components/Project';
 import Shape from '../components/Shape';
+import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { slideInFromLeft, shapeAnimation } from '../animations';
@@ -46,6 +47,7 @@ const Portfolio = () => {
             />
           ))}
         </Grid>
+        <Footer />
       </Container>
       <Shape variants={shapeAnimation({ rotation: 15 })} />
     </>
@@ -58,17 +60,15 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: absolute;
-  //padding-bottom: 6rem;
+  min-height: 100%;
   max-width: 95rem;
-  //margin-top: 5rem;
-  height: 100vh;
   left: 12vw;
   right: 3rem;
+  padding-bottom: 10rem;
   transition: 0.3s ease-out;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     left: 0;
     right: 0;
-    padding: 0rem 0rem 6rem 0rem; // top right bottom left
     transition: all 0.3s ease-in-out;
   }
 `;
@@ -86,7 +86,7 @@ const Title = styled.div`
     align-items: top;
     justify-content: center;
     text-align: center;
-    color: ${({ theme }) => theme.primaryDark};
+    color: ${({ theme }) => theme.secondaryLight};
     padding-bottom: 5rem;
   }
   h2 {

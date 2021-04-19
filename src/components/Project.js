@@ -16,7 +16,7 @@ const Project = ({ title, image, link, openModal, index }) => {
     <Container onClick={modalHandler}>
       <img src={image} alt='project-img' />
       <Title>
-        <h1>{title}</h1>
+        <h1>{title?.toUpperCase()}</h1>
       </Title>
     </Container>
     // </Link>
@@ -31,15 +31,15 @@ const Container = styled.div`
   width: 25rem;
   height: 15rem;
   background: ${({ theme }) => theme.secondaryLight};
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   overflow: hidden;
   cursor: pointer;
   -webkit-box-shadow: 0 4px 10px -6px #111;
   -moz-box-shadow: 0 4px 10px -6px #111;
   box-shadow: 0 4px 10px -6px #111;
   img {
-    border-radius: 0.75rem;
-    padding: 0.35rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
     width: 100%;
     object-fit: cover;
   }
@@ -56,9 +56,13 @@ const Title = styled.div`
   height: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  color: ${({ theme }) => theme.primaryLight};
+  h1 {
+    font-size: 1.25rem;
+    color: ${({ theme }) => theme.primaryLight};
+    letter-spacing: 0.2rem;
+  }
   &:hover {
     opacity: 1;
-    background: ${({ theme }) => theme.primaryDark};
+    background: ${({ theme }) => theme.secondaryLight};
   }
 `;
