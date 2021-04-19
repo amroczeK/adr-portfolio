@@ -15,7 +15,6 @@ const Home = () => {
         <Content>
           <h1>- I'M ADRIAN MROCZEK.</h1>
           <h1 className='occupation'>FULL STACK DEVELOPER</h1>
-          <h1 className='occupation'>TEST CICD</h1>
           <p>
             Experienced Software Engineer with a background in Full Stack Development, Network
             Engineering and interest in Cyber Security.
