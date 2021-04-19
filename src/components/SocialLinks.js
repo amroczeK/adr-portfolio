@@ -68,7 +68,7 @@ const Container = styled.div`
     width: 3rem;
     cursor: pointer;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: row;
     margin: 0rem 0rem 0rem 0rem; // top right bottom left
     i {

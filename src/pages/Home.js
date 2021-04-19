@@ -36,22 +36,18 @@ const Home = () => {
 export default Home;
 
 const Container = styled(motion.div)`
+  background: pink;
   display: flex;
   position: absolute;
   padding: 1.5rem;
-  top: 33.5vh;
+  align-items: center;
+  justify-content: center;
+  //top: 33.5vh;
   left: 12vw;
-  @media (max-width: 1000px) {
-    transition: all 0.5s ease-in-out;
-    top: 10vh;
-    flex-direction: column;
-  }
+  height: 100vh;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     left: 0;
-    top: 4rem;
-    bottom: 0;
-    padding-top: 3rem;
-    transition: all 0.5s ease-in-out;
+    padding-top: 6rem;
     flex-direction: column;
   }
 `;
@@ -88,7 +84,7 @@ const ProfilePic = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     display: flex;
     background: transparent;
     width: 100%;
@@ -96,9 +92,9 @@ const ProfilePic = styled.div`
     margin-right: 0rem;
     justify-content: center;
     align-items: center;
-    img {
+    /* img {
       width: 25rem;
       min-width: 20rem;
-    }
+    } */
   }
 `;
