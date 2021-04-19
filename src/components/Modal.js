@@ -1,7 +1,8 @@
 import React from 'react';
+import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline';
 import styled from 'styled-components';
 
-const Modal = ({ open, title, image, description }) => {
+const Modal = ({ open, title, image, description, closeModal }) => {
   return (
     <Container>
       <Shape open={open}>
@@ -12,6 +13,9 @@ const Modal = ({ open, title, image, description }) => {
             <p>{desc}</p>
           ))}
         </Article>
+        <StyledIcon onClick={closeModal}>
+          <CloseOutline className='icon' />
+        </StyledIcon>
       </Shape>
     </Container>
   );
@@ -20,18 +24,21 @@ const Modal = ({ open, title, image, description }) => {
 export default Modal;
 
 const Container = styled.div`
-  padding: 1rem;
+  //background: pink;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   overflow: hidden;
+  padding: 1rem;
   width: 100%;
   height: 100%;
 `;
 
 const Article = styled.article`
   padding: 1.5rem;
+  overflow-y: auto;
+  margin-bottom: 4rem;
   h1 {
     font-size: 2rem;
     letter-spacing: 0.5rem;
@@ -46,6 +53,9 @@ const Article = styled.article`
 `;
 
 const Shape = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 80vh;
   height: 80vh;
   background: ${({ theme }) => theme.primaryLight};
@@ -69,5 +79,20 @@ const Shape = styled.div`
     @media (max-width: ${({ theme }) => theme.mobile}) {
       height: 20rem;
     }
+  }
+`;
+
+const StyledIcon = styled.div`
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  cursor: pointer;
+  .icon {
+    height: 4rem;
+    width: 4rem;
+    color: ${({ theme }) => theme.primaryHover};
   }
 `;

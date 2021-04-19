@@ -18,6 +18,10 @@ const Portfolio = () => {
     setCurrProject(data.projects[index]);
   };
 
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
@@ -29,6 +33,7 @@ const Portfolio = () => {
           title={currProject.title}
           image={currProject.image}
           description={currProject.description}
+          closeModal={closeModal}
         />
         <Grid>
           {data?.projects?.map(({ title, image, link }, index) => (
