@@ -41,12 +41,11 @@ const Container = styled(motion.div)`
   padding: 1.5rem;
   align-items: center;
   justify-content: center;
-  //top: 33.5vh;
   left: 12vw;
-  height: 100vh;
+  min-height: 100vh;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100vw;
     left: 0;
-    padding-top: 6rem;
     flex-direction: column;
   }
 `;
@@ -68,6 +67,20 @@ const Content = styled.div`
   p {
     max-width: 60rem;
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem 4rem 1rem; // top right bottom left
+    p {
+      font-size: 1rem;
+    }
+    .occupation {
+      padding-bottom: 1rem;
+    }
+  }
 `;
 
 const ProfilePic = styled.div`
@@ -87,10 +100,10 @@ const ProfilePic = styled.div`
     display: flex;
     background: transparent;
     width: 100%;
-    height: 25rem;
-    margin-right: 0rem;
+    margin: 0rem;
     justify-content: center;
     align-items: center;
+    margin-top: 5rem;
     /* img {
       width: 25rem;
       min-width: 20rem;

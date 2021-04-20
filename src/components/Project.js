@@ -28,8 +28,8 @@ export default Project;
 const Container = styled.div`
   display: flex;
   position: relative;
-  width: 25rem;
-  height: 15rem;
+  max-width: 25rem;
+  max-height: 15rem;
   background: ${({ theme }) => theme.secondaryLight};
   border-radius: 0.25rem;
   overflow: hidden;
@@ -42,6 +42,13 @@ const Container = styled.div`
     padding: 0.25rem;
     width: 100%;
     object-fit: cover;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
   }
 `;
 

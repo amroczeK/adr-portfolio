@@ -69,10 +69,13 @@ const Container = styled.div`
     cursor: pointer;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    position: absolute;
+    bottom: 0;
     flex-direction: row;
-    margin: 0rem 0rem 0rem 0rem; // top right bottom left
+    //margin: 0rem 0rem 0rem 0rem; // top right bottom left
     i {
-      margin: 0rem 1.5rem 0rem 1.5rem; // top right bottom left
+      margin: 5rem 1rem 2rem 1rem; // top right bottom left
+      //margin: 0rem 1.5rem 0rem 1.5rem; // top right bottom left
     }
   }
 `;

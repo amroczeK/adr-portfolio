@@ -29,7 +29,8 @@ const Container = styled.div`
     float: right;
   }
   @media (max-width: 600px) {
-    padding: 1rem 1.5rem 1rem 1.5rem; // top right bottom left
+    width: 12rem;
+    padding: 1rem;
   }
 `;
 

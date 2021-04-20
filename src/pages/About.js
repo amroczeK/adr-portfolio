@@ -58,7 +58,7 @@ const About = () => {
           <h2>TECHNICAL SKILLS & COMPETENCE</h2>
         </Title>
         <SkillsGrid>
-          {sortedSkills.map(({ technology, competence }) => (
+          {sortedSkills?.map(({ technology, competence }) => (
             <Skill skill={technology} percentage={competence} />
           ))}
         </SkillsGrid>
@@ -139,6 +139,7 @@ const WorkGrid = styled.div`
   grid-auto-rows: auto;
   justify-items: center;
   @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
     gap: 0rem;
   }
 `;

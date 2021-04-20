@@ -57,7 +57,7 @@ const Content = styled.div`
     padding-top: 0.25rem;
     justify-content: left;
     font-size: 1.15rem;
-    color: ${({ theme }) => theme.primaryDark};
+    color: ${({ theme }) => theme.secondaryLight};
   }
 `;
 
