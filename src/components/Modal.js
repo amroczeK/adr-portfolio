@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const Modal = ({ open, title, image, description, closeModal }) => {
   return (
-    <Container>
+    <Container open={open}>
       <Shape open={open}>
         <img src={image} alt='project-img' />
-        <Line/>
+        <Line />
         <Article>
           <h1>{title?.toUpperCase()}</h1>
           {description?.map((desc) => (
@@ -25,15 +25,20 @@ const Modal = ({ open, title, image, description, closeModal }) => {
 export default Modal;
 
 const Container = styled.div`
-  //background: pink;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   padding: 1rem;
   width: 100%;
   height: 100%;
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    max-width: 100vw;
+    max-height: 100vh;
+    z-index: 10;
+  }
 `;
 
 const Article = styled.article`
@@ -52,11 +57,13 @@ const Article = styled.article`
     color: ${({ theme }) => theme.primaryLight};
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    h1{
-      font-size: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    h1 {
+      font-size: 1rem;
     }
     p {
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
   }
 `;
@@ -82,7 +89,7 @@ const Shape = styled.div`
     object-fit: cover;
     object-position: 0% 0%;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      height: 20rem;
+      max-height: 15rem;
     }
   }
 `;
@@ -99,6 +106,10 @@ const StyledIcon = styled.div`
     height: 4rem;
     width: 4rem;
     color: ${({ theme }) => theme.opposingColour};
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      height: 3rem;
+      width: 3rem;
+    }
   }
 `;
 

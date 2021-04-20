@@ -52,7 +52,8 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem 1rem 1.5rem 1rem; // top right bottom left
+  margin-top: 6rem;
+  padding: 0rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
     letter-spacing: 0.5rem;
@@ -77,4 +78,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  }
 `;

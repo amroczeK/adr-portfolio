@@ -47,7 +47,7 @@ export default Work;
 const Container = styled.div`
   display: flex;
   padding: 1rem;
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 0.75rem;
     transition: all 0.3s ease-in-out;
   }
@@ -95,8 +95,8 @@ const CircleIcon = styled.div`
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   z-index: 10;
-  @media (max-width: 600px) {
-    display: none;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    visibility: hidden;
     transition: 0.5s ease-in-out;
   }
 `;

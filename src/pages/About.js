@@ -107,8 +107,8 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //padding: 1.5rem 1rem 1.5rem 1rem; // top right bottom left
-  padding: 6rem 1rem 1.5rem 1rem; // top right bottom left
+  margin-top: 6rem;
+  padding: 0rem 1rem 1.5rem 1rem; // top right bottom left
   h1 {
     font-size: 3rem;
     letter-spacing: 0.5rem;
@@ -135,11 +135,11 @@ const Title = styled.div`
 const WorkGrid = styled.div`
   display: inline-grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
-  @media only screen and (max-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
     gap: 0rem;
   }
 `;
@@ -150,9 +150,9 @@ const SkillsGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     gap: 0rem;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
 `;
 
@@ -162,7 +162,7 @@ const EducationGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     gap: 0rem;
     justify-items: left;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -174,7 +174,7 @@ const CertificatesGrid = styled.div`
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-auto-rows: auto;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     gap: 0rem;
     justify-items: left;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));

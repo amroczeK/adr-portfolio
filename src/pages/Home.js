@@ -38,12 +38,12 @@ export default Home;
 const Container = styled(motion.div)`
   display: flex;
   position: absolute;
-  padding: 1.5rem;
   align-items: center;
   justify-content: center;
   left: 12vw;
   min-height: 100vh;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 1.25rem;
     width: 100vw;
     left: 0;
     flex-direction: column;
@@ -54,7 +54,7 @@ const Content = styled.div`
   h1 {
     letter-spacing: 0.2rem;
     padding-top: 2rem;
-    min-width: 25rem;
+    min-width: 23rem;
     color: ${({ theme }) => theme.secondaryLight};
     @media (max-width: ${({ theme }) => theme.mobile}) {
       text-align: center;
@@ -73,7 +73,7 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem 1rem 4rem 1rem; // top right bottom left
+    padding: 1rem 1rem 6rem 1rem; // top right bottom left
     p {
       font-size: 1rem;
     }
@@ -104,9 +104,5 @@ const ProfilePic = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 5rem;
-    /* img {
-      width: 25rem;
-      min-width: 20rem;
-    } */
   }
 `;

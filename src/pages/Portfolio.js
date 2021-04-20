@@ -103,4 +103,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-auto-rows: auto;
   justify-items: center;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  }
 `;
