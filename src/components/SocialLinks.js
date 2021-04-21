@@ -79,7 +79,7 @@ const Container = styled.div`
     width: 3rem;
     cursor: pointer;
   }
-  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: 1000px) and (min-width: 0px) {
     position: absolute;
     bottom: 0;
     flex-direction: row;
@@ -89,4 +89,7 @@ const Container = styled.div`
       //margin: 0rem 1.5rem 0rem 1.5rem; // top right bottom left
     }
   }
+  /* @media only screen and (max-width: 1000px) and (min-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: row;
+  } */
 `;

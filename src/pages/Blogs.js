@@ -5,14 +5,14 @@ import Shape from '../components/Shape';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { slideInFromLeft, shapeAnimation } from '../animations';
+import { slideInFromTop, shapeAnimation } from '../animations';
 
 const Blogs = () => {
   const { data } = useContext(DataContext);
 
   return (
     <>
-      <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
+      <Container variants={slideInFromTop} initial='hidden' animate='show' exit='exit'>
         <Title>
           <h1>BLOGS</h1>
         </Title>

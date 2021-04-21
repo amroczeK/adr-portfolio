@@ -4,14 +4,14 @@ const exit = {
   opacity: 0,
   y: 300, // slide down
   transition: {
-    duration: 0.75, // seconds
+    duration: 1, // seconds
   },
 };
 
-export const slideInFromLeft = {
+export const slideInFromTop = {
   hidden: {
     opacity: 0,
-    y: -2000,
+    y: -4000,
   },
   // Define animation when component mounts
   // Fade in when loading page
@@ -19,9 +19,9 @@ export const slideInFromLeft = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.75, // seconds
+      duration: 1, // seconds
       when: 'beforeChildren',
-      staggerChildren: 0.25,
+      staggerChildren: 1,
     },
   },
   exit,
@@ -31,8 +31,8 @@ export const shapeAnimation = ({ rotation }) => {
   return {
     hidden: {
       opacity: 0,
-      y: 2000,
-      rotate: '15%',
+      y: 4000,
+      rotate: rotation,
     },
     // Define animation when component mounts
     // Fade in when loading page
@@ -41,9 +41,9 @@ export const shapeAnimation = ({ rotation }) => {
       y: 0,
       rotate: rotation,
       transition: {
-        duration: 0.75, // seconds
+        duration: 1, // seconds
         when: 'beforeChildren',
-        staggerChildren: 0.25,
+        staggerChildren: 1,
       },
     },
     exit,

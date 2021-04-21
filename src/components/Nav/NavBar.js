@@ -8,11 +8,11 @@ import { Article } from '@styled-icons/material/Article';
 import { MessageDetail } from '@styled-icons/boxicons-solid/MessageDetail';
 import NavButton from './NavButton';
 import { motion } from 'framer-motion';
-import { slideInFromLeft } from '../../animations';
+import { slideInFromTop } from '../../animations';
 
 const NavBar = () => {
   return (
-    <NavContainer variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
+    <NavContainer variants={slideInFromTop} initial='hidden' animate='show' exit='exit'>
       <ul>
         <li>
           <Link to='/'>

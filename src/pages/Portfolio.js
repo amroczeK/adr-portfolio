@@ -5,7 +5,7 @@ import Shape from '../components/Shape';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { slideInFromLeft, shapeAnimation } from '../animations';
+import { slideInFromTop, shapeAnimation } from '../animations';
 import Modal from '../components/Modal';
 
 const Portfolio = () => {
@@ -25,7 +25,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
+      <Container variants={slideInFromTop} initial='hidden' animate='show' exit='exit'>
         <Title>
           <h1>PORTFOLIO</h1>
         </Title>

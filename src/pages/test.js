@@ -42,13 +42,10 @@ const Container = styled(motion.div)`
   justify-content: center;
   left: 12vw;
   min-height: 100vh;
-  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 1.25rem;
     width: 100vw;
     left: 0;
-    flex-direction: column;
-  }
-  @media only screen and (max-width: 1000px) and (min-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }
 `;
@@ -59,6 +56,9 @@ const Content = styled.div`
     padding-top: 2rem;
     min-width: 23rem;
     color: ${({ theme }) => theme.secondaryLight};
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      text-align: center;
+    }
   }
   .occupation {
     font-size: 2rem;
@@ -67,23 +67,18 @@ const Content = styled.div`
   p {
     max-width: 60rem;
   }
-  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem 1rem 6rem 1rem; // top right bottom left
-    h1 {
-      font-size: 1.75rem;
-      text-align: center;
-    }
-    .occupation {
-      font-size: 1.75rem;
-      padding-bottom: 1rem;
-    }
     p {
       font-size: 1rem;
+    }
+    .occupation {
+      padding-bottom: 1rem;
     }
   }
 `;
@@ -101,7 +96,7 @@ const ProfilePic = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     display: flex;
     background: transparent;
     width: 100%;

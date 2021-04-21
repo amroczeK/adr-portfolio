@@ -8,18 +8,17 @@ import Shape from '../components/Shape';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { slideInFromLeft, shapeAnimation } from '../animations';
+import { slideInFromTop, shapeAnimation } from '../animations';
 
 const About = () => {
   const { data } = useContext(DataContext);
 
   // Sort skills alphabetically
   const sortedSkills = data?.skills?.sort((a, b) => a.technology.localeCompare(b.technology));
-  console.log(sortedSkills);
 
   return (
     <>
-      <Container variants={slideInFromLeft} initial='hidden' animate='show' exit='exit'>
+      <Container variants={slideInFromTop} initial='hidden' animate='show' exit='exit'>
         <Title>
           <h1>
             ABOUT<h1 className='me'>ME</h1>
