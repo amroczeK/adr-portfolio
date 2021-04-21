@@ -62,7 +62,7 @@ const NavContainer = styled(motion.nav)`
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  @media (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
     transition: all 0.5s ease-in-out;
     display: none;
   }

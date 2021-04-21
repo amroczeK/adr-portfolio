@@ -43,7 +43,7 @@ const Container = styled.div`
     width: 100%;
     object-fit: cover;
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     margin-left: 1rem;
     margin-right: 1rem;
     left: 0;

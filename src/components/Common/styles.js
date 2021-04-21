@@ -21,7 +21,7 @@ export const Line = styled.div`
   border-left: 2px solid ${({ theme }) => theme.primaryDark};
   height: 100%;
   overflow: hidden;
-  @media (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
     margin-left: 0rem;
     transition: all 0.3s ease-in-out;
   }

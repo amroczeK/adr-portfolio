@@ -34,7 +34,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     max-width: 100vw;
     max-height: 100vh;
     z-index: 10;
@@ -56,7 +56,7 @@ const Article = styled.article`
   p {
     color: ${({ theme }) => theme.primaryLight};
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     margin-bottom: 3rem;
     padding: 1rem;
     h1 {
@@ -88,7 +88,7 @@ const Shape = styled.div`
     height: 25rem;
     object-fit: cover;
     object-position: 0% 0%;
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
       max-height: 15rem;
     }
   }
@@ -106,7 +106,7 @@ const StyledIcon = styled.div`
     height: 4rem;
     width: 4rem;
     color: ${({ theme }) => theme.opposingColour};
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
       height: 3rem;
       width: 3rem;
     }

@@ -42,7 +42,7 @@ const Container = styled(motion.div)`
   justify-content: center;
   left: 12vw;
   min-height: 100vh;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: '${({ theme }) => theme.mobile}') {
     padding: 1.25rem;
     width: 100vw;
     left: 0;
@@ -67,7 +67,7 @@ const Content = styled.div`
   p {
     max-width: 60rem;
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -96,7 +96,7 @@ const ProfilePic = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     display: flex;
     background: transparent;
     width: 100%;

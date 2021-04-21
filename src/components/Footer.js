@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Github } from '@styled-icons/boxicons-logos/Github';
 import { LinkedinSquare } from '@styled-icons/boxicons-logos/LinkedinSquare';
+import { StackOverflow } from '@styled-icons/boxicons-logos/StackOverflow';
 import { Npm } from '@styled-icons/fa-brands/Npm';
 
 const Footer = () => {
@@ -26,6 +27,16 @@ const Footer = () => {
           target='_blank'
         >
           <Github />
+        </Link>
+      </i>
+      <i>
+        <Link
+          to={{
+            pathname: 'https://stackoverflow.com/users/4134047/adr',
+          }}
+          target='_blank'
+        >
+          <StackOverflow />
         </Link>
       </i>
       <i>

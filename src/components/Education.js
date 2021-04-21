@@ -32,7 +32,7 @@ const Container = styled.div`
   display: flex;
   padding: 1rem;
   min-width: 20rem;
-  @media (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
     padding: 0.75rem;
     transition: all 0.3s ease-in-out;
   }
@@ -79,7 +79,7 @@ const CircleIcon = styled.div`
   border-radius: 50%;
   transition: 0.5s ease-in-out;
   z-index: 10;
-  @media (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
     display: none;
     transition: 0.5s ease-in-out;
   }

@@ -28,8 +28,8 @@ const Container = styled.div`
   span {
     float: right;
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 12rem;
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+    width: 11.5rem;
     padding: 1rem;
     h2 {
       font-size: 0.75rem;

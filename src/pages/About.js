@@ -152,7 +152,7 @@ const SkillsGrid = styled.div`
   justify-items: center;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     gap: 0rem;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   }
 `;
 
