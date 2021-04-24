@@ -1,0 +1,79 @@
+import React, { useState } from 'react';
+import About from '../components/Editor/About';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+import { slideInFromTop } from '../animations';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    overflow: 'hidden',
+    background: 'transparent',
+  },
+  tabs: {
+    background: '#EEFBFB',
+  },
+});
+
+const Admin = () => {
+  const classes = useStyles();
+  const [page, setPage] = useState(0);
+  const [operation, setOperation] = useState(0);
+
+  const handlePage = (event, newValue) => {
+    setPage(newValue);
+  };
+
+  const handleOperation = (event, newValue) => {
+    setOperation(newValue);
+  };
+
+  return (
+    <>
+      <Container variants={slideInFromTop} initial='hidden' animate='show' exit='exit'>
+        <Paper className={classes.root}>
+          <Tabs
+            className={classes.tabs}
+            value={page}
+            onChange={handlePage}
+            indicatorColor='primary'
+            textColor='primary'
+            centered
+          >
+            <Tab value={0} label='About' />
+            <Tab value={1} label='Portfolio' />
+            <Tab value={2} label='Blogs' />
+          </Tabs>
+          {page === 0 && <About />}
+          {page === 1 && <></>}
+          {page === 2 && <></>}
+        </Paper>
+      </Container>
+    </>
+  );
+};
+
+export default Admin;
+
+const Container = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  padding-top: 10rem;
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 1.25rem;
+    width: 100vw;
+    left: 0;
+    flex-direction: column;
+  }
+  @media only screen and (max-width: 1000px) and (min-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
+  }
+`;

@@ -12,6 +12,7 @@ import { slideInFromTop, shapeAnimation } from '../animations';
 
 const About = () => {
   const { data } = useContext(DataContext);
+  console.log(data)
 
   // Sort skills alphabetically
   const sortedSkills = data?.skills?.sort((a, b) => a.technology.localeCompare(b.technology));
