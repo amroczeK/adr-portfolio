@@ -1,13 +1,11 @@
 import React from 'react';
-// import Button from '../../Inputs/Button';
-// import TextArea from '../../Inputs/TextArea';
-// import TextField from '../../Inputs/TextField';
 import TextField from '@material-ui/core/TextField';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
+import { addExperience } from '../../../firestore';
 
 const useStyles = makeStyles({
   root: {
@@ -27,13 +25,10 @@ const useStyles = makeStyles({
   textArea: {
     padding: '0.5rem',
     margin: '0.5rem',
-    width: '40rem',
     background: '#EEFBFB',
   },
   textField: {
-    //height: '2rem',
     overflow: 'hidden',
-    //background: '#EEFBFB',
     width: '15rem',
     margin: '0.5rem',
   },
@@ -62,17 +57,17 @@ const defaultValues = {
 
 const Experience = () => {
   const classes = useStyles();
-  const { handleSubmit, reset, setValue, control } = useForm({ defaultValues });
+  const { handleSubmit, reset, control } = useForm({ defaultValues });
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    console.log(data.description);
+    //await addExperience({ data });
+  };
 
   return (
     <Container>
-      <form
-        className={classes.form}
-        onSubmit={handleSubmit((data) => {
-          console.log(JSON.stringify(data));
-          alert(JSON.stringify(data));
-        })}
-      >
+      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <h1>WORK EXPERIENCE</h1>
         <FlexContainer>
           <Controller
@@ -148,10 +143,17 @@ const Experience = () => {
           )}
         />
         <Buttons>
-          <Button type={'submit'} variant='contained' className={classes.button}>
+          <Button type='submit' variant='contained' className={classes.button}>
             Submit
           </Button>
-          <Button type={'reset'} variant='contained' className={classes.button}>
+          <Button
+            type='button'
+            onClick={() => {
+              reset(defaultValues);
+            }}
+            variant='contained'
+            className={classes.button}
+          >
             Reset
           </Button>
         </Buttons>
