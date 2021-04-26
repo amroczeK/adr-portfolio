@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
-import { addEducation } from '../../../firestore';
+import { createEducation } from '../../../../../firestore';
 
 const useStyles = makeStyles({
   root: {
@@ -47,93 +47,61 @@ const useStyles = makeStyles({
  * 'A component is changing an uncontrolled input to be controlled.'
  */
 const defaultValues = {
-  course: '',
-  major: '',
-  university: '',
-  startYear: '',
-  endYear: '',
+  title: '',
+  subtitle: '',
+  year: '',
 };
 
-const Education = () => {
+const Awards = () => {
   const classes = useStyles();
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
   const onSubmit = async (data) => {
     console.log(data);
-    //await addEducation({ data });
+    //await createEducation({ data });
   };
   return (
     <Container>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <h1>EDUCATION</h1>
+        <h1>CERTIFICATES</h1>
         <FlexContainer>
           <Controller
-            name='university'
+            name='title'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'University'}
+                label={'Title'}
                 className={classes.textField}
                 size='small'
               />
             )}
           />
           <Controller
-            name='major'
+            name='subtitle'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'Major'}
+                label={'Subtitle'}
                 className={classes.textField}
                 size='small'
               />
             )}
           />
           <Controller
-            name='course'
+            name='year'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'Course'}
-                className={classes.textField}
-                size='small'
-              />
-            )}
-          />
-        </FlexContainer>
-        <FlexContainer>
-          <Controller
-            name='startYear'
-            isClearable
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant='filled'
-                label={'Start Year'}
-                className={classes.textField}
-                size='small'
-              />
-            )}
-          />
-          <Controller
-            name='endYear'
-            isClearable
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant='filled'
-                label={'End Year'}
+                label={'Year'}
                 className={classes.textField}
                 size='small'
               />
@@ -160,7 +128,7 @@ const Education = () => {
   );
 };
 
-export default Education;
+export default Awards;
 
 const Container = styled.div`
   display: flex;

@@ -1,11 +1,10 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
-import { addExperience } from '../../../firestore';
+import { createSkill } from '../../../../../firestore';
 
 const useStyles = makeStyles({
   root: {
@@ -48,100 +47,52 @@ const useStyles = makeStyles({
  * 'A component is changing an uncontrolled input to be controlled.'
  */
 const defaultValues = {
-  company: '',
-  position: '',
-  startYear: '',
-  endYear: '',
-  description: '',
+  technology: '',
+  competence: '',
 };
 
-const Experience = () => {
+const Skills = () => {
   const classes = useStyles();
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
   const onSubmit = async (data) => {
     console.log(data);
-    console.log(data.description);
-    //await addExperience({ data });
+    //await addSkill({ data });
   };
-
   return (
     <Container>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <h1>WORK EXPERIENCE</h1>
+        <h1>TECHNICAL SKILLS</h1>
         <FlexContainer>
           <Controller
-            name='company'
+            name='technology'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'Company'}
+                label={'Technology'}
                 className={classes.textField}
                 size='small'
               />
             )}
           />
           <Controller
-            name='position'
+            name='competence'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'Position'}
+                label={'Competence'}
                 className={classes.textField}
                 size='small'
               />
             )}
           />
         </FlexContainer>
-        <FlexContainer>
-          <Controller
-            name='startYear'
-            isClearable
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant='filled'
-                label={'Start Year'}
-                className={classes.textField}
-                size='small'
-              />
-            )}
-          />
-          <Controller
-            name='endYear'
-            isClearable
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant='filled'
-                label={'End Year'}
-                className={classes.textField}
-                size='small'
-              />
-            )}
-          />
-        </FlexContainer>
-        <Controller
-          name='description'
-          isClearable
-          control={control}
-          render={({ field }) => (
-            <TextareaAutosize
-              {...field}
-              rowsMin={10}
-              placeholder='Type item description here...'
-              className={classes.textArea}
-            />
-          )}
-        />
         <Buttons>
           <Button type='submit' variant='contained' className={classes.button}>
             Submit
@@ -162,7 +113,7 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Skills;
 
 const Container = styled.div`
   display: flex;

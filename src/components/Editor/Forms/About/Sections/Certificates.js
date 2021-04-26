@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
-import { addEducation } from '../../../firestore';
+import { createEducation } from '../../../../../firestore';
 
 const useStyles = makeStyles({
   root: {
@@ -58,7 +58,7 @@ const Certificates = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
-    //await addEducation({ data });
+    //await createEducation({ data });
   };
   return (
     <Container>

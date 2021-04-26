@@ -125,7 +125,7 @@ export const getBlogs = async () => {
 /**
  * Functions to add data to firestore
  */
-export const addEducation = async ({ data }) => {
+export const createEducation = async ({ data }) => {
   try {
     // Add a new document with a generated id
     let educationRef = db.collection('education').doc();
@@ -136,10 +136,7 @@ export const addEducation = async ({ data }) => {
   }
 };
 
-/**
- * Functions to add data to firestore
- */
-export const addExperience = async ({ data }) => {
+export const createExperience = async ({ data }) => {
   try {
     // Add a new document with a generated id
     let experienceRef = db.collection('experience').doc();
@@ -147,5 +144,60 @@ export const addExperience = async ({ data }) => {
     await experienceRef.set(data);
   } catch (error) {
     console.log('Error creating experience document:', error);
+  }
+};
+
+export const createSkill = async ({ data }) => {
+  try {
+    // Add a new document with a generated id
+    let skillsRef = db.collection('skills').doc();
+    console.log('Document written with ID: ', skillsRef.id);
+    await skillsRef.set(data);
+  } catch (error) {
+    console.log('Error creating skills document:', error);
+  }
+};
+
+export const createAward = async ({ data }) => {
+  try {
+    // Add a new document with a generated id
+    let awardsRef = db.collection('awards').doc();
+    console.log('Document written with ID: ', awardsRef.id);
+    await awardsRef.set(data);
+  } catch (error) {
+    console.log('Error creating awards document:', error);
+  }
+};
+
+export const createCertificate = async ({ data }) => {
+  try {
+    // Add a new document with a generated id
+    let certificatesRef = db.collection('certificates').doc();
+    console.log('Document written with ID: ', certificatesRef.id);
+    await certificatesRef.set(data);
+  } catch (error) {
+    console.log('Error creating awards document:', error);
+  }
+};
+
+export const createProject = async ({ data }) => {
+  try {
+    // Add a new document with a generated id
+    let projectsRef = db.collection('projects').doc();
+    console.log('Document written with ID: ', projectsRef.id);
+    await projectsRef.set(data);
+  } catch (error) {
+    console.log('Error creating awards document:', error);
+  }
+};
+
+export const createBlog = async ({ data }) => {
+  try {
+    // Add a new document with a generated id
+    let blogsRef = db.collection('projects').doc();
+    console.log('Document written with ID: ', blogsRef.id);
+    await blogsRef.set(data);
+  } catch (error) {
+    console.log('Error creating awards document:', error);
   }
 };

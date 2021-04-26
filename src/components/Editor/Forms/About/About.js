@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { DataContext } from '../../../../DataContext';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import EducationForm from './Forms/Education';
-import ExperienceForm from './Forms/Experience';
-import SkillsForm from './Forms/Skills';
-import CertificatesForm from './Forms/Certificates';
+import {
+  EducationForm,
+  ExperienceForm,
+  SkillsForm,
+  CertificatesForm,
+  AwardsForm,
+} from './Sections';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -21,8 +25,10 @@ const useStyles = makeStyles({
 
 const About = () => {
   const classes = useStyles();
-  const [operation, setOperation] = useState(0);
-  const [input, setInput] = useState(0);
+  const [input, setInput] = useState(0); // Inputs are the sections of data on page
+  const [operation, setOperation] = useState(0); // Operation being performed e.g. CREATE/UPDATE/DELETE
+
+  const { data } = useContext(DataContext);
 
   const handleOperation = (event, newValue) => {
     setOperation(newValue);
@@ -63,10 +69,14 @@ const About = () => {
           <Tab value={3} label='Delete' />
         </Tabs>
       </Paper>
-      {input === 0 && operation === 0 && <EducationForm />}
+      {input === 0 && operation === 0 && <EducationForm operation={0} />}
+      {input === 0 && operation === 1 && data?.education && (
+        <EducationForm operation={1} education={data.education} />
+      )}
       {input === 1 && operation === 0 && <ExperienceForm />}
       {input === 2 && operation === 0 && <SkillsForm />}
       {input === 3 && operation === 0 && <CertificatesForm />}
+      {input === 4 && operation === 0 && <AwardsForm />}
     </>
   );
 };

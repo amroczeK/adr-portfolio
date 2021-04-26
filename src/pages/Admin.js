@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import About from '../components/Editor/About';
+import { About } from '../components/Editor';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -22,14 +22,9 @@ const useStyles = makeStyles({
 const Admin = () => {
   const classes = useStyles();
   const [page, setPage] = useState(0);
-  const [operation, setOperation] = useState(0);
 
   const handlePage = (event, newValue) => {
     setPage(newValue);
-  };
-
-  const handleOperation = (event, newValue) => {
-    setOperation(newValue);
   };
 
   return (
@@ -66,7 +61,7 @@ const Container = styled(motion.div)`
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  padding-top: 10rem;
+  padding-top: 2rem;
   @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     padding: 1.25rem;
     width: 100vw;
