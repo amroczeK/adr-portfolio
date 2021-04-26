@@ -207,11 +207,63 @@ export const createBlog = async ({ data }) => {
  */
 export const updateEducation = async ({ data }) => {
   try {
-    console.log(data);
     let { id, ...update } = data; // Exclude ID from data to update
-    console.log(update);
     await db.collection('education').doc(data.id).update(update);
   } catch (error) {
     console.log(`Error updating education document ${data.id}: ${error}`);
+  }
+};
+
+export const updateExperience = async ({ data }) => {
+  try {
+    let { id, ...update } = data; // Exclude ID from data to update
+    await db.collection('experience').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating experience document ${data.id}: ${error}`);
+  }
+};
+
+export const updateSkills = async ({ data }) => {
+  try {
+    let { id, ...update } = data; // Exclude ID from data to update
+    await db.collection('skills').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating skills document ${data.id}: ${error}`);
+  }
+};
+
+export const updateAwards = async ({ data }) => {
+  try {
+    let { id, ...update } = data; // Exclude ID from data to update
+    await db.collection('awards').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating awards document ${data.id}: ${error}`);
+  }
+};
+
+export const updateCertificates = async ({ data }) => {
+  try {
+    let { id, ...update } = data; // Exclude ID from data to update
+    await db.collection('certificates').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating certificates document ${data.id}: ${error}`);
+  }
+};
+
+export const updateProjects = async ({ data }) => {
+  try {
+    let { id, ...update } = data; // Exclude ID from data to update
+    await db.collection('projects').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating projects document ${data.id}: ${error}`);
+  }
+};
+
+export const updateBlogs = async ({ data }) => {
+  try {
+    let { id, ...update } = data; // Exclude ID from data to update
+    await db.collection('blogs').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating blogs document ${data.id}: ${error}`);
   }
 };
