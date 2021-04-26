@@ -203,7 +203,7 @@ export const createBlog = async ({ data }) => {
 };
 
 /**
- * Functions to update existing data in firestore
+ * Functions to update document in firestore collection
  */
 export const updateEducation = async ({ data }) => {
   try {
@@ -265,5 +265,64 @@ export const updateBlogs = async ({ data }) => {
     await db.collection('blogs').doc(data.id).update(update);
   } catch (error) {
     console.log(`Error updating blogs document ${data.id}: ${error}`);
+  }
+};
+
+/**
+ * Functions to delete document in firestore collection
+ */
+export const deleteEducation = async ({ data }) => {
+  try {
+    await db.collection('education').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting education document ${data.id}: ${error}`);
+  }
+};
+
+export const deleteExperience = async ({ data }) => {
+  try {
+    await db.collection('experience').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting experience document ${data.id}: ${error}`);
+  }
+};
+
+export const deleteSkill = async ({ data }) => {
+  try {
+    await db.collection('skills').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting skills document ${data.id}: ${error}`);
+  }
+};
+
+export const deleteAward = async ({ data }) => {
+  try {
+    await db.collection('awards').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting award document ${data.id}: ${error}`);
+  }
+};
+
+export const deleteCertificate = async ({ data }) => {
+  try {
+    await db.collection('certificates').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting certificate document ${data.id}: ${error}`);
+  }
+};
+
+export const deleteProjects = async ({ data }) => {
+  try {
+    await db.collection('projects').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting project document ${data.id}: ${error}`);
+  }
+};
+
+export const deleteBlogs = async ({ data }) => {
+  try {
+    await db.collection('blogs').doc(data.id).delete();
+  } catch (error) {
+    console.log(`Error deleting blog document ${data.id}: ${error}`);
   }
 };
