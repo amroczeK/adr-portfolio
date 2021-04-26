@@ -2,7 +2,7 @@ import React from 'react';
 import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
 import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
-import { createEducation } from '../../../../../firestore';
+import { updateEducation } from '../../../../../firestore';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
@@ -40,8 +40,8 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
-    //await createEducation({ data });
+    // console.log(data);
+    await updateEducation({ data });
   };
 
   return (

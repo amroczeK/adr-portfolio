@@ -201,3 +201,17 @@ export const createBlog = async ({ data }) => {
     console.log('Error creating awards document:', error);
   }
 };
+
+/**
+ * Functions to update existing data in firestore
+ */
+export const updateEducation = async ({ data }) => {
+  try {
+    console.log(data);
+    let { id, ...update } = data; // Exclude ID from data to update
+    console.log(update);
+    await db.collection('education').doc(data.id).update(update);
+  } catch (error) {
+    console.log(`Error updating education document ${data.id}: ${error}`);
+  }
+};
