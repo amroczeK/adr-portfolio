@@ -66,12 +66,15 @@ const About = () => {
         >
           <Tab value={0} label='Create' />
           <Tab value={1} label='Update' />
-          <Tab value={3} label='Delete' />
+          <Tab value={2} label='Delete' />
         </Tabs>
       </Paper>
       {input === 0 && operation === 0 && <EducationForm operation={0} />}
       {input === 0 && operation === 1 && data?.education && (
         <EducationForm operation={1} education={data.education} />
+      )}
+      {input === 0 && operation === 2 && data?.education && (
+        <EducationForm operation={2} education={data.education} />
       )}
       {input === 1 && operation === 0 && <ExperienceForm />}
       {input === 2 && operation === 0 && <SkillsForm />}

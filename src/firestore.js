@@ -271,58 +271,58 @@ export const updateBlogs = async ({ data }) => {
 /**
  * Functions to delete document in firestore collection
  */
-export const deleteEducation = async ({ data }) => {
+export const deleteEducation = async ({ id }) => {
   try {
-    await db.collection('education').doc(data.id).delete();
+    await db.collection('education').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting education document ${data.id}: ${error}`);
+    console.log(`Error deleting education document ${id}: ${error}`);
   }
 };
 
-export const deleteExperience = async ({ data }) => {
+export const deleteExperience = async ({ id }) => {
   try {
-    await db.collection('experience').doc(data.id).delete();
+    await db.collection('experience').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting experience document ${data.id}: ${error}`);
+    console.log(`Error deleting experience document ${id}: ${error}`);
   }
 };
 
-export const deleteSkill = async ({ data }) => {
+export const deleteSkill = async ({ id }) => {
   try {
-    await db.collection('skills').doc(data.id).delete();
+    await db.collection('skills').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting skills document ${data.id}: ${error}`);
+    console.log(`Error deleting skills document ${id}: ${error}`);
   }
 };
 
-export const deleteAward = async ({ data }) => {
+export const deleteAward = async ({ id }) => {
   try {
-    await db.collection('awards').doc(data.id).delete();
+    await db.collection('awards').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting award document ${data.id}: ${error}`);
+    console.log(`Error deleting award document ${id}: ${error}`);
   }
 };
 
-export const deleteCertificate = async ({ data }) => {
+export const deleteCertificate = async ({ id }) => {
   try {
-    await db.collection('certificates').doc(data.id).delete();
+    await db.collection('certificates').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting certificate document ${data.id}: ${error}`);
+    console.log(`Error deleting certificate document ${id}: ${error}`);
   }
 };
 
-export const deleteProjects = async ({ data }) => {
+export const deleteProjects = async ({ id }) => {
   try {
-    await db.collection('projects').doc(data.id).delete();
+    await db.collection('projects').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting project document ${data.id}: ${error}`);
+    console.log(`Error deleting project document ${id}: ${error}`);
   }
 };
 
-export const deleteBlogs = async ({ data }) => {
+export const deleteBlogs = async ({ id }) => {
   try {
-    await db.collection('blogs').doc(data.id).delete();
+    await db.collection('blogs').doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting blog document ${data.id}: ${error}`);
+    console.log(`Error deleting blog document ${id}: ${error}`);
   }
 };

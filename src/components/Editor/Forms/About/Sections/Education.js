@@ -6,6 +6,7 @@ import { createEducation } from '../../../../../firestore';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import UpdateForm from '../Operations/UpdateForm';
+import DeleteForm from '../Operations/DeleteForm';
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +40,7 @@ const defaultValues = {
 const Education = ({ operation, education }) => {
   const classes = useStyles();
 
+  console.log(operation);
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
   const onSubmit = async (data) => {
@@ -68,6 +70,18 @@ const Education = ({ operation, education }) => {
       {operation === 1 &&
         education?.map(({ id, university, major, course, startYear, endYear }, idx) => (
           <UpdateForm
+            key={idx}
+            id={id}
+            university={university}
+            major={major}
+            course={course}
+            startYear={startYear}
+            endYear={endYear}
+          />
+        ))}
+      {operation === 2 &&
+        education?.map(({ id, university, major, course, startYear, endYear }, idx) => (
+          <DeleteForm
             key={idx}
             id={id}
             university={university}
