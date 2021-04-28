@@ -28,7 +28,7 @@ const About = () => {
   const [input, setInput] = useState(0); // Inputs are the sections of data on page
   const [operation, setOperation] = useState(0); // Operation being performed e.g. CREATE/UPDATE/DELETE
 
-  const { data } = useContext(DataContext);
+  const { appData } = useContext(DataContext);
 
   const handleOperation = (event, newValue) => {
     setOperation(newValue);
@@ -70,11 +70,11 @@ const About = () => {
         </Tabs>
       </Paper>
       {input === 0 && operation === 0 && <EducationForm operation={0} />}
-      {input === 0 && operation === 1 && data?.education && (
-        <EducationForm operation={1} education={data.education} />
+      {input === 0 && operation === 1 && appData?.education && (
+        <EducationForm operation={1} education={appData.education} />
       )}
-      {input === 0 && operation === 2 && data?.education && (
-        <EducationForm operation={2} education={data.education} />
+      {input === 0 && operation === 2 && appData?.education && (
+        <EducationForm operation={2} education={appData.education} />
       )}
       {input === 1 && operation === 0 && <ExperienceForm />}
       {input === 2 && operation === 0 && <SkillsForm />}

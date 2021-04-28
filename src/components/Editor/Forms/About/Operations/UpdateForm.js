@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../../../../../DataContext';
 import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
 import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
-import { updateEducation } from '../../../../../firestore';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
@@ -26,6 +26,8 @@ const useStyles = makeStyles({
 const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
   const classes = useStyles();
 
+  const { onUpdate } = useContext(DataContext);
+
   const defaultValues = {
     id: id,
     university: university,
@@ -39,9 +41,8 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
     defaultValues,
   });
 
-  const onSubmit = async (data) => {
-    // console.log(data);
-    await updateEducation({ data });
+  const onSubmit = (data) => {
+    onUpdate({data, collection: 'education'})
   };
 
   return (

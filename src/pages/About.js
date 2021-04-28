@@ -11,11 +11,10 @@ import { motion } from 'framer-motion';
 import { slideInFromTop, shapeAnimation } from '../animations';
 
 const About = () => {
-  const { data } = useContext(DataContext);
-  console.log(data)
+  const { appData } = useContext(DataContext);
 
   // Sort skills alphabetically
-  const sortedSkills = data?.skills?.sort((a, b) => a.technology.localeCompare(b.technology));
+  const sortedSkills = appData?.skills?.sort((a, b) => a.technology.localeCompare(b.technology));
 
   return (
     <>
@@ -27,32 +26,30 @@ const About = () => {
           <h2>EDUCATION</h2>
         </Title>
         <EducationGrid>
-          {data &&
-            data?.education?.map(({ startDate, endDate, university, major, course }) => (
-              <Education
-                startDate={startDate}
-                endDate={endDate}
-                university={university}
-                major={major}
-                course={course}
-              />
-            ))}
+          {appData?.education?.map(({ startDate, endDate, university, major, course }) => (
+            <Education
+              startDate={startDate}
+              endDate={endDate}
+              university={university}
+              major={major}
+              course={course}
+            />
+          ))}
         </EducationGrid>
         <Title>
           <h2>WORK HISTORY</h2>
         </Title>
         <WorkGrid>
-          {data &&
-            data?.experience?.map((job, idx) => (
-              <Work
-                key={idx}
-                startDate={job.startDate}
-                endDate={job.endDate}
-                position={job.position}
-                company={job.company}
-                description={job.description}
-              />
-            ))}
+          {appData?.experience?.map((job, idx) => (
+            <Work
+              key={idx}
+              startDate={job.startDate}
+              endDate={job.endDate}
+              position={job.position}
+              company={job.company}
+              description={job.description}
+            />
+          ))}
         </WorkGrid>
         <Title>
           <h2>TECHNICAL SKILLS & COMPETENCE</h2>
@@ -66,15 +63,9 @@ const About = () => {
           <h2>CERTIFICATES & AWARDS</h2>
         </Title>
         <CertificatesGrid>
-          {data &&
-            data?.certificates?.map(({ date, award, certificate, subtitle }) => (
-              <Certificates
-                award={award}
-                date={date}
-                certificate={certificate}
-                subtitle={subtitle}
-              />
-            ))}
+          {appData?.certificates?.map(({ date, award, certificate, subtitle }) => (
+            <Certificates award={award} date={date} certificate={certificate} subtitle={subtitle} />
+          ))}
         </CertificatesGrid>
         <Footer />
       </Container>

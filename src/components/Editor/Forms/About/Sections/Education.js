@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../../../../../DataContext';
 import TextAreaCtrl from '../../Controllers/TextFieldCtrl';
 import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
-import { createEducation } from '../../../../../firestore';
+import { createController } from '../../../../../firestore';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import UpdateForm from '../Operations/UpdateForm';
@@ -40,12 +41,12 @@ const defaultValues = {
 const Education = ({ operation, education }) => {
   const classes = useStyles();
 
-  console.log(operation);
+  const { onCreate } = useContext(DataContext);
+
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
   const onSubmit = async (data) => {
-    console.log(data);
-    //await createEducation({ data });
+    onCreate({ data, collection: 'education' });
   };
 
   return (

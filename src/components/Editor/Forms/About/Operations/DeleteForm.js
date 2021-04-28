@@ -3,7 +3,7 @@ import { DataContext } from '../../../../../DataContext';
 import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
 import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
-import { deleteEducation } from '../../../../../firestore';
+import { deleteController } from '../../../../../firestore';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
@@ -42,10 +42,8 @@ const DeleteForm = ({ id, university, major, course, startYear, endYear }) => {
     defaultValues,
   });
 
-  const onSubmit = async (data) => {
-    // console.log(data);
-    await deleteEducation({ id: data.id });
-    onDelete();
+  const onSubmit = (data) => {
+    onDelete({ data, collection: 'education' });
   };
 
   return (
