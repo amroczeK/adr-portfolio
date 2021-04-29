@@ -69,9 +69,9 @@ const Education = ({ operation, education }) => {
         </form>
       )}
       {operation === 1 &&
-        education?.map(({ id, university, major, course, startYear, endYear }, idx) => (
+        education?.map(({ id, university, major, course, startYear, endYear }) => (
           <UpdateForm
-            key={idx}
+            key={id}
             id={id}
             university={university}
             major={major}
@@ -81,9 +81,9 @@ const Education = ({ operation, education }) => {
           />
         ))}
       {operation === 2 &&
-        education?.map(({ id, university, major, course, startYear, endYear }, idx) => (
+        education?.map(({ id, university, major, course, startYear, endYear }) => (
           <DeleteForm
-            key={idx}
+            key={id}
             id={id}
             university={university}
             major={major}

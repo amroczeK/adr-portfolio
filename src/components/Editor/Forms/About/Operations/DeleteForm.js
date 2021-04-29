@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DataContext } from '../../../../../DataContext';
 import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
 import ButtonCtrl from '../../Controllers/ButtonCtrl';
@@ -27,8 +27,6 @@ const useStyles = makeStyles({
 const DeleteForm = ({ id, university, major, course, startYear, endYear }) => {
   const classes = useStyles();
 
-  const { onDelete } = useContext(DataContext);
-
   const defaultValues = {
     id: id,
     university: university,
@@ -38,7 +36,9 @@ const DeleteForm = ({ id, university, major, course, startYear, endYear }) => {
     endYear: endYear,
   };
 
-  const { handleSubmit, reset, control } = useForm({
+  const { onDelete } = useContext(DataContext);
+
+  const { handleSubmit, control } = useForm({
     defaultValues,
   });
 
