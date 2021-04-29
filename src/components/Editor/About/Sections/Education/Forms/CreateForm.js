@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../../../../../DataContext';
 import FormInputs from './FormInputs';
-import TextFieldCtrl from '../../../../Controllers/TextFieldCtrl';
 import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
@@ -52,7 +51,6 @@ const CreateForm = ({ university, major, course, startYear, endYear }) => {
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h1>EDUCATION</h1>
       <FormInputs
         university={university}
         major={major}
@@ -72,9 +70,5 @@ const CreateForm = ({ university, major, course, startYear, endYear }) => {
 export default CreateForm;
 
 const Buttons = styled.div`
-  display: flex;
-`;
-
-const FlexContainer = styled.div`
   display: flex;
 `;

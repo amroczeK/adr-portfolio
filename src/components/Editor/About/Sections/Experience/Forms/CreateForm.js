@@ -44,15 +44,21 @@ const CreateForm = ({ company, position, startYear, endYear, description }) => {
     defaultValues,
   });
 
+  // Convert content with paragraphs/new lines to an array of data
+  // Each paragraph will be it's own element in an array, easier to iterate over this data
+  // and insert it into <p> dynamically
+  const parseNewLines = (data) => {
+    return data.match(/[^\r\n]+/g);
+  };
+
   const onSubmit = (data) => {
-    console.log(data);
-    // onCreate({ data, collection: 'experience' });
-    // reset(defaultValues);
+    data.description = parseNewLines(data.description);
+    onCreate({ data, collection: 'experience' });
+    reset(defaultValues);
   };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h1>EXPERIENCE</h1>
       <FormInputs
         company={company}
         position={position}
@@ -72,9 +78,5 @@ const CreateForm = ({ company, position, startYear, endYear, description }) => {
 export default CreateForm;
 
 const Buttons = styled.div`
-  display: flex;
-`;
-
-const FlexContainer = styled.div`
   display: flex;
 `;

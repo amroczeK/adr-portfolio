@@ -47,7 +47,6 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h1>EDUCATION</h1>
       <FormInputs
         id={id}
         university={university}

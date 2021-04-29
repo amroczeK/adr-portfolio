@@ -77,6 +77,12 @@ const About = () => {
         <EducationForm operation={2} education={appData.education} />
       )}
       {input === 1 && operation === 0 && <ExperienceForm operation={0} />}
+      {input === 1 && operation === 1 && appData?.experience && (
+        <ExperienceForm operation={1} experience={appData.experience} />
+      )}
+      {input === 1 && operation === 2 && appData?.experience && (
+        <ExperienceForm operation={2} experience={appData.experience} />
+      )}
       {input === 2 && operation === 0 && <SkillsForm operation={0} />}
       {input === 3 && operation === 0 && <CertificatesForm operation={0} />}
       {input === 4 && operation === 0 && <AwardsForm operation={0} />}

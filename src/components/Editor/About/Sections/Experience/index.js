@@ -5,7 +5,6 @@ import UpdateForm from './Forms/UpdateForm';
 import DeleteForm from './Forms/DeleteForm';
 
 const Experience = ({ operation, experience }) => {
-  console.log('here', operation);
   return (
     <Container>
       {operation === 0 && <CreatForm />}

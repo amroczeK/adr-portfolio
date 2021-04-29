@@ -23,25 +23,22 @@ const useStyles = makeStyles({
   },
 });
 
-const UpdateForm = ({
-  id,
-  company,
-  position,
-  description,
-  startYear,
-  endYear,
-}) => {
+const UpdateForm = ({ id, company, position, startYear, endYear, description }) => {
   const classes = useStyles();
 
-  const { onUpdate } = useContext(DataContext);
+  const { onCreate } = useContext(DataContext);
 
+  /**
+   * useForm requires a default state/values to avoid the following error:
+   * 'A component is changing an uncontrolled input to be controlled.'
+   */
   const defaultValues = {
     id,
     company,
     position,
-    description,
     startYear,
     endYear,
+    description,
   };
 
   const { handleSubmit, reset, control } = useForm({
@@ -49,12 +46,13 @@ const UpdateForm = ({
   });
 
   const onSubmit = (data) => {
-    onUpdate({ data, collection: 'experience' });
+    console.log(data);
+    // onCreate({ data, collection: 'experience' });
+    // reset(defaultValues);
   };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h1>EXPERIENCE</h1>
       <FormInputs
         id={id}
         company={company}
