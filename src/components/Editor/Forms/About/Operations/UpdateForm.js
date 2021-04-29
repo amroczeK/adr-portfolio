@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../../../../DataContext';
-import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
+import FormInputs from './FormInputs';
 import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,38 +42,22 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
   });
 
   const onSubmit = (data) => {
-    onUpdate({data, collection: 'education'})
+    onUpdate({ data, collection: 'education' });
   };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
       <h1>EDUCATION</h1>
-      <TextFieldCtrl
-        name={'id'}
-        label={'Unique Identifier'}
-        value={id}
+      <FormInputs
+        id={id}
+        university={university}
+        major={major}
+        course={course}
+        startYear={startYear}
+        endYear={endYear}
         control={control}
-        readOnly={true}
+        readOnly={false}
       />
-      <FlexContainer>
-        <TextFieldCtrl
-          name={'startYear'}
-          label={'Start Year'}
-          value={startYear}
-          control={control}
-        />
-        <TextFieldCtrl name={'endYear'} label={'End Year'} value={endYear} control={control} />
-      </FlexContainer>
-      <FlexContainer>
-        <TextFieldCtrl
-          name={'university'}
-          label={'University'}
-          value={university}
-          control={control}
-        />
-        <TextFieldCtrl name={'major'} label={'Major'} value={major} control={control} />
-        <TextFieldCtrl name={'course'} label={'Course'} value={course} control={control} />
-      </FlexContainer>
       <Buttons>
         <ButtonCtrl reset={reset} initialState={defaultValues} />
       </Buttons>
@@ -84,9 +68,5 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
 export default UpdateForm;
 
 const Buttons = styled.div`
-  display: flex;
-`;
-
-const FlexContainer = styled.div`
   display: flex;
 `;
