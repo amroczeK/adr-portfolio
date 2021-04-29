@@ -1,17 +1,29 @@
 import React from 'react';
-import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
+import TextFieldCtrl from '../../../../Controllers/TextFieldCtrl';
+import TextAreaCtrl from '../../../../Controllers/TextAreaCtrl';
 import styled from 'styled-components';
 
-const FormInputs = ({ id, university, major, course, startYear, endYear, control, readOnly }) => {
+const FormInputs = ({
+  id,
+  company,
+  position,
+  description,
+  startYear,
+  endYear,
+  control,
+  readOnly,
+}) => {
   return (
     <>
-      <TextFieldCtrl
-        name={'id'}
-        label={'Unique Identifier'}
-        value={id}
-        control={control}
-        readOnly={readOnly}
-      />
+      {id && (
+        <TextFieldCtrl
+          name={'id'}
+          label={'Unique Identifier'}
+          value={id}
+          control={control}
+          readOnly={true}
+        />
+      )}
       <FlexContainer>
         <TextFieldCtrl
           name={'startYear'}
@@ -30,27 +42,27 @@ const FormInputs = ({ id, university, major, course, startYear, endYear, control
       </FlexContainer>
       <FlexContainer>
         <TextFieldCtrl
-          name={'university'}
-          label={'University'}
-          value={university}
+          name={'company'}
+          label={'Company'}
+          value={company}
           control={control}
           readOnly={readOnly}
         />
         <TextFieldCtrl
-          name={'major'}
-          label={'Major'}
-          value={major}
-          control={control}
-          readOnly={readOnly}
-        />
-        <TextFieldCtrl
-          name={'course'}
-          label={'Course'}
-          value={course}
+          name={'position'}
+          label={'Position'}
+          value={position}
           control={control}
           readOnly={readOnly}
         />
       </FlexContainer>
+      <TextAreaCtrl
+        name={'description'}
+        label={'Description'}
+        value={description}
+        control={control}
+        readOnly={readOnly}
+      />
     </>
   );
 };

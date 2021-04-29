@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../../../../DataContext';
+import { DataContext } from '../../../../../../DataContext';
 import FormInputs from './FormInputs';
-import ButtonCtrl from '../../Controllers/ButtonCtrl';
+import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
@@ -23,49 +23,56 @@ const useStyles = makeStyles({
   },
 });
 
-const DeleteForm = ({ id, university, major, course, startYear, endYear }) => {
+const UpdateForm = ({
+  id,
+  company,
+  position,
+  description,
+  startYear,
+  endYear,
+}) => {
   const classes = useStyles();
 
+  const { onUpdate } = useContext(DataContext);
+
   const defaultValues = {
-    id: id,
-    university: university,
-    major: major,
-    course: course,
-    startYear: startYear,
-    endYear: endYear,
+    id,
+    company,
+    position,
+    description,
+    startYear,
+    endYear,
   };
 
-  const { onDelete } = useContext(DataContext);
-
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, reset, control } = useForm({
     defaultValues,
   });
 
   const onSubmit = (data) => {
-    onDelete({ data, collection: 'education' });
+    onUpdate({ data, collection: 'experience' });
   };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h1>EDUCATION</h1>
+      <h1>EXPERIENCE</h1>
       <FormInputs
         id={id}
-        university={university}
-        major={major}
-        course={course}
+        company={company}
+        position={position}
+        description={description}
         startYear={startYear}
         endYear={endYear}
         control={control}
-        readOnly={true}
+        readOnly={false}
       />
       <Buttons>
-        <ButtonCtrl title={'Delete'} />
+        <ButtonCtrl reset={reset} initialState={defaultValues} />
       </Buttons>
     </form>
   );
 };
 
-export default DeleteForm;
+export default UpdateForm;
 
 const Buttons = styled.div`
   display: flex;

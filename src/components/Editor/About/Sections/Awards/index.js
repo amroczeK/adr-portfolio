@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
-import { createEducation } from '../../../../../firestore';
 
 const useStyles = makeStyles({
   root: {
@@ -52,7 +51,7 @@ const defaultValues = {
   year: '',
 };
 
-const Certificates = () => {
+const Awards = () => {
   const classes = useStyles();
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
@@ -128,7 +127,7 @@ const Certificates = () => {
   );
 };
 
-export default Certificates;
+export default Awards;
 
 const Container = styled.div`
   display: flex;

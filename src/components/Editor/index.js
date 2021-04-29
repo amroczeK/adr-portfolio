@@ -1,1 +1,1 @@
-export { default as About } from './Forms/About/About';
+export { default as About } from './About/About';

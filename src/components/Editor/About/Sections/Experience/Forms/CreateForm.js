@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../../../../DataContext';
-import TextAreaCtrl from '../../Controllers/TextFieldCtrl';
-import ButtonCtrl from '../../Controllers/ButtonCtrl';
+import { DataContext } from '../../../../../../DataContext';
+import FormInputs from './FormInputs';
+import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateForm = () => {
+const CreateForm = ({ company, position, startYear, endYear, description }) => {
   const classes = useStyles();
 
   const { onCreate } = useContext(DataContext);
@@ -33,11 +33,11 @@ const CreateForm = () => {
    * 'A component is changing an uncontrolled input to be controlled.'
    */
   const defaultValues = {
-    university: '',
-    major: '',
-    course: '',
+    company: '',
+    position: '',
     startYear: '',
     endYear: '',
+    description: '',
   };
 
   const { handleSubmit, reset, control } = useForm({
@@ -45,22 +45,23 @@ const CreateForm = () => {
   });
 
   const onSubmit = (data) => {
-    onCreate({ data, collection: 'education' });
-    reset(defaultValues);
+    console.log(data);
+    // onCreate({ data, collection: 'experience' });
+    // reset(defaultValues);
   };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h1>EDUCATION</h1>
-      <FlexContainer>
-        <TextAreaCtrl name={'university'} label={'University'} control={control} />
-        <TextAreaCtrl name={'major'} label={'Major'} control={control} />
-        <TextAreaCtrl name={'course'} label={'Course'} control={control} />
-      </FlexContainer>
-      <FlexContainer>
-        <TextAreaCtrl name={'startYear'} label={'Start Year'} control={control} />
-        <TextAreaCtrl name={'endYear'} label={'End Year'} control={control} />
-      </FlexContainer>
+      <h1>EXPERIENCE</h1>
+      <FormInputs
+        company={company}
+        position={position}
+        description={description}
+        startYear={startYear}
+        endYear={endYear}
+        control={control}
+        readOnly={false}
+      />
       <Buttons>
         <ButtonCtrl reset={reset} initialState={defaultValues} />
       </Buttons>

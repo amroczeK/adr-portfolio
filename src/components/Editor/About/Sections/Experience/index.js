@@ -1,33 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-import CreatForm from '../Operations/CreateForm';
-import UpdateForm from '../Operations/UpdateForm';
-import DeleteForm from '../Operations/DeleteForm';
+import CreatForm from './Forms/CreateForm';
+import UpdateForm from './Forms/UpdateForm';
+import DeleteForm from './Forms/DeleteForm';
 
-const Education = ({ operation, education }) => {
+const Experience = ({ operation, experience }) => {
+  console.log('here', operation);
   return (
     <Container>
       {operation === 0 && <CreatForm />}
       {operation === 1 &&
-        education?.map(({ id, university, major, course, startYear, endYear }) => (
+        experience?.map(({ id, company, position, description, startYear, endYear }) => (
           <UpdateForm
             key={id}
             id={id}
-            university={university}
-            major={major}
-            course={course}
+            company={company}
+            position={position}
+            description={description}
             startYear={startYear}
             endYear={endYear}
           />
         ))}
       {operation === 2 &&
-        education?.map(({ id, university, major, course, startYear, endYear }) => (
+        experience?.map(({ id, company, position, description, startYear, endYear }) => (
           <DeleteForm
             key={id}
             id={id}
-            university={university}
-            major={major}
-            course={course}
+            company={company}
+            position={position}
+            description={description}
             startYear={startYear}
             endYear={endYear}
           />
@@ -36,7 +37,7 @@ const Education = ({ operation, education }) => {
   );
 };
 
-export default Education;
+export default Experience;
 
 const Container = styled.div`
   display: flex;

@@ -1,11 +1,9 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
-import { createExperience } from '../../../../../firestore';
 
 const useStyles = makeStyles({
   root: {
@@ -48,100 +46,67 @@ const useStyles = makeStyles({
  * 'A component is changing an uncontrolled input to be controlled.'
  */
 const defaultValues = {
-  company: '',
-  position: '',
-  startYear: '',
-  endYear: '',
-  description: '',
+  title: '',
+  subtitle: '',
+  year: '',
 };
 
-const Experience = () => {
+const Certificates = () => {
   const classes = useStyles();
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
   const onSubmit = async (data) => {
     console.log(data);
-    console.log(data.description);
-    //await createExperience({ data });
+    //await createEducation({ data });
   };
-
   return (
     <Container>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <h1>WORK EXPERIENCE</h1>
+        <h1>CERTIFICATES</h1>
         <FlexContainer>
           <Controller
-            name='company'
+            name='title'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'Company'}
+                label={'Title'}
                 className={classes.textField}
                 size='small'
               />
             )}
           />
           <Controller
-            name='position'
+            name='subtitle'
             isClearable
             control={control}
             render={({ field }) => (
               <TextField
                 {...field}
                 variant='filled'
-                label={'Position'}
+                label={'Subtitle'}
+                className={classes.textField}
+                size='small'
+              />
+            )}
+          />
+          <Controller
+            name='year'
+            isClearable
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                variant='filled'
+                label={'Year'}
                 className={classes.textField}
                 size='small'
               />
             )}
           />
         </FlexContainer>
-        <FlexContainer>
-          <Controller
-            name='startYear'
-            isClearable
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant='filled'
-                label={'Start Year'}
-                className={classes.textField}
-                size='small'
-              />
-            )}
-          />
-          <Controller
-            name='endYear'
-            isClearable
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant='filled'
-                label={'End Year'}
-                className={classes.textField}
-                size='small'
-              />
-            )}
-          />
-        </FlexContainer>
-        <Controller
-          name='description'
-          isClearable
-          control={control}
-          render={({ field }) => (
-            <TextareaAutosize
-              {...field}
-              rowsMin={10}
-              placeholder='Type item description here...'
-              className={classes.textArea}
-            />
-          )}
-        />
         <Buttons>
           <Button type='submit' variant='contained' className={classes.button}>
             Submit
@@ -162,7 +127,7 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Certificates;
 
 const Container = styled.div`
   display: flex;

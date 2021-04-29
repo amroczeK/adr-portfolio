@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { DataContext } from '../../../../DataContext';
+import { DataContext } from '../../../DataContext';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -76,10 +76,10 @@ const About = () => {
       {input === 0 && operation === 2 && appData?.education && (
         <EducationForm operation={2} education={appData.education} />
       )}
-      {input === 1 && operation === 0 && <ExperienceForm />}
-      {input === 2 && operation === 0 && <SkillsForm />}
-      {input === 3 && operation === 0 && <CertificatesForm />}
-      {input === 4 && operation === 0 && <AwardsForm />}
+      {input === 1 && operation === 0 && <ExperienceForm operation={0} />}
+      {input === 2 && operation === 0 && <SkillsForm operation={0} />}
+      {input === 3 && operation === 0 && <CertificatesForm operation={0} />}
+      {input === 4 && operation === 0 && <AwardsForm operation={0} />}
     </>
   );
 };

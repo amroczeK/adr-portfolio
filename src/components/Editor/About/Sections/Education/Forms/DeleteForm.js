@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../../../../DataContext';
+import { DataContext } from '../../../../../../DataContext';
 import FormInputs from './FormInputs';
-import ButtonCtrl from '../../Controllers/ButtonCtrl';
+import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
@@ -23,10 +23,8 @@ const useStyles = makeStyles({
   },
 });
 
-const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
+const DeleteForm = ({ id, university, major, course, startYear, endYear }) => {
   const classes = useStyles();
-
-  const { onUpdate } = useContext(DataContext);
 
   const defaultValues = {
     id: id,
@@ -37,12 +35,14 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
     endYear: endYear,
   };
 
-  const { handleSubmit, reset, control } = useForm({
+  const { onDelete } = useContext(DataContext);
+
+  const { handleSubmit, control } = useForm({
     defaultValues,
   });
 
   const onSubmit = (data) => {
-    onUpdate({ data, collection: 'education' });
+    onDelete({ data, collection: 'education' });
   };
 
   return (
@@ -56,16 +56,16 @@ const UpdateForm = ({ id, university, major, course, startYear, endYear }) => {
         startYear={startYear}
         endYear={endYear}
         control={control}
-        readOnly={false}
+        readOnly={true}
       />
       <Buttons>
-        <ButtonCtrl reset={reset} initialState={defaultValues} />
+        <ButtonCtrl title={'Delete'} />
       </Buttons>
     </form>
   );
 };
 
-export default UpdateForm;
+export default DeleteForm;
 
 const Buttons = styled.div`
   display: flex;
