@@ -2,17 +2,7 @@ import React from 'react';
 import TextFieldCtrl from '../../../../Controllers/TextFieldCtrl';
 import styled from 'styled-components';
 
-const FormInputs = ({
-  id,
-  university,
-  major,
-  course,
-  startYear,
-  endYear,
-  createdAt,
-  updatedAt,
-  control,
-}) => {
+const FormInputs = ({ id, technology, competence, createdAt, updatedAt, control }) => {
   return (
     <>
       <FlexContainer>
@@ -46,35 +36,15 @@ const FormInputs = ({
       </FlexContainer>
       <FlexContainer>
         <TextFieldCtrl
-          name={'startYear'}
-          label={'Start Year'}
-          value={startYear}
+          name={'technology'}
+          label={'Technology'}
+          value={technology}
           control={control}
         />
         <TextFieldCtrl
-          name={'endYear'}
-          label={'End Year'}
-          value={endYear}
-          control={control}
-        />
-      </FlexContainer>
-      <FlexContainer>
-        <TextFieldCtrl
-          name={'university'}
-          label={'University'}
-          value={university}
-          control={control}
-        />
-        <TextFieldCtrl
-          name={'major'}
-          label={'Major'}
-          value={major}
-          control={control}
-        />
-        <TextFieldCtrl
-          name={'course'}
-          label={'Course'}
-          value={course}
+          name={'competence'}
+          label={'Competence'}
+          value={competence}
           control={control}
         />
       </FlexContainer>
