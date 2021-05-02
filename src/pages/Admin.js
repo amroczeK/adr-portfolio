@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     flexGrow: 1,
     overflow: 'hidden',
     background: 'transparent',
+    marginTop: '1rem'
   },
   tabs: {
     background: '#EEFBFB',
@@ -62,6 +63,7 @@ const Container = styled(motion.div)`
   justify-content: center;
   padding: 1rem;
   padding-top: 2rem;
+  max-width: 100vw;
   @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     padding: 1.25rem;
     width: 100vw;

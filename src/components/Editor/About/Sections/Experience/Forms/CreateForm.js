@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { DataContext } from '../../../../../../DataContext';
 import FormInputs from './FormInputs';
 import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
+import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
@@ -21,10 +22,16 @@ const useStyles = makeStyles({
     padding: '1rem',
     width: '100%',
   },
+  alert: {
+    width: '100%',
+  },
 });
 
 const CreateForm = ({ company, position, startYear, endYear, description }) => {
   const classes = useStyles();
+
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
 
   const { onCreate } = useContext(DataContext);
 
@@ -44,13 +51,40 @@ const CreateForm = ({ company, position, startYear, endYear, description }) => {
     defaultValues,
   });
 
-  const submitHandler = (data) => {
-    onCreate({ data, collection: 'experience' });
-    reset(defaultValues);
+  const submitHandler = async (data) => {
+    try {
+      await onCreate({ data, collection: 'experience' });
+      setSuccess('Successfully created document.');
+      reset(defaultValues);
+    } catch (error) {
+      setError(error.toString());
+    }
   };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
+      {error && (
+        <Alert
+          className={classes.alert}
+          severity='error'
+          onClose={() => {
+            setError(null);
+          }}
+        >
+          {error}
+        </Alert>
+      )}
+      {success && (
+        <Alert
+          className={classes.alert}
+          severity='success'
+          onClose={() => {
+            setSuccess(null);
+          }}
+        >
+          {success}
+        </Alert>
+      )}
       <FormInputs
         company={company}
         position={position}
@@ -60,7 +94,7 @@ const CreateForm = ({ company, position, startYear, endYear, description }) => {
         control={control}
       />
       <Buttons>
-        <ButtonCtrl resetHandler={reset} initialState={defaultValues} title={'Create'}/>
+        <ButtonCtrl resetHandler={reset} initialState={defaultValues} title={'Create'} />
       </Buttons>
     </form>
   );

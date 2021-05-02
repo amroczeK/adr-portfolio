@@ -15,7 +15,7 @@ export const getDocumentById = async ({ id, collection }) => {
     let document = snapshot.data();
     return document;
   } catch (error) {
-    console.log(`Error getting data from ${collection}: ${error}`);
+    throw new Error(`Fetching data from ${collection} with id ${id}: ${error}`);
   }
 };
 
@@ -38,7 +38,7 @@ export const getController = async ({ collection }) => {
     });
     return data;
   } catch (error) {
-    console.log(`Error getting data from ${collection}: ${error}`);
+    throw new Error(`Fetching data from ${collection}: ${error}`);
   }
 };
 
@@ -63,7 +63,7 @@ export const createController = async ({ data, collection }) => {
       ...data,
     };
   } catch (error) {
-    console.log(`Error creating ${collection} document: ${error}`);
+    throw new Error(`Creating ${collection} document: ${error}`);
   }
 };
 
@@ -89,7 +89,7 @@ export const updateController = async ({ data, collection }) => {
     update.updatedAt = convertUnixTimestampToDate(timestamp); // Convert firestore unix timestamp to DateTime for local state storage
     return update;
   } catch (error) {
-    console.log(`Error updating ${collection} document ${data.id}: ${error}`);
+    throw new Error(`Updating ${collection} document ${data.id}: ${error}`);
   }
 };
 
@@ -104,6 +104,6 @@ export const deleteController = async ({ id, collection }) => {
   try {
     await db.collection(collection).doc(id).delete();
   } catch (error) {
-    console.log(`Error deleting ${collection} document ${id}: ${error}`);
+    throw new Error(`Deleting ${collection} document ${id}: ${error}`);
   }
 };
