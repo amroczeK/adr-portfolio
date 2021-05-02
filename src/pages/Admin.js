@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { About } from '../components/Editor';
+import { About, Portfolio } from '../components/Editor';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     flexGrow: 1,
     overflow: 'hidden',
     background: 'transparent',
-    marginTop: '1rem'
+    marginTop: '1rem',
   },
   tabs: {
     background: '#EEFBFB',
@@ -45,7 +45,7 @@ const Admin = () => {
             <Tab value={2} label='Blogs' />
           </Tabs>
           {page === 0 && <About />}
-          {page === 1 && <></>}
+          {page === 1 && <Portfolio />}
           {page === 2 && <></>}
         </Paper>
       </Container>
