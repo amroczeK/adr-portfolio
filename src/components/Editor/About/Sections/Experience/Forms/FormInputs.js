@@ -10,20 +10,42 @@ const FormInputs = ({
   description,
   startYear,
   endYear,
+  createdAt,
+  updatedAt,
   control,
   readOnly,
 }) => {
   return (
     <>
-      {id && (
-        <TextFieldCtrl
-          name={'id'}
-          label={'Unique Identifier'}
-          value={id}
-          control={control}
-          readOnly={true}
-        />
-      )}
+      <FlexContainer>
+        {id && (
+          <TextFieldCtrl
+            name={'id'}
+            label={'Unique Identifier'}
+            value={id}
+            control={control}
+            readOnly={true}
+          />
+        )}
+        {createdAt && (
+          <TextFieldCtrl
+            name={'createdAt'}
+            label={'Created On'}
+            value={createdAt}
+            control={control}
+            readOnly={true}
+          />
+        )}
+        {updatedAt && updatedAt !== '' && (
+          <TextFieldCtrl
+            name={'updatedAt'}
+            label={'Last Updated'}
+            value={updatedAt}
+            control={control}
+            readOnly={true}
+          />
+        )}
+      </FlexContainer>
       <FlexContainer>
         <TextFieldCtrl
           name={'startYear'}

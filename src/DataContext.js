@@ -5,6 +5,7 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [appData, setAppData] = useState({});
+  const [error, setError] = useState('');
 
   const fetchData = async () => {
     try {
@@ -38,14 +39,19 @@ export const DataProvider = ({ children }) => {
    * @param {string} collection e.g. 'education'
    */
   const onCreate = ({ data, collection }) => {
-    createController({ data, collection }).then((newDoc) => {
-      let newData = {
-        ...appData,
-        [collection]: [...appData[collection], newDoc],
-      };
-      setAppData(newData);
-      sessionStorage.setItem('app_data', JSON.stringify(newData));
-    });
+    createController({ data, collection })
+      .then((newDoc) => {
+        let newData = {
+          ...appData,
+          [collection]: [...appData[collection], newDoc],
+        };
+        setAppData(newData);
+        sessionStorage.setItem('app_data', JSON.stringify(newData));
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
   };
 
   /**
@@ -55,15 +61,20 @@ export const DataProvider = ({ children }) => {
    * @param {string} collection e.g. 'education'
    */
   const onDelete = ({ data, collection }) => {
-    deleteController({ id: data.id, collection }).then(() => {
-      let array = appData[collection].filter((item) => item.id !== data.id);
-      let newData = {
-        ...appData,
-        [collection]: [...array],
-      };
-      setAppData(newData);
-      sessionStorage.setItem('app_data', JSON.stringify(newData));
-    });
+    deleteController({ id: data.id, collection })
+      .then(() => {
+        let array = appData[collection].filter((item) => item.id !== data.id);
+        let newData = {
+          ...appData,
+          [collection]: [...array],
+        };
+        setAppData(newData);
+        sessionStorage.setItem('app_data', JSON.stringify(newData));
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
   };
 
   /**
@@ -73,15 +84,22 @@ export const DataProvider = ({ children }) => {
    * @param {string} collection e.g. 'education'
    */
   const onUpdate = ({ data, collection }) => {
-    updateController({ data, collection }).then(() => {
-      let updatedData = appData[collection].map((el) => (el.id === data.id ? data : el));
-      let newData = {
-        ...appData,
-        [collection]: [...updatedData],
-      };
-      setAppData(newData);
-      sessionStorage.setItem('app_data', JSON.stringify(newData));
-    });
+    updateController({ data, collection })
+      .then((updatedDoc) => {
+        let updatedData = appData[collection].map((el) =>
+          el.id === updatedDoc.id ? updatedDoc : el
+        );
+        let newData = {
+          ...appData,
+          [collection]: [...updatedData],
+        };
+        setAppData(newData);
+        sessionStorage.setItem('app_data', JSON.stringify(newData));
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
   };
 
   useEffect(() => {
@@ -92,7 +110,10 @@ export const DataProvider = ({ children }) => {
     if (!appData) {
       fetchData()
         .then((data) => setAppData(data))
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+          setError(error);
+        });
     } else {
       setAppData(JSON.parse(appData));
     }

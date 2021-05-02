@@ -1,4 +1,23 @@
-import { db } from './firebase';
+import { db, getFirestoreTimestamp } from './firebase';
+import { convertUnixTimestampToDate } from './components/Utils';
+
+/**
+ * Controller to get document from specific collection by id
+ *
+ * @param {string} id document id returned for doc from firestore
+ * @param {string} collection e.g. 'experience'
+ * @returns array of objects
+ */
+export const getDocumentById = async ({ id, collection }) => {
+  try {
+    let docRef = await db.collection(collection).doc(id);
+    let snapshot = await docRef.get();
+    let document = snapshot.data();
+    return document;
+  } catch (error) {
+    console.log(`Error getting data from ${collection}: ${error}`);
+  }
+};
 
 /**
  * Controller to get data from specific collection
@@ -34,7 +53,11 @@ export const createController = async ({ data, collection }) => {
   try {
     // Add a new document with a generated id
     let docRef = db.collection(collection).doc();
+    let timestamp = await getFirestoreTimestamp();
+    data.createdAt = timestamp;
+    data.updatedAt = '';
     await docRef.set(data);
+    data.createdAt = convertUnixTimestampToDate(timestamp); // Convert firestore unix timestamp to DateTime for local state storage
     return {
       id: docRef.id,
       ...data,
@@ -53,8 +76,18 @@ export const createController = async ({ data, collection }) => {
  */
 export const updateController = async ({ data, collection }) => {
   try {
-    let { id, ...update } = data; // Exclude ID from data to update
-    await db.collection(collection).doc(data.id).update(update);
+    // NOTE: id cannot be included in data being updated because it's not stored in document fields in firestore
+    // createdAt and updatedAt are being excluded from update so the converted string timestamp in local state doesn't manipulate
+    // their fields in firestore which changes the timestamp field to string.
+    let { id, createdAt, updatedAt, ...update } = data; // Exclude ID, createdAt and updatedAt from data to update
+    let docRef = await db.collection(collection).doc(data.id);
+    let timestamp = await getFirestoreTimestamp();
+    update.updatedAt = timestamp;
+    await docRef.update(update);
+    update.id = id; // Re-add ID into document returned to be stored in local state & session storage
+    update.createdAt = createdAt;
+    update.updatedAt = convertUnixTimestampToDate(timestamp); // Convert firestore unix timestamp to DateTime for local state storage
+    return update;
   } catch (error) {
     console.log(`Error updating ${collection} document ${data.id}: ${error}`);
   }

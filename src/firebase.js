@@ -14,3 +14,8 @@ firebase.initializeApp({
 
 //export const auth = firebase.auth();
 export const db = firebase.firestore();
+
+export const getFirestoreTimestamp = async () => {
+  let timestamp = await firebase.firestore.Timestamp.fromDate(new Date());
+  return timestamp;
+};

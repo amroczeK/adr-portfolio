@@ -3,13 +3,18 @@ import { TimeBox } from './Common/styles';
 import styled from 'styled-components';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { ExpandMore } from '@styled-icons/material-rounded/ExpandMore';
+import { parseNewLines } from './Utils';
 
-const Work = ({ startDate, endDate, position, company, description }) => {
+const Work = ({ startYear, endYear, position, company, description }) => {
   const [expand, setExpand] = useState(false);
 
   const expandHandler = () => {
     setExpand(!expand);
   };
+
+  // Firestore returns strings with multiple lines with \n, need to parse and separate each paragraph
+  // into separate elements in an array to dynamically create <p> for each paragraph.
+  description = parseNewLines(description);
 
   return (
     <Container>
@@ -21,7 +26,7 @@ const Work = ({ startDate, endDate, position, company, description }) => {
       <Line expand={expand} />
       <ContentContainer>
         <TimeBox>
-          {startDate} - {endDate}
+          {startYear} - {endYear}
         </TimeBox>
         <Content>
           <h2>{position}</h2>

@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 const About = () => {
   const classes = useStyles();
   const [input, setInput] = useState(0); // Inputs are the sections of data on page
-  const [operation, setOperation] = useState(0); // Operation being performed e.g. CREATE/UPDATE/DELETE
+  const [operation, setOperation] = useState(0); // Operation being performed e.g. CREATE/UPDATE
 
   const { appData } = useContext(DataContext);
 
@@ -66,22 +66,15 @@ const About = () => {
         >
           <Tab value={0} label='Create' />
           <Tab value={1} label='Update' />
-          <Tab value={2} label='Delete' />
         </Tabs>
       </Paper>
       {input === 0 && operation === 0 && <EducationForm operation={0} />}
       {input === 0 && operation === 1 && appData?.education && (
         <EducationForm operation={1} education={appData.education} />
       )}
-      {input === 0 && operation === 2 && appData?.education && (
-        <EducationForm operation={2} education={appData.education} />
-      )}
       {input === 1 && operation === 0 && <ExperienceForm operation={0} />}
       {input === 1 && operation === 1 && appData?.experience && (
         <ExperienceForm operation={1} experience={appData.experience} />
-      )}
-      {input === 1 && operation === 2 && appData?.experience && (
-        <ExperienceForm operation={2} experience={appData.experience} />
       )}
       {input === 2 && operation === 0 && <SkillsForm operation={0} />}
       {input === 3 && operation === 0 && <CertificatesForm operation={0} />}

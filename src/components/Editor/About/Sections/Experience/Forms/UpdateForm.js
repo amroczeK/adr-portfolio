@@ -4,6 +4,7 @@ import FormInputs from './FormInputs';
 import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
+import { convertUnixTimestampToDate } from '../../../../../Utils';
 import styled from 'styled-components';
 
 const useStyles = makeStyles({
@@ -23,10 +24,19 @@ const useStyles = makeStyles({
   },
 });
 
-const UpdateForm = ({ id, company, position, startYear, endYear, description }) => {
+const UpdateForm = ({
+  id,
+  company,
+  position,
+  startYear,
+  endYear,
+  description,
+  createdAt,
+  updatedAt,
+}) => {
   const classes = useStyles();
 
-  const { onCreate } = useContext(DataContext);
+  const { onUpdate, onDelete } = useContext(DataContext);
 
   /**
    * useForm requires a default state/values to avoid the following error:
@@ -39,20 +49,24 @@ const UpdateForm = ({ id, company, position, startYear, endYear, description }) 
     startYear,
     endYear,
     description,
+    createdAt: convertUnixTimestampToDate(createdAt),
+    updatedAt: convertUnixTimestampToDate(updatedAt),
   };
 
   const { handleSubmit, reset, control } = useForm({
     defaultValues,
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // onCreate({ data, collection: 'experience' });
-    // reset(defaultValues);
+  const updateHandler = (data) => {
+    onUpdate({ data, collection: 'experience' });
+  };
+
+  const deleteHandler = (data) => {
+    onDelete({ data, collection: 'experience' });
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={classes.form} onSubmit={handleSubmit(updateHandler)}>
       <FormInputs
         id={id}
         company={company}
@@ -60,11 +74,17 @@ const UpdateForm = ({ id, company, position, startYear, endYear, description }) 
         description={description}
         startYear={startYear}
         endYear={endYear}
+        createdAt={createdAt}
+        updatedAt={updatedAt}
         control={control}
-        readOnly={false}
       />
       <Buttons>
-        <ButtonCtrl reset={reset} initialState={defaultValues} />
+        <ButtonCtrl
+          title={'Update'}
+          initialState={defaultValues}
+          resetHandler={reset}
+          deleteHandler={deleteHandler}
+        />
       </Buttons>
     </form>
   );

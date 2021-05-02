@@ -1,8 +1,13 @@
 import React from 'react';
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline';
+import { parseNewLines } from './Utils';
 import styled from 'styled-components';
 
 const Modal = ({ open, title, image, description, closeModal }) => {
+  // Firestore returns strings with multiple lines with \n, need to parse and separate each paragraph
+  // into separate elements in an array to dynamically create <p> for each paragraph.
+  description = parseNewLines(description);
+
   return (
     <Container open={open}>
       <Shape open={open}>

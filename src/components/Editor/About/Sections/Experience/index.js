@@ -2,36 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
-import DeleteForm from './Forms/DeleteForm';
 
 const Experience = ({ operation, experience }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
       {operation === 1 &&
-        experience?.map(({ id, company, position, description, startYear, endYear }) => (
-          <UpdateForm
-            key={id}
-            id={id}
-            company={company}
-            position={position}
-            description={description}
-            startYear={startYear}
-            endYear={endYear}
-          />
-        ))}
-      {operation === 2 &&
-        experience?.map(({ id, company, position, description, startYear, endYear }) => (
-          <DeleteForm
-            key={id}
-            id={id}
-            company={company}
-            position={position}
-            description={description}
-            startYear={startYear}
-            endYear={endYear}
-          />
-        ))}
+        experience?.map(
+          ({ id, company, position, description, startYear, endYear, createdAt, updatedAt }) => (
+            <UpdateForm
+              key={id}
+              id={id}
+              company={company}
+              position={position}
+              description={description}
+              startYear={startYear}
+              endYear={endYear}
+              createdAt={createdAt}
+              updatedAt={updatedAt}
+            />
+          )
+        )}
     </Container>
   );
 };

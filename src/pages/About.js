@@ -26,10 +26,10 @@ const About = () => {
           <h2>EDUCATION</h2>
         </Title>
         <EducationGrid>
-          {appData?.education?.map(({ startDate, endDate, university, major, course }) => (
+          {appData?.education?.map(({ startYear, endYear, university, major, course }) => (
             <Education
-              startDate={startDate}
-              endDate={endDate}
+              startYear={startYear}
+              endYear={endYear}
               university={university}
               major={major}
               course={course}
@@ -43,8 +43,8 @@ const About = () => {
           {appData?.experience?.map((job, idx) => (
             <Work
               key={idx}
-              startDate={job.startDate}
-              endDate={job.endDate}
+              startYear={job.startYear}
+              endYear={job.endYear}
               position={job.position}
               company={job.company}
               description={job.description}

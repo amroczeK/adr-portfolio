@@ -14,23 +14,35 @@ const useStyles = makeStyles({
   },
 });
 
-const ButtonCtrl = ({ reset, initialState, title }) => {
+const ButtonCtrl = ({ initialState, title, resetHandler, deleteHandler }) => {
   const classes = useStyles();
   return (
     <>
       <Button type='submit' variant='contained' className={classes.button}>
         {title ? title : 'Submit'}
       </Button>
-      {reset && initialState && (
+      {resetHandler && initialState && (
         <Button
           type='button'
           onClick={() => {
-            reset(initialState);
+            resetHandler(initialState);
           }}
           variant='contained'
           className={classes.button}
         >
           Reset
+        </Button>
+      )}
+      {deleteHandler && initialState && (
+        <Button
+          type='button'
+          onClick={() => {
+            deleteHandler(initialState);
+          }}
+          variant='contained'
+          className={classes.button}
+        >
+          Delete
         </Button>
       )}
     </>

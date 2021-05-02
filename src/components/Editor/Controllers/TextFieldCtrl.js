@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TextFieldCtrl = ({ name, label, value = '', control, readOnly }) => {
+const TextFieldCtrl = ({ name, label, value = '', control, readOnly = false }) => {
   const classes = useStyles();
   return (
     <Controller
@@ -30,7 +30,7 @@ const TextFieldCtrl = ({ name, label, value = '', control, readOnly }) => {
             onChange={field.onChange}
             inputRef={field.ref}
             InputProps={{
-              readOnly: readOnly ? true : false,
+              readOnly: readOnly,
             }}
           />
         </>

@@ -2,36 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
-import DeleteForm from './Forms/DeleteForm';
 
 const Education = ({ operation, education }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
       {operation === 1 &&
-        education?.map(({ id, university, major, course, startYear, endYear }) => (
-          <UpdateForm
-            key={id}
-            id={id}
-            university={university}
-            major={major}
-            course={course}
-            startYear={startYear}
-            endYear={endYear}
-          />
-        ))}
-      {operation === 2 &&
-        education?.map(({ id, university, major, course, startYear, endYear }) => (
-          <DeleteForm
-            key={id}
-            id={id}
-            university={university}
-            major={major}
-            course={course}
-            startYear={startYear}
-            endYear={endYear}
-          />
-        ))}
+        education?.map(
+          ({ id, university, major, course, startYear, endYear, createdAt, updatedAt }) => (
+            <UpdateForm
+              key={id}
+              id={id}
+              university={university}
+              major={major}
+              course={course}
+              startYear={startYear}
+              endYear={endYear}
+              createdAt={createdAt}
+              updatedAt={updatedAt}
+            />
+          )
+        )}
     </Container>
   );
 };

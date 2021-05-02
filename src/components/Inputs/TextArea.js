@@ -13,7 +13,6 @@ const useStyles = makeStyles({
 
 const TextArea = (...rest) => {
   const classes = useStyles();
-  console.log(rest)
   return (
     <TextareaAutosize
       {...rest}

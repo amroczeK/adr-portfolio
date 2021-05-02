@@ -55,13 +55,13 @@ const Certificates = () => {
   const classes = useStyles();
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
-  const onSubmit = async (data) => {
+  const submitHandler = async (data) => {
     console.log(data);
     //await createEducation({ data });
   };
   return (
     <Container>
-      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
         <h1>CERTIFICATES</h1>
         <FlexContainer>
           <Controller

@@ -44,13 +44,13 @@ const CreateForm = ({ university, major, course, startYear, endYear }) => {
     defaultValues,
   });
 
-  const onSubmit = (data) => {
+  const submitHandler = (data) => {
     onCreate({ data, collection: 'education' });
     reset(defaultValues);
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
       <FormInputs
         university={university}
         major={major}
@@ -58,10 +58,9 @@ const CreateForm = ({ university, major, course, startYear, endYear }) => {
         startYear={startYear}
         endYear={endYear}
         control={control}
-        readOnly={false}
       />
       <Buttons>
-        <ButtonCtrl reset={reset} initialState={defaultValues} />
+        <ButtonCtrl resetHandler={reset} initialState={defaultValues} title={'Create'} />
       </Buttons>
     </form>
   );

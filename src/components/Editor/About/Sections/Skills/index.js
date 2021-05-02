@@ -55,13 +55,13 @@ const Skills = () => {
   const classes = useStyles();
   const { handleSubmit, reset, control } = useForm({ defaultValues });
 
-  const onSubmit = async (data) => {
+  const submitHandler = async (data) => {
     console.log(data);
     //await addSkill({ data });
   };
   return (
     <Container>
-      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={classes.form} submitHandler={handleSubmit(submitHandler)}>
         <h1>TECHNICAL SKILLS</h1>
         <FlexContainer>
           <Controller
