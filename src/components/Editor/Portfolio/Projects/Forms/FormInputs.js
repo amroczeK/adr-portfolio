@@ -1,7 +1,22 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import TextFieldCtrl from '../../../Controllers/TextFieldCtrl';
 import TextAreaCtrl from '../../../Controllers/TextAreaCtrl';
+import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
+
+const useStyles = makeStyles({
+  button: {
+    color: '#EEFBFB',
+    margin: '0.5rem',
+    height: '3rem',
+    width: '10rem',
+    backgroundColor: '#007CC7',
+    '&:hover': {
+      background: '#4DA8DA',
+    },
+  },
+});
 
 const FormInputs = ({
   id,
@@ -14,6 +29,7 @@ const FormInputs = ({
   control,
   readOnly,
 }) => {
+  const classes = useStyles();
   return (
     <>
       <FlexContainer>
@@ -69,6 +85,10 @@ const FormInputs = ({
           control={control}
           readOnly={readOnly}
         />
+        <Button variant='contained' component='label' className={classes.button}>
+          Upload File
+          <input type='file' hidden />
+        </Button>
       </FlexContainer>
       <TextAreaCtrl
         name={'description'}
