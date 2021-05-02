@@ -29,6 +29,7 @@ const TextFieldCtrl = ({ name, label, value = '', control, readOnly = false }) =
             size='small'
             onChange={field.onChange}
             inputRef={field.ref}
+            required
             InputProps={{
               readOnly: readOnly,
             }}

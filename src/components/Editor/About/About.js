@@ -82,11 +82,11 @@ const About = () => {
       )}
       {input === 3 && operation === 0 && <CertificatesForm operation={0} />}
       {input === 3 && operation === 1 && appData?.certificates && (
-        <CertificatesForm operation={1} skills={appData.certificates} />
+        <CertificatesForm operation={1} certificates={appData.certificates} />
       )}
       {input === 4 && operation === 0 && <AwardsForm operation={0} />}
       {input === 4 && operation === 1 && appData?.awards && (
-        <AwardsForm operation={1} skills={appData.awards} />
+        <AwardsForm operation={1} awards={appData.awards} />
       )}
     </>
   );
