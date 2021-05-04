@@ -13,13 +13,9 @@ const Portfolio = () => {
 
   const [open, setOpen] = useState(false);
   const [currProject, setCurrProject] = useState({});
-  console.log(currProject);
-  console.log(appData);
 
   const modalHandler = (index) => {
     setOpen(!open);
-    console.log(index);
-    console.log(appData.projects[index]);
     setCurrProject(appData?.projects[index]);
   };
 
