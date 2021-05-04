@@ -1,7 +1,7 @@
 import React from 'react';
 import TextFieldCtrl from '../../../Controllers/TextFieldCtrl';
 import TextAreaCtrl from '../../../Controllers/TextAreaCtrl';
-import Upload from './Upload';
+import Upload from '../../../../Upload';
 import styled from 'styled-components';
 
 const FormInputs = ({ id, createdAt, updatedAt, control, imageRefHandler, folderLocation }) => {

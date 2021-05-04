@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
 
-const Awards = ({ operation, awards }) => {
+const AwardsForm = ({ operation, awards }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
@@ -23,7 +23,7 @@ const Awards = ({ operation, awards }) => {
   );
 };
 
-export default Awards;
+export default AwardsForm;
 
 const Container = styled.div`
   display: flex;

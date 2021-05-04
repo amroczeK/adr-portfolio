@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
 
-const Education = ({ operation, education }) => {
+const EducationForm = ({ operation, education }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
@@ -27,7 +27,7 @@ const Education = ({ operation, education }) => {
   );
 };
 
-export default Education;
+export default EducationForm;
 
 const Container = styled.div`
   display: flex;

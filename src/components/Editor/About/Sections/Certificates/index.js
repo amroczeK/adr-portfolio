@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
 
-const Certificates = ({ operation, certificates }) => {
+const CertificatesForm = ({ operation, certificates }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
@@ -23,7 +23,7 @@ const Certificates = ({ operation, certificates }) => {
   );
 };
 
-export default Certificates;
+export default CertificatesForm;
 
 const Container = styled.div`
   display: flex;

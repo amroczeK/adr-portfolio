@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { About, Portfolio } from '../components/Editor';
+import { About, Portfolio, Blogs } from '../components/Editor';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -46,7 +46,7 @@ const Admin = () => {
           </Tabs>
           {page === 0 && <About />}
           {page === 1 && <Portfolio />}
-          {page === 2 && <></>}
+          {page === 2 && <Blogs />}
         </Paper>
       </Container>
     </>

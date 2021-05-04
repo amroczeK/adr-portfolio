@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { DataContext } from '../../../../../DataContext';
+import { DataContext } from '../../../../DataContext';
 import FormInputs from './FormInputs';
-import ButtonCtrl from '../../../Controllers/ButtonCtrl';
+import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
@@ -38,12 +38,16 @@ const CreateForm = () => {
     title: '',
     description: '',
     imageRef: '',
+    fileLocation: '',
     url: '',
   };
+
+  const folderLocation = 'blogs/';
 
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
   const [imgRef, setImgRef] = useState(null);
+  const [fileLoc, setFileLoc] = useState(null);
 
   const { onCreate } = useContext(DataContext);
 
@@ -53,7 +57,7 @@ const CreateForm = () => {
 
   const submitHandler = async (data) => {
     try {
-      await onCreate({ data, collection: 'projects' });
+      await onCreate({ data, collection: 'blogs' });
       setSuccess('Successfully created document.');
       reset(defaultValues);
     } catch (error) {
@@ -61,16 +65,19 @@ const CreateForm = () => {
     }
   };
 
-  const imageRefHandler = (ref) => {
-    setImgRef(ref);
+  const imageRefHandler = ({ url, filename, error }) => {
+    setImgRef(url);
+    setFileLoc(`${folderLocation}${filename}`);
+    setError(error);
   };
 
   useEffect(() => {
     if (imgRef) {
       setValue('imageRef', imgRef);
+      setValue('fileLocation', fileLoc);
     }
     // eslint-disable-next-line
-  }, [imgRef]);
+  }, [imgRef, fileLoc]);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
@@ -98,6 +105,7 @@ const CreateForm = () => {
       )}
       <FormInputs
         imageRefHandler={imageRefHandler}
+        folderLocation={folderLocation}
         control={control}
       />
       <Buttons>

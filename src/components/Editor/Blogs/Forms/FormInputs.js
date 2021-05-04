@@ -1,16 +1,10 @@
 import React from 'react';
-import TextFieldCtrl from '../../../Controllers/TextFieldCtrl';
-import TextAreaCtrl from '../../../Controllers/TextAreaCtrl';
-import Upload from './Upload';
+import TextFieldCtrl from '../../Controllers/TextFieldCtrl';
+import TextAreaCtrl from '../../Controllers/TextAreaCtrl';
+import Upload from '../../../Upload';
 import styled from 'styled-components';
 
-const FormInputs = ({
-  id,
-  createdAt,
-  updatedAt,
-  control,
-  imageRefHandler,
-}) => {
+const FormInputs = ({ id, createdAt, updatedAt, control, imageRefHandler, folderLocation }) => {
   return (
     <>
       <FlexContainer>
@@ -40,31 +34,25 @@ const FormInputs = ({
         )}
       </FlexContainer>
       <FlexContainer>
-        <TextFieldCtrl
-          name={'title'}
-          label={'Title'}
-          control={control}
-        />
+        <TextFieldCtrl name={'title'} label={'Title'} control={control} />
+        <TextFieldCtrl name={'url'} label={'URL'} control={control} />
+      </FlexContainer>
+      <FlexContainer>
         <TextFieldCtrl
           name={'imageRef'}
           label={'Image Reference'}
           control={control}
           readOnly={true}
         />
-      </FlexContainer>
-      <FlexContainer>
         <TextFieldCtrl
-          name={'url'}
-          label={'URL'}
+          name={'fileLocation'}
+          label={'File Location'}
           control={control}
+          readOnly={true}
         />
-        <Upload imageRefHandler={imageRefHandler} />
       </FlexContainer>
-      <TextAreaCtrl
-        name={'description'}
-        label={'Description'}
-        control={control}
-      />
+      <Upload imageRefHandler={imageRefHandler} folderLocation={folderLocation} />
+      <TextAreaCtrl name={'description'} label={'Description'} control={control} />
     </>
   );
 };

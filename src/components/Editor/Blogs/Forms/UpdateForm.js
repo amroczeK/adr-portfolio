@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { DataContext } from '../../../../../DataContext';
+import { DataContext } from '../../../../DataContext';
 import FormInputs from './FormInputs';
-import ButtonCtrl from '../../../Controllers/ButtonCtrl';
+import ButtonCtrl from '../../Controllers/ButtonCtrl';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
-import { convertUnixTimestampToDate } from '../../../../Utils';
+import { convertUnixTimestampToDate } from '../../../Utils';
 import styled from 'styled-components';
 
 const useStyles = makeStyles({
@@ -28,11 +28,22 @@ const useStyles = makeStyles({
   },
 });
 
-const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedAt }) => {
+const UpdateForm = ({
+  id,
+  title,
+  description,
+  imageRef,
+  fileLocation,
+  url,
+  createdAt,
+  updatedAt,
+}) => {
   const classes = useStyles();
 
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
+  const [imgRef, setImgRef] = useState(null);
+  const [fileLoc, setFileLoc] = useState(null);
 
   const { onUpdate, onDelete } = useContext(DataContext);
 
@@ -45,10 +56,13 @@ const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedA
     title,
     description,
     imageRef,
+    fileLocation,
     url,
     createdAt: convertUnixTimestampToDate(createdAt),
     updatedAt: convertUnixTimestampToDate(updatedAt),
   };
+
+  const folderLocation = 'blogs/';
 
   const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues,
@@ -56,7 +70,7 @@ const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedA
 
   const updateHandler = async (data) => {
     try {
-      await onUpdate({ data, collection: 'projects' });
+      await onUpdate({ data, collection: 'blogs' });
       setSuccess(`Successfully updated document ${data.id}`);
     } catch (error) {
       setError(error.toString());
@@ -65,11 +79,17 @@ const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedA
 
   const deleteHandler = async (data) => {
     try {
-      await onDelete({ data, collection: 'projects' });
+      await onDelete({ data, collection: 'blogs' });
       setSuccess(`Successfully deleted document ${data.id}`);
     } catch (error) {
       setError(error.toString());
     }
+  };
+
+  const imageRefHandler = ({ url, filename, error }) => {
+    setImgRef(url);
+    setFileLoc(`${folderLocation}${filename}`);
+    setError(error);
   };
 
   useEffect(() => {
@@ -78,6 +98,14 @@ const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedA
     }
     // eslint-disable-next-line
   }, [updatedAt]);
+
+  useEffect(() => {
+    if (imgRef) {
+      setValue('imageRef', imgRef);
+      setValue('fileLocation', fileLoc);
+    }
+    // eslint-disable-next-line
+  }, [imgRef, fileLoc]);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(updateHandler)}>
@@ -103,7 +131,14 @@ const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedA
           {success}
         </Alert>
       )}
-      <FormInputs id={id} createdAt={createdAt} updatedAt={updatedAt} control={control} />
+      <FormInputs
+        id={id}
+        createdAt={createdAt}
+        updatedAt={updatedAt}
+        imageRefHandler={imageRefHandler}
+        folderLocation={folderLocation}
+        control={control}
+      />
       <Buttons>
         <ButtonCtrl
           title={'Update'}

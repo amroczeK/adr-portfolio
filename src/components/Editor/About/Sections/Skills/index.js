@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
 
-const Skills = ({ operation, skills }) => {
+const SkillsForm = ({ operation, skills }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
@@ -22,7 +22,7 @@ const Skills = ({ operation, skills }) => {
   );
 };
 
-export default Skills;
+export default SkillsForm;
 
 const Container = styled.div`
   display: flex;

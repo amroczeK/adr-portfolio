@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import CreatForm from './Forms/CreateForm';
-import UpdateForm from './Forms/UpdateForm';
+import CreatForm from './CreateForm';
+import UpdateForm from './UpdateForm';
 
-const ExperienceForm = ({ operation, experience }) => {
+const BlogsForm = ({ operation, blogs }) => {
   return (
     <Container>
       {operation === 0 && <CreatForm />}
       {operation === 1 &&
-        experience?.map(
-          ({ id, company, position, description, startYear, endYear, createdAt, updatedAt }) => (
+        blogs?.map(
+          ({ id, title, description, imageRef, fileLocation, url, createdAt, updatedAt }) => (
             <UpdateForm
               key={id}
               id={id}
-              company={company}
-              position={position}
+              title={title}
               description={description}
-              startYear={startYear}
-              endYear={endYear}
+              imageRef={imageRef}
+              fileLocation={fileLocation}
+              url={url}
               createdAt={createdAt}
               updatedAt={updatedAt}
             />
@@ -27,7 +27,7 @@ const ExperienceForm = ({ operation, experience }) => {
   );
 };
 
-export default ExperienceForm;
+export default BlogsForm;
 
 const Container = styled.div`
   display: flex;
