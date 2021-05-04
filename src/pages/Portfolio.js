@@ -13,10 +13,14 @@ const Portfolio = () => {
 
   const [open, setOpen] = useState(false);
   const [currProject, setCurrProject] = useState({});
+  console.log(currProject);
+  console.log(appData);
 
   const modalHandler = (index) => {
     setOpen(!open);
-    setCurrProject(appData.projects[index]);
+    console.log(index);
+    console.log(appData.projects[index]);
+    setCurrProject(appData?.projects[index]);
   };
 
   const closeModal = () => {
@@ -32,16 +36,16 @@ const Portfolio = () => {
         <Modal
           open={open}
           title={currProject.title}
-          image={currProject.image}
+          image={currProject.imageRef}
           description={currProject.description}
           closeModal={closeModal}
         />
         <Grid>
-          {appData?.projects?.map(({ title, image, link }, index) => (
+          {appData?.projects?.map(({ title, imageRef, url }, index) => (
             <Project
               title={title}
-              image={image}
-              link={link}
+              imageRef={imageRef}
+              url={url}
               openModal={modalHandler}
               index={index}
             />

@@ -2,23 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Project = ({ title, image, link, openModal, index }) => {
+const Project = ({ title, imageRef, url, openModal, index }) => {
   const modalHandler = () => {
     openModal(index);
   };
   return (
     // <Link
     //   to={{
-    //     pathname: `${link}`,
+    //     pathname: `${url}`,
     //   }}
     //   target='_blank'
     // >
-    <Container onClick={modalHandler}>
-      <img src={image} alt='project-img' />
-      <Title>
-        <h1>{title?.toUpperCase()}</h1>
-      </Title>
-    </Container>
+      <Container onClick={modalHandler}>
+        <img src={imageRef} alt='project-img' />
+        <Title>
+          <h1>{title?.toUpperCase()}</h1>
+        </Title>
+      </Container>
     // </Link>
   );
 };

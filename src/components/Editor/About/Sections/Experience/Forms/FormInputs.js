@@ -23,7 +23,7 @@ const FormInputs = ({ id, createdAt, updatedAt, control, readOnly }) => {
             readOnly={true}
           />
         )}
-        {updatedAt(
+        {updatedAt && (
           <TextFieldCtrl
             name={'updatedAt'}
             label={'Last Updated'}

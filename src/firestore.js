@@ -28,7 +28,7 @@ export const getDocumentById = async ({ id, collection }) => {
 export const getController = async ({ collection }) => {
   try {
     let data = [];
-    const snapshot = await db.collection(collection).get();
+    const snapshot = await db.collection(collection).orderBy('createdAt').get();
     snapshot.forEach((doc) => {
       let docs = {
         id: doc.id,
