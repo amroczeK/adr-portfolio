@@ -8,18 +8,21 @@ const Projects = ({ operation, projects }) => {
     <Container>
       {operation === 0 && <CreatForm />}
       {operation === 1 &&
-        projects?.map(({ id, title, description, imageRef, url, createdAt, updatedAt }) => (
-          <UpdateForm
-            key={id}
-            id={id}
-            title={title}
-            description={description}
-            imageRef={imageRef}
-            url={url}
-            createdAt={createdAt}
-            updatedAt={updatedAt}
-          />
-        ))}
+        projects?.map(
+          ({ id, title, description, imageRef, fileLocation, url, createdAt, updatedAt }) => (
+            <UpdateForm
+              key={id}
+              id={id}
+              title={title}
+              description={description}
+              imageRef={imageRef}
+              fileLocation={fileLocation}
+              url={url}
+              createdAt={createdAt}
+              updatedAt={updatedAt}
+            />
+          )
+        )}
     </Container>
   );
 };

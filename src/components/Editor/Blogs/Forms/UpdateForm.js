@@ -28,22 +28,11 @@ const useStyles = makeStyles({
   },
 });
 
-const UpdateForm = ({
-  id,
-  title,
-  description,
-  imageRef,
-  fileLocation,
-  url,
-  createdAt,
-  updatedAt,
-}) => {
+const UpdateForm = ({ id, title, description, imageRef, url, createdAt, updatedAt }) => {
   const classes = useStyles();
 
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
-  const [imgRef, setImgRef] = useState(null);
-  const [fileLoc, setFileLoc] = useState(null);
 
   const { onUpdate, onDelete } = useContext(DataContext);
 
@@ -56,13 +45,10 @@ const UpdateForm = ({
     title,
     description,
     imageRef,
-    fileLocation,
     url,
     createdAt: convertUnixTimestampToDate(createdAt),
     updatedAt: convertUnixTimestampToDate(updatedAt),
   };
-
-  const folderLocation = 'portfolio/';
 
   const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues,
@@ -86,26 +72,12 @@ const UpdateForm = ({
     }
   };
 
-  const imageRefHandler = ({ url, filename, error }) => {
-    setImgRef(url);
-    setFileLoc(`${folderLocation}${filename}`);
-    setError(error);
-  };
-
   useEffect(() => {
     if (updatedAt) {
       setValue('updatedAt', updatedAt);
     }
     // eslint-disable-next-line
   }, [updatedAt]);
-
-  useEffect(() => {
-    if (imgRef) {
-      setValue('imageRef', imgRef);
-      setValue('fileLocation', fileLoc);
-    }
-    // eslint-disable-next-line
-  }, [imgRef, fileLoc]);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(updateHandler)}>
@@ -131,14 +103,7 @@ const UpdateForm = ({
           {success}
         </Alert>
       )}
-      <FormInputs
-        id={id}
-        createdAt={createdAt}
-        updatedAt={updatedAt}
-        imageRefHandler={imageRefHandler}
-        folderLocation={folderLocation}
-        control={control}
-      />
+      <FormInputs id={id} createdAt={createdAt} updatedAt={updatedAt} control={control} />
       <Buttons>
         <ButtonCtrl
           title={'Update'}

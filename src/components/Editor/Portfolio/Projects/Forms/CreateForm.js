@@ -38,12 +38,16 @@ const CreateForm = () => {
     title: '',
     description: '',
     imageRef: '',
+    fileLocation: '',
     url: '',
   };
+
+  const folderLocation = 'portfolio/';
 
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
   const [imgRef, setImgRef] = useState(null);
+  const [fileLoc, setFileLoc] = useState(null);
 
   const { onCreate } = useContext(DataContext);
 
@@ -61,16 +65,19 @@ const CreateForm = () => {
     }
   };
 
-  const imageRefHandler = (ref) => {
-    setImgRef(ref);
+  const imageRefHandler = ({ url, filename, error }) => {
+    setImgRef(url);
+    setFileLoc(`${folderLocation}${filename}`);
+    setError(error);
   };
 
   useEffect(() => {
     if (imgRef) {
       setValue('imageRef', imgRef);
+      setValue('fileLocation', fileLoc);
     }
     // eslint-disable-next-line
-  }, [imgRef]);
+  }, [imgRef, fileLoc]);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
@@ -98,6 +105,7 @@ const CreateForm = () => {
       )}
       <FormInputs
         imageRefHandler={imageRefHandler}
+        folderLocation={folderLocation}
         control={control}
       />
       <Buttons>

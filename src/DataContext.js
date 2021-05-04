@@ -47,7 +47,7 @@ export const DataProvider = ({ children }) => {
       setAppData(newData);
       sessionStorage.setItem('app_data', JSON.stringify(newData));
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw error;
     }
   };
@@ -71,7 +71,7 @@ export const DataProvider = ({ children }) => {
       setAppData(newData);
       sessionStorage.setItem('app_data', JSON.stringify(newData));
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw error;
     }
   };
@@ -84,7 +84,7 @@ export const DataProvider = ({ children }) => {
    */
   const onDelete = async ({ data, collection }) => {
     try {
-      await deleteController({ id: data.id, collection });
+      await deleteController({ id: data.id, collection, fileLoc: data.fileLocation });
       let array = appData[collection].filter((item) => item.id !== data.id);
       let newData = {
         ...appData,
@@ -93,7 +93,7 @@ export const DataProvider = ({ children }) => {
       setAppData(newData);
       sessionStorage.setItem('app_data', JSON.stringify(newData));
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw error;
     }
   };
@@ -107,7 +107,7 @@ export const DataProvider = ({ children }) => {
       fetchData()
         .then((data) => setAppData(data))
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     } else {
       setAppData(JSON.parse(appData));

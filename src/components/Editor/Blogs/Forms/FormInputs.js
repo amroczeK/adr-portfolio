@@ -4,7 +4,13 @@ import TextAreaCtrl from '../../../Controllers/TextAreaCtrl';
 import Upload from './Upload';
 import styled from 'styled-components';
 
-const FormInputs = ({ id, createdAt, updatedAt, control, imageRefHandler, folderLocation }) => {
+const FormInputs = ({
+  id,
+  createdAt,
+  updatedAt,
+  control,
+  imageRefHandler,
+}) => {
   return (
     <>
       <FlexContainer>
@@ -34,25 +40,31 @@ const FormInputs = ({ id, createdAt, updatedAt, control, imageRefHandler, folder
         )}
       </FlexContainer>
       <FlexContainer>
-        <TextFieldCtrl name={'title'} label={'Title'} control={control} />
-        <TextFieldCtrl name={'url'} label={'URL'} control={control} />
-      </FlexContainer>
-      <FlexContainer>
+        <TextFieldCtrl
+          name={'title'}
+          label={'Title'}
+          control={control}
+        />
         <TextFieldCtrl
           name={'imageRef'}
           label={'Image Reference'}
           control={control}
           readOnly={true}
         />
-        <TextFieldCtrl
-          name={'fileLocation'}
-          label={'File Location'}
-          control={control}
-          readOnly={true}
-        />
       </FlexContainer>
-      <Upload imageRefHandler={imageRefHandler} folderLocation={folderLocation} />
-      <TextAreaCtrl name={'description'} label={'Description'} control={control} />
+      <FlexContainer>
+        <TextFieldCtrl
+          name={'url'}
+          label={'URL'}
+          control={control}
+        />
+        <Upload imageRefHandler={imageRefHandler} />
+      </FlexContainer>
+      <TextAreaCtrl
+        name={'description'}
+        label={'Description'}
+        control={control}
+      />
     </>
   );
 };

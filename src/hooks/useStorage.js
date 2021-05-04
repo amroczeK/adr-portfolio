@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { storage } from '../firebase';
 
-const useStorage = (file) => {
+const useStorage = ({ file, folderLocation }) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
     if (file) {
-      const storageRef = storage.ref(file.name);
+      let fileRef = folderLocation ? `${folderLocation}${file.name}` : file.name;
+      const storageRef = storage.ref(fileRef);
       storageRef.put(file).on(
         'state_changed',
         (snapshot) => {
           let progressPercentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(progressPercentage);
           setProgress(progressPercentage);
         },
         (error) => {
@@ -21,11 +21,11 @@ const useStorage = (file) => {
         },
         async () => {
           const url = await storageRef.getDownloadURL();
-          console.log('url', url);
           setUrl(url);
         }
       );
     }
+    // eslint-disable-next-line
   }, [file]);
 
   return { progress, error, url };

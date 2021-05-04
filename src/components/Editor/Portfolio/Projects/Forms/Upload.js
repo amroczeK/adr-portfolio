@@ -20,13 +20,13 @@ const useStyles = makeStyles({
   },
 });
 
-const Upload = ({ imageRefHandler }) => {
+const Upload = ({ imageRefHandler, folderLocation }) => {
   const classes = useStyles();
 
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
-  const { url, progress } = useStorage(file);
+  const { url, progress } = useStorage({ file, folderLocation });
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
@@ -41,7 +41,7 @@ const Upload = ({ imageRefHandler }) => {
   useEffect(() => {
     if (url) {
       setFile(null);
-      imageRefHandler(url);
+      imageRefHandler({ url, filename: file.name, error });
     }
     // eslint-disable-next-line
   }, [url]);

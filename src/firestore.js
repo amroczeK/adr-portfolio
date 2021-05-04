@@ -1,4 +1,4 @@
-import { db, getFirestoreTimestamp } from './firebase';
+import { db, getFirestoreTimestamp, storage } from './firebase';
 import { convertUnixTimestampToDate } from './components/Utils';
 
 /**
@@ -95,14 +95,22 @@ export const updateController = async ({ data, collection }) => {
 
 /**
  * Controller to delete document in firestore collection
+ * Also delete image if document references one
  *
  * @param {string} id e.g. 'ioIy6qPTGpowgCQqn5Za'
  * @param {string} collection e.g. 'experience'
+ * @param {string} fileLoc e.g. 'portfolio/mern-project.jpg'
  * @returns array of objects
  */
-export const deleteController = async ({ id, collection }) => {
+export const deleteController = async ({ id, collection, fileLoc }) => {
   try {
     await db.collection(collection).doc(id).delete();
+    if (fileLoc) {
+      const storageRef = storage.ref();
+      // Create a reference to the file to delete
+      let fileRef = storageRef.child(fileLoc);
+      await fileRef.delete();
+    }
   } catch (error) {
     throw new Error(`Deleting ${collection} document ${id}: ${error}`);
   }
