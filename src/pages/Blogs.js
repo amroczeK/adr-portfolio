@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { slideInFromTop, shapeAnimation } from '../animations';
 
 const Blogs = () => {
-  const { data } = useContext(DataContext);
+  const { appData } = useContext(DataContext);
 
   return (
     <>
@@ -17,8 +17,8 @@ const Blogs = () => {
           <h1>BLOGS</h1>
         </Title>
         <Grid>
-          {data?.blogs?.map(({ title, image, link, description }) => (
-            <Blog title={title} image={image} link={link} description={description} />
+          {appData?.blogs?.map(({ title, imageRef, description }) => (
+            <Blog title={title} imageRef={imageRef} description={description} />
           ))}
         </Grid>
         <Footer />

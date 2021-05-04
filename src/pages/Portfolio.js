@@ -9,14 +9,14 @@ import { slideInFromTop, shapeAnimation } from '../animations';
 import Modal from '../components/Modal';
 
 const Portfolio = () => {
-  const { data } = useContext(DataContext);
+  const { appData } = useContext(DataContext);
 
   const [open, setOpen] = useState(false);
   const [currProject, setCurrProject] = useState({});
 
   const modalHandler = (index) => {
     setOpen(!open);
-    setCurrProject(data.projects[index]);
+    setCurrProject(appData?.projects[index]);
   };
 
   const closeModal = () => {
@@ -32,16 +32,16 @@ const Portfolio = () => {
         <Modal
           open={open}
           title={currProject.title}
-          image={currProject.image}
+          image={currProject.imageRef}
           description={currProject.description}
           closeModal={closeModal}
         />
         <Grid>
-          {data?.projects?.map(({ title, image, link }, index) => (
+          {appData?.projects?.map(({ title, imageRef, url }, index) => (
             <Project
               title={title}
-              image={image}
-              link={link}
+              imageRef={imageRef}
+              url={url}
               openModal={modalHandler}
               index={index}
             />

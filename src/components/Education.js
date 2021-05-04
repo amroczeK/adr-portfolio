@@ -3,7 +3,7 @@ import { TimeBox, Line } from './Common/styles';
 import styled from 'styled-components';
 import { University } from '@styled-icons/fa-solid/University';
 
-const Education = ({ startDate, endDate, university, major, course }) => {
+const Education = ({ startYear, endYear, university, major, course }) => {
   return (
     <Container>
       <CircleIcon>
@@ -14,7 +14,7 @@ const Education = ({ startDate, endDate, university, major, course }) => {
       <Line />
       <ContentContainer>
         <TimeBox>
-          {startDate} - {endDate}
+          {startYear} - {endYear}
         </TimeBox>
         <Content>
           <h2>{university}</h2>

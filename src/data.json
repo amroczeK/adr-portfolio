@@ -1,22 +1,25 @@
 {
   "education": [
     {
-      "startDate": "2014",
-      "endDate": "2017",
+      "id":"123asda",
+      "startYear": "2014",
+      "endYear": "2017",
       "university": "Curtin University",
       "major": "Bachelor of Technology",
       "course": "Computer Systems and Networking"
     },
     {
-      "startDate": "2010",
-      "endDate": "2011",
+      "id": "123asda",
+      "startYear": "2010",
+      "endYear": "2011",
       "university": "Challenger TAFE",
       "major": "Advanced Diploma",
       "course": "Civil and Structural Engineering"
     },
     {
-      "startDate": "2009",
-      "endDate": "2010",
+      "id": "123asda",
+      "startYear": "2009",
+      "endYear": "2010",
       "university": "Challenger TAFE",
       "major": "Diploma",
       "course": "Civil and Structural Engineering"
@@ -24,18 +27,20 @@
   ],
   "experience": [
     {
-      "startDate": "2018",
-      "endDate": "Present",
+      "id": "123asda",
+      "startYear": "2018",
+      "endYear": "Present",
       "company": "Telstra",
       "position": "Network Software Engineer",
       "description": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum iaculis venenatis. Sed blandit ipsum dolor, vel feugiat urna hendrerit ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur ac feugiat velit. Ut nec quam in purus gravida faucibus vitae a turpis. In aliquam euismod risus, quis dapibus metus dictum eu.",
-        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium. "
+        "Quisque rutrum porta dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac ultricies justo. Fusce non elit quis augue pulvinar tempor vel quis mauris. Maecenas condimentum venenatis felis in tempor. Maecenas imperdiet et nisi a mattis. In suscipit urna sit amet turpis porta pretium."
       ]
     },
     {
-      "startDate": "2017",
-      "endDate": "2018",
+      "id": "123asda",
+      "startYear": "2017",
+      "endYear": "2018",
       "company": "iQuest",
       "position": "Network and System Administrator",
       "description": [
@@ -44,8 +49,8 @@
       ]
     },
     {
-      "startDate": "2015",
-      "endDate": "2016",
+      "startYear": "2015",
+      "endYear": "2016",
       "company": "Galati Group",
       "position": "Network and System Administrator",
       "description": [
@@ -54,8 +59,8 @@
       ]
     },
     {
-      "startDate": "2012",
-      "endDate": "2014",
+      "startYear": "2012",
+      "endYear": "2014",
       "company": "CAPE PLC",
       "position": "Draughtsman & Scaffold Engineer",
       "description": [

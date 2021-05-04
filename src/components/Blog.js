@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Blog = ({ title, image, link, description }) => {
+const Blog = ({ title, imageRef, description }) => {
   return (
     <Container>
       <Image>
-        <img src={image} alt='blog-img' />
+        <img src={imageRef} alt='blog-img' />
       </Image>
       <Line />
       <Content>

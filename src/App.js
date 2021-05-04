@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { DataProvider } from './DataContext';
 import NavBar from './components/Nav/NavBar';
 import Home from './pages/Home';
@@ -7,6 +7,7 @@ import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import GlobalStyle from './GlobalStyle';
 import { AnimatePresence } from 'framer-motion';
 import NavBurger from './components/Nav/NavBurger';
@@ -24,16 +25,19 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <AnimatePresence exitBeforeEnter>
-            <NavBar />
-            <NavBurger open={open} setOpen={setOpen} aria-controls={menuId} />
-            <NavMenu open={open} setOpen={setOpen} id={menuId} />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/about' component={About} />
-              <Route path='/portfolio' component={Portfolio} />
-              <Route path='/blogs' component={Blogs} />
-              <Route path='/contact' component={Contact} />
-            </Switch>
+            <Router>
+              <NavBar />
+              <NavBurger open={open} setOpen={setOpen} aria-controls={menuId} />
+              <NavMenu open={open} setOpen={setOpen} id={menuId} />
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/about' component={About} />
+                <Route path='/portfolio' component={Portfolio} />
+                <Route path='/blogs' component={Blogs} />
+                <Route path='/contact' component={Contact} />
+                <Route path='/admin' component={Admin} />
+              </Switch>
+            </Router>
           </AnimatePresence>
         </ThemeProvider>
       </div>
