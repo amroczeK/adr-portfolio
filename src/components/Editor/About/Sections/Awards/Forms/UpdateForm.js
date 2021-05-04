@@ -29,7 +29,6 @@ const useStyles = makeStyles({
 });
 
 const UpdateForm = ({ id, title, subtitle, year, createdAt, updatedAt }) => {
-  console.log('awards', id)
   const classes = useStyles();
 
   const [success, setSuccess] = useState(null);
@@ -98,9 +97,6 @@ const UpdateForm = ({ id, title, subtitle, year, createdAt, updatedAt }) => {
       )}
       <FormInputs
         id={id}
-        title={title}
-        subtitle={subtitle}
-        year={year}
         createdAt={createdAt}
         updatedAt={updatedAt}
         control={control}

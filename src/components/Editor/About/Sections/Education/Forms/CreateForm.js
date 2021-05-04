@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateForm = ({ university, major, course, startYear, endYear }) => {
+const CreateForm = () => {
   const classes = useStyles();
 
   const [success, setSuccess] = useState(null);
@@ -85,14 +85,7 @@ const CreateForm = ({ university, major, course, startYear, endYear }) => {
           {success}
         </Alert>
       )}
-      <FormInputs
-        university={university}
-        major={major}
-        course={course}
-        startYear={startYear}
-        endYear={endYear}
-        control={control}
-      />
+      <FormInputs control={control} />
       <Buttons>
         <ButtonCtrl resetHandler={reset} initialState={defaultValues} title={'Create'} />
       </Buttons>

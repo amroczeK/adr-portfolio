@@ -11,13 +11,12 @@ const useStyles = makeStyles({
   },
 });
 
-const TextFieldCtrl = ({ name, label, value = '', control, readOnly = false }) => {
+const TextFieldCtrl = ({ name, label, control, readOnly = false }) => {
   const classes = useStyles();
   return (
     <Controller
       name={name}
       isClearable
-      defaultValue={value}
       control={control}
       render={({ field }) => (
         <>
@@ -27,7 +26,6 @@ const TextFieldCtrl = ({ name, label, value = '', control, readOnly = false }) =
             label={label}
             className={classes.textField}
             size='small'
-            onChange={field.onChange}
             inputRef={field.ref}
             required
             InputProps={{

@@ -56,4 +56,5 @@ export default FormInputs;
 
 const FlexContainer = styled.div`
   display: flex;
+  align-items: center;
 `;

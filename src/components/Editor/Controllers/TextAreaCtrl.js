@@ -11,13 +11,12 @@ const useStyles = makeStyles({
   },
 });
 
-const TextAreaCtrl = ({ name, value = '', control }) => {
+const TextAreaCtrl = ({ name, control }) => {
   const classes = useStyles();
   return (
     <Controller
       name={name}
       isClearable
-      defaultValue={value}
       control={control}
       render={({ field }) => (
         <TextareaAutosize
@@ -25,7 +24,6 @@ const TextAreaCtrl = ({ name, value = '', control }) => {
           rowsMin={10}
           placeholder='Type item description here...'
           className={classes.textArea}
-          onChange={field.onChange}
         />
       )}
     />

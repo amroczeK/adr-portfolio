@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateForm = ({ title, subtitle, year }) => {
+const CreateForm = () => {
   const classes = useStyles();
 
   const [success, setSuccess] = useState(null);
@@ -83,7 +83,7 @@ const CreateForm = ({ title, subtitle, year }) => {
           {success}
         </Alert>
       )}
-      <FormInputs title={title} subtitle={subtitle} year={year} control={control} />
+      <FormInputs control={control} />
       <Buttons>
         <ButtonCtrl resetHandler={reset} initialState={defaultValues} title={'Create'} />
       </Buttons>

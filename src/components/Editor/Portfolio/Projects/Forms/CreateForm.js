@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { DataContext } from '../../../../../DataContext';
 import FormInputs from './FormInputs';
 import ButtonCtrl from '../../../Controllers/ButtonCtrl';
@@ -27,13 +27,8 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateForm = ({ title, description, imageRef, url }) => {
+const CreateForm = () => {
   const classes = useStyles();
-
-  const [success, setSuccess] = useState(null);
-  const [error, setError] = useState(null);
-
-  const { onCreate } = useContext(DataContext);
 
   /**
    * useForm requires a default state/values to avoid the following error:
@@ -46,7 +41,13 @@ const CreateForm = ({ title, description, imageRef, url }) => {
     url: '',
   };
 
-  const { handleSubmit, reset, control } = useForm({
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
+  const [imgRef, setImgRef] = useState(null);
+
+  const { onCreate } = useContext(DataContext);
+
+  const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues,
   });
 
@@ -59,6 +60,17 @@ const CreateForm = ({ title, description, imageRef, url }) => {
       setError(error.toString());
     }
   };
+
+  const imageRefHandler = (ref) => {
+    setImgRef(ref);
+  };
+
+  useEffect(() => {
+    if (imgRef) {
+      setValue('imageRef', imgRef);
+    }
+    // eslint-disable-next-line
+  }, [imgRef]);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
@@ -85,10 +97,7 @@ const CreateForm = ({ title, description, imageRef, url }) => {
         </Alert>
       )}
       <FormInputs
-        title={title}
-        description={description}
-        imageRef={imageRef}
-        url={url}
+        imageRefHandler={imageRefHandler}
         control={control}
       />
       <Buttons>

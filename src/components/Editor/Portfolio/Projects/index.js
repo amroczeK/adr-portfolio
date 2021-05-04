@@ -4,7 +4,6 @@ import CreatForm from './Forms/CreateForm';
 import UpdateForm from './Forms/UpdateForm';
 
 const Projects = ({ operation, projects }) => {
-  console.log('projects', projects);
   return (
     <Container>
       {operation === 0 && <CreatForm />}

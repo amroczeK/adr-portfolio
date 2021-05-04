@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { DataContext } from '../../../../../../DataContext';
 import FormInputs from './FormInputs';
 import ButtonCtrl from '../../../../Controllers/ButtonCtrl';
@@ -29,7 +29,6 @@ const useStyles = makeStyles({
 });
 
 const UpdateForm = ({ id, title, subtitle, year, createdAt, updatedAt }) => {
-  console.log('certificates', id);
   const classes = useStyles();
 
   const [success, setSuccess] = useState(null);
@@ -50,7 +49,7 @@ const UpdateForm = ({ id, title, subtitle, year, createdAt, updatedAt }) => {
     updatedAt: convertUnixTimestampToDate(updatedAt),
   };
 
-  const { handleSubmit, reset, control } = useForm({
+  const { handleSubmit, reset, control, setValue } = useForm({
     defaultValues,
   });
 
@@ -71,6 +70,13 @@ const UpdateForm = ({ id, title, subtitle, year, createdAt, updatedAt }) => {
       setError(error.toString());
     }
   };
+
+  useEffect(() => {
+    if (updatedAt) {
+      setValue('updatedAt', updatedAt);
+    }
+    // eslint-disable-next-line
+  }, [updatedAt]);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(updateHandler)}>
@@ -96,15 +102,7 @@ const UpdateForm = ({ id, title, subtitle, year, createdAt, updatedAt }) => {
           {success}
         </Alert>
       )}
-      <FormInputs
-        id={id}
-        title={title}
-        subtitle={subtitle}
-        year={year}
-        createdAt={createdAt}
-        updatedAt={updatedAt}
-        control={control}
-      />
+      <FormInputs id={id} createdAt={createdAt} updatedAt={updatedAt} control={control} />
       <Buttons>
         <ButtonCtrl
           title={'Update'}

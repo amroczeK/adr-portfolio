@@ -106,17 +106,7 @@ const UpdateForm = ({
           {success}
         </Alert>
       )}
-      <FormInputs
-        id={id}
-        company={company}
-        position={position}
-        description={description}
-        startYear={startYear}
-        endYear={endYear}
-        createdAt={createdAt}
-        updatedAt={updatedAt}
-        control={control}
-      />
+      <FormInputs id={id} createdAt={createdAt} updatedAt={updatedAt} control={control} />
       <Buttons>
         <ButtonCtrl
           title={'Update'}
