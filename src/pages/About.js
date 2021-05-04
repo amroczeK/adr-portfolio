@@ -40,14 +40,14 @@ const About = () => {
           <h2>WORK HISTORY</h2>
         </Title>
         <WorkGrid>
-          {appData?.experience?.map((job, idx) => (
+          {appData?.experience?.map(({id, startYear, endYear, position, company, description}) => (
             <Work
-              key={idx}
-              startYear={job.startYear}
-              endYear={job.endYear}
-              position={job.position}
-              company={job.company}
-              description={job.description}
+              key={id}
+              startYear={startYear}
+              endYear={endYear}
+              position={position}
+              company={company}
+              description={description}
             />
           ))}
         </WorkGrid>
@@ -55,16 +55,25 @@ const About = () => {
           <h2>TECHNICAL SKILLS & COMPETENCE</h2>
         </Title>
         <SkillsGrid>
-          {sortedSkills?.map(({ technology, competence }) => (
-            <Skill skill={technology} percentage={competence} />
+          {sortedSkills?.map(({ id, technology, competence }) => (
+            <Skill key={id} skill={technology} percentage={competence} />
           ))}
         </SkillsGrid>
         <Title>
           <h2>CERTIFICATES & AWARDS</h2>
         </Title>
         <CertificatesGrid>
-          {appData?.certificates?.map(({ date, award, certificate, subtitle }) => (
-            <Certificates award={award} date={date} certificate={certificate} subtitle={subtitle} />
+          {appData?.certificates?.map(({ id, title, subtitle, year }) => (
+            <Certificates
+              key={id}
+              title={title}
+              subtitle={subtitle}
+              year={year}
+              certificate={true}
+            />
+          ))}
+          {appData?.awards?.map(({ id, title, subtitle, year }) => (
+            <Certificates key={id} title={title} subtitle={subtitle} year={year} award={true} />
           ))}
         </CertificatesGrid>
         <Footer />
@@ -130,6 +139,7 @@ const WorkGrid = styled.div`
   grid-auto-rows: auto;
   justify-items: center;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    justify-items: left;
     grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
     gap: 0rem;
   }

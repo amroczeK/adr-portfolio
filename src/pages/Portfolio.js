@@ -37,8 +37,9 @@ const Portfolio = () => {
           closeModal={closeModal}
         />
         <Grid>
-          {appData?.projects?.map(({ title, imageRef, url }, index) => (
+          {appData?.projects?.map(({ id, title, imageRef, url }, index) => (
             <Project
+              key={id}
               title={title}
               imageRef={imageRef}
               url={url}

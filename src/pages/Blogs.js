@@ -17,8 +17,8 @@ const Blogs = () => {
           <h1>BLOGS</h1>
         </Title>
         <Grid>
-          {appData?.blogs?.map(({ title, imageRef, description }) => (
-            <Blog title={title} imageRef={imageRef} description={description} />
+          {appData?.blogs?.map(({ id, title, imageRef, description }) => (
+            <Blog key={id} title={title} imageRef={imageRef} description={description} />
           ))}
         </Grid>
         <Footer />

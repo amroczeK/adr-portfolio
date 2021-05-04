@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { School } from '@styled-icons/ionicons-solid/School';
 import { Award } from '@styled-icons/fa-solid/Award';
 
-const Certificates = ({ date, certificate, award, subtitle }) => {
+const Certificates = ({ title, subtitle, year, certificate = false, award = false }) => {
   return (
     <Container>
       <CircleIcon>
@@ -15,9 +15,9 @@ const Certificates = ({ date, certificate, award, subtitle }) => {
       </CircleIcon>
       <Line />
       <ContentContainer>
-        <TimeBox>{date}</TimeBox>
+        <TimeBox>{year}</TimeBox>
         <Content>
-          <h2>{certificate || award}</h2>
+          <h2>{title}</h2>
           <h2 className='subtitle'>{subtitle}</h2>
         </Content>
       </ContentContainer>
