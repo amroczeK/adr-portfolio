@@ -65,6 +65,7 @@ const Button = styled.div`
     text-decoration: none !important;
     text-transform: uppercase;
     transition: all 0.1s ease-in-out;
+    white-space: nowrap;
   }
   :hover {
     transition: all 0.3s ease-in-out;

@@ -6,6 +6,7 @@ import { Person } from '@styled-icons/fluentui-system-filled/Person';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { Article } from '@styled-icons/material/Article';
 import { MessageDetail } from '@styled-icons/boxicons-solid/MessageDetail';
+import { AdminPanelSettings } from '@styled-icons/material-rounded/AdminPanelSettings';
 import NavButton from './NavButton';
 import { motion } from 'framer-motion';
 import { slideInFromTop } from '../../animations';
@@ -37,6 +38,11 @@ const NavBar = () => {
         <li>
           <Link to='/contact'>
             <NavButton path={'/contact'} icon={<MessageDetail />} title={'Contact'} />
+          </Link>
+        </li>
+        <li>
+          <Link to='/admin'>
+            <NavButton path={'/admin'} icon={<AdminPanelSettings />} title={'Admin Panel'} />
           </Link>
         </li>
       </ul>

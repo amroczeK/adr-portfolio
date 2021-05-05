@@ -17,7 +17,6 @@ import { theme } from './theme';
 import { ThemeProvider } from 'styled-components';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Auth/Login';
-import SignUp from './components/Auth/SignUp';
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -42,7 +41,6 @@ const App = () => {
                   <Route path='/contact' component={Contact} />
                   <PrivateRoute path='/admin' component={Admin} />
                   <Route exact path='/login' component={Login} />
-                  <Route exact path='/signup' component={SignUp} />
                 </Switch>
               </Router>
             </AnimatePresence>
