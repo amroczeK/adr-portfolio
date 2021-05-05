@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
-import { getController, updateController, deleteController, createController } from './firestore';
+import { getController, updateController, deleteController, createController } from '../firestore';
 
 export const DataContext = createContext();
 
