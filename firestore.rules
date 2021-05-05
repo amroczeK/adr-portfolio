@@ -6,31 +6,38 @@ service cloud.firestore {
     // }
     
     match /education/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
     
     match /experience/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
     
     match /skills/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
     
     match /awards/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
     
     match /certificates/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
     
     match /projects/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
     
     match /blogs/{document} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth.uid != null;
     }
   }
 }

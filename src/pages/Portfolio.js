@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { DataContext } from '../DataContext';
+import { DataContext } from '../contexts/DataContext';
 import Project from '../components/Project';
 import Shape from '../components/Shape';
 import Footer from '../components/Footer';

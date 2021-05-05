@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../DataContext';
+import { DataContext } from '../contexts/DataContext';
 import Education from '../components/Education';
 import Work from '../components/Work';
 import Skill from '../components/Skill';

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../DataContext';
+import { DataContext } from '../contexts/DataContext';
 import Blog from '../components/Blog';
 import Shape from '../components/Shape';
 import Footer from '../components/Footer';
