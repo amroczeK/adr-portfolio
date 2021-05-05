@@ -34,6 +34,7 @@ const Portfolio = () => {
           title={currProject.title}
           image={currProject.imageRef}
           description={currProject.description}
+          url={currProject.url}
           closeModal={closeModal}
         />
         <Grid>

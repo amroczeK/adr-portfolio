@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline';
 import { parseNewLines } from './Utils';
 import styled from 'styled-components';
 
-const Modal = ({ open, title, image, description, closeModal }) => {
+const Modal = ({ open, title, image, description, url, closeModal }) => {
   // Firestore returns strings with multiple lines with \n, need to parse and separate each paragraph
   // into separate elements in an array to dynamically create <p> for each paragraph.
   description = parseNewLines(description);
@@ -11,10 +12,24 @@ const Modal = ({ open, title, image, description, closeModal }) => {
   return (
     <Container open={open}>
       <Shape open={open}>
-        <img src={image} alt='project-img' />
+        <Link
+          to={{
+            pathname: url,
+          }}
+          target='_blank'
+        >
+          <img src={image} alt='project-img' />
+        </Link>
         <Line />
         <Article>
-          <h1>{title?.toUpperCase()}</h1>
+          <Link
+            to={{
+              pathname: url,
+            }}
+            target='_blank'
+          >
+            <h1>{title?.toUpperCase()}</h1>
+          </Link>
           {description?.map((desc) => (
             <p>{desc}</p>
           ))}
@@ -39,7 +54,9 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+  z-index: 10;
   @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+    position: fixed;
     max-width: 100vw;
     max-height: 100vh;
     z-index: 10;
@@ -59,6 +76,7 @@ const Article = styled.article`
     color: ${({ theme }) => theme.opposingColour};
   }
   p {
+    font-size: 1.25rem;
     color: ${({ theme }) => theme.primaryLight};
   }
   @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
@@ -119,5 +137,6 @@ const StyledIcon = styled.div`
 `;
 
 const Line = styled.hr`
+  margin-top: -0.2rem;
   border: 3px solid ${({ theme }) => theme.opposingColour};
 `;

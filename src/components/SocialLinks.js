@@ -6,9 +6,9 @@ import { LinkedinSquare } from '@styled-icons/boxicons-logos/LinkedinSquare';
 import { StackOverflow } from '@styled-icons/boxicons-logos/StackOverflow';
 import { Npm } from '@styled-icons/fa-brands/Npm';
 
-const SocialLinks = () => {
+const SocialLinks = ({ flexDirection, margin }) => {
   return (
-    <Container>
+    <Container flexDirection={flexDirection} margin={margin}>
       <i>
         <Link
           to={{
@@ -57,11 +57,10 @@ export default SocialLinks;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ flexDirection }) => (flexDirection ? flexDirection : 'column')};
   justify-content: center;
   align-items: center;
   margin: 0rem 1.5rem 0rem 3rem; // top right bottom left
-
   a {
     color: ${({ theme }) => theme.primaryLight};
     transition: 0.3s ease-in-out;
@@ -74,6 +73,7 @@ const Container = styled.div`
     box-shadow: 0 4px 10px -6px #111;
   }
   i {
+    margin: ${({ margin }) => (margin ? margin : '0rem')};
     margin-top: 1.5rem;
     height: 3rem;
     width: 3rem;
