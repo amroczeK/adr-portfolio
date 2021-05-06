@@ -24,6 +24,13 @@ const Home = () => {
               microservice web applications enabling a scalable and resilient presentation layer for
               Telstra's 4G/5G RAN Networks.
             </p>
+            <p>
+              This portfolio was developed with React and deployed to Google Firebase, utilizing GCP
+              Firestore, Authentication and Storage.
+            </p>
+            <a href='https://github.com/amroczeK/adr-portfolio' target='_blank' rel='noreferrer'>
+              Portfolio Repository
+            </a>
           </p>
         </Content>
         <SocialLinks />
@@ -66,6 +73,13 @@ const Content = styled.div`
   }
   p {
     max-width: 60rem;
+  }
+  a {
+    color: inherit;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-size: 1rem;
+    font-style: italic;
   }
   @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
     width: 100vw;

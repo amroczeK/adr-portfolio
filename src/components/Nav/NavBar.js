@@ -5,7 +5,7 @@ import { Home } from '@styled-icons/fa-solid/Home';
 import { Person } from '@styled-icons/fluentui-system-filled/Person';
 import { BriefcaseAlt2 } from '@styled-icons/boxicons-solid/BriefcaseAlt2';
 import { Article } from '@styled-icons/material/Article';
-import { MessageDetail } from '@styled-icons/boxicons-solid/MessageDetail';
+// import { MessageDetail } from '@styled-icons/boxicons-solid/MessageDetail';
 import { AdminPanelSettings } from '@styled-icons/material-rounded/AdminPanelSettings';
 import NavButton from './NavButton';
 import { motion } from 'framer-motion';
@@ -35,11 +35,11 @@ const NavBar = () => {
             <NavButton path={'/blogs'} icon={<Article />} title={'Blogs'} />
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/contact'>
             <NavButton path={'/contact'} icon={<MessageDetail />} title={'Contact'} />
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to='/admin'>
             <NavButton path={'/admin'} icon={<AdminPanelSettings />} title={'Admin Panel'} />

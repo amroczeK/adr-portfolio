@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Blogs from './pages/Blogs';
-import Contact from './pages/Contact';
+// import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import GlobalStyle from './GlobalStyle';
 import { AnimatePresence } from 'framer-motion';
@@ -38,7 +38,7 @@ const App = () => {
                   <Route path='/about' component={About} />
                   <Route path='/portfolio' component={Portfolio} />
                   <Route path='/blogs' component={Blogs} />
-                  <Route path='/contact' component={Contact} />
+                  {/* <Route path='/contact' component={Contact} /> */}
                   <PrivateRoute path='/admin' component={Admin} />
                   <Route exact path='/login' component={Login} />
                 </Switch>
