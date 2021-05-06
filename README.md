@@ -1,5 +1,16 @@
 # Adrian's Portfolio Website &middot; <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/REACT-17.0.2-blue?longCache=true&style=for-the-badge" alt="Flutter"></a> <a href="https://firebase.google.com/" target="_blank"><img src="https://img.shields.io/badge/Firebase-Cloud-orange.svg?longCache=true&style=for-the-badge" alt="Firebase"></a>
 
+This portfolio was developed using React and deployed to Firebase, utilizing various cloud services like Firestore, Authentication, Hosting and Storage.
+
+### Features
+* Administration panel to dynamically update website content
+* Login for Administartion panel
+* Secure routes and writes to Firestore & Cloud storage
+* Re-usable API controllers to Firestore
+
+### Administartion Panel Preview
+![Alt text](./adminpreview.PNG?raw=true 'Administration Panel Preview')
+
 ## Getting Started
 
 You can follow these instructions to build the project.
