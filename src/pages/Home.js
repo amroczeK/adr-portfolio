@@ -104,7 +104,7 @@ const Content = styled.div`
 
 const ProfilePic = styled.div`
   width: 20rem;
-  height: 25rem;
+  height: 35rem;
   margin-right: 3rem;
   -webkit-box-shadow: 0 4px 10px -6px #111;
   -moz-box-shadow: 0 4px 10px -6px #111;
@@ -123,5 +123,9 @@ const ProfilePic = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 5rem;
+  }
+  @media only screen and (max-width: 1000px) {
+    height: 20rem;
+    width: 95%;
   }
 `;
