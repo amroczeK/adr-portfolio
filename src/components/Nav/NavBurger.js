@@ -60,7 +60,7 @@ const StyledBurger = styled.button`
       transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
-  @media (min-width: 600px) {
+  @media (min-width: 602px) {
     display: none;
   }
 `;

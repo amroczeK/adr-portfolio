@@ -18,20 +18,20 @@ const Home = () => {
           <p>
             Experienced Software Engineer with a background in Full Stack Development, Network
             Engineering and interest in Cyber Security.
-            <p>
-              I've developed scalable and secure applications automating the deployment &
-              configuration of Telstra Enterprise services, network elements and developed complex
-              microservice web applications enabling a scalable and resilient presentation layer for
-              Telstra's 4G/5G RAN Networks.
-            </p>
-            <p>
-              This portfolio was developed with React and deployed to Google Firebase, utilizing GCP
-              Firestore, Authentication and Storage.
-            </p>
-            <a href='https://github.com/amroczeK/adr-portfolio' target='_blank' rel='noreferrer'>
-              Portfolio Repository
-            </a>
           </p>
+          <p>
+            I've developed scalable and secure applications automating the deployment &
+            configuration of Telstra Enterprise services, network elements and developed complex
+            microservice web applications enabling a scalable and resilient presentation layer for
+            Telstra's 4G/5G RAN Networks.
+          </p>
+          <p>
+            This portfolio was developed with React and deployed to Google Firebase, utilizing GCP
+            Firestore, Authentication and Storage.
+          </p>
+          <a href='https://github.com/amroczeK/adr-portfolio' target='_blank' rel='noreferrer'>
+            Portfolio Repository
+          </a>
         </Content>
         <SocialLinks />
       </Container>
@@ -75,13 +75,20 @@ const Content = styled.div`
     max-width: 60rem;
   }
   a {
-    color: inherit;
+    color: ${({ theme }) => theme.primaryLight};
     text-decoration: none !important;
     cursor: pointer;
     font-size: 1rem;
     font-style: italic;
+    &:hover,
+    :active,
+    :focus {
+      color: ${({ theme }) => theme.secondaryLight};
+    }
   }
-  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
+  @media only screen and (max-width: ${({ theme }) => theme.mobile}) and (min-width: ${({
+      theme,
+    }) => theme.mobileXs}) {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -89,15 +96,16 @@ const Content = styled.div`
     align-items: center;
     padding: 1rem 1rem 6rem 1rem; // top right bottom left
     h1 {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
       text-align: center;
     }
     .occupation {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
       padding-bottom: 1rem;
     }
-    p {
-      font-size: 1rem;
+    p,
+    a {
+      font-size: 0.75rem;
     }
   }
 `;

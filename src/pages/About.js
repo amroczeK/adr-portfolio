@@ -19,15 +19,17 @@ const About = () => {
   return (
     <>
       <Container variants={slideInFromTop} initial='hidden' animate='show' exit='exit'>
+        <Header>
+          <h1>ABOUT</h1>
+          <h1 className='me'>ME</h1>
+        </Header>
         <Title>
-          <h1>
-            ABOUT<h1 className='me'>ME</h1>
-          </h1>
           <h2>EDUCATION</h2>
         </Title>
         <EducationGrid>
-          {appData?.education?.map(({ startYear, endYear, university, major, course }) => (
+          {appData?.education?.map(({ id, startYear, endYear, university, major, course }) => (
             <Education
+              key={id}
               startYear={startYear}
               endYear={endYear}
               university={university}
@@ -40,16 +42,18 @@ const About = () => {
           <h2>WORK HISTORY</h2>
         </Title>
         <WorkGrid>
-          {appData?.experience?.map(({id, startYear, endYear, position, company, description}) => (
-            <Work
-              key={id}
-              startYear={startYear}
-              endYear={endYear}
-              position={position}
-              company={company}
-              description={description}
-            />
-          ))}
+          {appData?.experience?.map(
+            ({ id, startYear, endYear, position, company, description }) => (
+              <Work
+                key={id}
+                startYear={startYear}
+                endYear={endYear}
+                position={position}
+                company={company}
+                description={description}
+              />
+            )
+          )}
         </WorkGrid>
         <Title>
           <h2>TECHNICAL SKILLS & COMPETENCE</h2>
@@ -99,6 +103,22 @@ const Container = styled(motion.div)`
     left: 0;
     right: 0;
     transition: all 0.3s ease-in-out;
+  }
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+    color: ${({ theme }) => theme.secondaryLight};
+  }
+  .me {
+    padding-left: 0.25rem;
+    color: ${({ theme }) => theme.primaryLight};
   }
 `;
 

@@ -33,9 +33,15 @@ const Work = ({ startYear, endYear, position, company, description }) => {
           <h2 className='job'>{company}</h2>
           {description?.map((paragraph, idx) =>
             idx === 0 ? (
-              <p expand={expand}>{expand ? paragraph : paragraph.slice(0, 70) + '...'}</p>
+              <p key={idx}>
+                {expand ? paragraph : paragraph.slice(0, 70) + '...'}
+              </p>
             ) : (
-              expand && <p expand={expand}>{paragraph}</p>
+              expand && (
+                <p key={idx}>
+                  {paragraph}
+                </p>
+              )
             )
           )}
         </Content>

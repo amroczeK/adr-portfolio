@@ -49,9 +49,9 @@ const NavMenu = ({ open, setOpen }) => {
           </Link>
         </li>
         <li>
-          <Link to='/contact'>
+          <Link to='/admin'>
             <LinkContainer onClick={() => setOpen(!open)}>
-              <h1>CONTACT</h1>
+              <h1>ADMIN PANEL</h1>
             </LinkContainer>
           </Link>
         </li>
@@ -76,7 +76,7 @@ const Container = styled.div`
   left: 0;
   transition: transform 0.3s ease-in-out;
   z-index: 9;
-  @media (min-width: ${({ theme }) => theme.mobile}) {
+  @media (min-width: 602px) {
     display: none;
   }
   ul {
