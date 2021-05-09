@@ -6,5 +6,5 @@ export const theme = {
   secondaryLight: '#4DA8DA',
   opposingColour: '#ffc107;',
   mobile: '576px',
-  mobileXs: '375px',
+  mobileXs: '360px',
 };
